@@ -1,0 +1,6 @@
+@haru_cafe_HostAddress = http://localhost:5289
+
+GET {{haru_cafe_HostAddress}}/weatherforecast/
+Accept: application/json
+
+###

@@ -1,0 +1,42 @@
+{
+    "name": "Haru Cafe",
+    "build": {
+        "dockerfile": "Dockerfile"
+    },
+    "runArgs": [
+        "--privileged"
+    ],
+    "containerEnv": {
+        "WORKSPACE_FOLDER": "${containerWorkspaceFolder}"
+    },
+    "mounts": [
+        {
+            "type": "bind",
+            "source": "${localWorkspaceFolder}/.devcontainer/scripts",
+            "target": "/root/scripts"
+        },
+        {
+            "type": "bind",
+            "source": "${localEnv:HOME}${localEnv:USERPROFILE}/.ssh",
+            "target": "/root/.ssh"
+        }
+    ],
+    "postCreateCommand": ".devcontainer/scripts/post-create.sh --workspace-folder='${containerWorkspaceFolder}'",
+    "workspaceMount": "source=${localWorkspaceFolder},target=/workspace/${localWorkspaceFolderBasename}/,type=bind",
+    "workspaceFolder": "/workspace/${localWorkspaceFolderBasename}/",
+    "customizations": {
+        "vscode": {
+            "extensions": [
+                "bierner.markdown-mermaid",
+                "bierner.markdown-preview-github-styles",
+                "davidanson.vscode-markdownlint",
+                "streetsidesoftware.code-spell-checker",
+                "timonwong.shellcheck",
+                "yzhang.markdown-all-in-one",
+                "cyrilletuzi.angular-schematics",
+                "dbaeumer.vscode-eslint",
+                "stylelint.vscode-stylelint"
+            ]
+        }
+    }
+}
