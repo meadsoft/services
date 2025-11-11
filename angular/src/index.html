@@ -47,5 +47,16 @@
                 "logo": "https://www.harucafe26.com/images/haru-cafe-logo.png"
             }
         </script>
+        <script>
+            (function () {
+                var theme = window.matchMedia("(prefers-color-scheme: dark)")
+                    .matches
+                    ? "dark"
+                    : "light";
+                console.log("Setting prefers color scheme cookie to", theme);
+                document.cookie = "prefers-color-scheme=" + theme + ";path=/";
+                document.documentElement.classList.add("dark");
+            })();
+        </script>
     </body>
 </html>

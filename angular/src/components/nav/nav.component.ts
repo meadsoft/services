@@ -1,6 +1,6 @@
-import { Component } from '@angular/core';
+import { Component, inject } from '@angular/core';
 import { ButtonModule } from 'primeng/button';
-import { DarkModeService } from '@haru/services/styles/dark-mode.service';
+import { ColorSchemeService } from '@haru/services/styles/color-scheme.service';
 
 @Component({
     selector: 'haru-nav',
@@ -9,9 +9,9 @@ import { DarkModeService } from '@haru/services/styles/dark-mode.service';
     styles: ``,
 })
 export class NavComponent {
-    constructor(protected darkModeService: DarkModeService) {}
+    protected darkModeService = inject(ColorSchemeService);
 
     ngOnInit(): void {
-        this.darkModeService.initializeDarkMode();
+        this.darkModeService.initializeTheme();
     }
 }

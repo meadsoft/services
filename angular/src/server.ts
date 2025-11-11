@@ -5,11 +5,13 @@ import {
     writeResponseToNodeResponse,
 } from '@angular/ssr/node';
 import express from 'express';
+import cookieParser from 'cookie-parser';
 import { join } from 'node:path';
 
 const browserDistFolder = join(import.meta.dirname, '../browser');
 
 const app = express();
+app.use(cookieParser());
 const angularApp = new AngularNodeAppEngine();
 
 /**
@@ -39,8 +41,16 @@ app.use(
  * Handle all other requests by rendering the Angular application.
  */
 app.use((req, res, next) => {
+    const prefersColorScheme = req.cookies['prefers-color-scheme'] || 'light';
     angularApp
-        .handle(req)
+        .handle(req, {
+            providers: [
+                {
+                    provide: 'PREFERS_COLOR_SCHEME',
+                    useValue: prefersColorScheme,
+                },
+            ],
+        })
         .then((response) =>
             response ? writeResponseToNodeResponse(response, res) : next()
         )

@@ -1,10 +1,14 @@
-<div class="flex justify-between xl:p-8 lg:p-6 p-4">
+<div class="flex justify-between items-center xl:p-8 lg:p-6 p-4">
     <a class="font-bold sm:text-xl text-lg text-normal" href="" target="_self"
         >HARU CAFE</a
     >
     <div class="flex xl:gap-8 lg:gap-6 gap-4 items-center">
         <p-button
-            [icon]="darkModeService.isDarkMode() ? 'pi pi-sun' : 'pi pi-moon'"
+            [icon]="
+                darkModeService.colorScheme().prefersDarkMode
+                    ? 'pi pi-moon'
+                    : 'pi pi-sun'
+            "
             rounded
             variant="text"
             (onClick)="darkModeService.toggleDarkMode()"
