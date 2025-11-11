@@ -14,6 +14,11 @@
 		}
 	],
   "settings": {
-    "python-envs.pythonProjects": []
+    "python-envs.pythonProjects": [],
+    "workbench.colorCustomizations": {
+        "activityBar.background": "#09351A",
+        "titleBar.activeBackground": "#0C4A24",
+        "titleBar.activeForeground": "#F3FDF7"
+    }
   }
 }
