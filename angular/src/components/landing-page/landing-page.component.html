@@ -1,211 +1,73 @@
-<!-- header -->
-<div class="bg-salmon xl:h-[95vh] lg:h-[80vh] sm:h-[60vh] h-[40vh] flex flex-col">
-	<!-- header links -->
-	<div class="flex justify-between xl:m-8 lg:m-6 m-4">
-		<a
-			class="font-bold sm:text-xl text-lg text-normal"
-			href=""
-			target="_self"
-			>HARU CAFE</a
-		>
-		<div class="flex xl:gap-8 lg:gap-6 gap-4">
-			<a
-				class="hover:border-b hover:border-offset-4 border-black"
-				href="#specials"
-				>Specials</a
-			>
-			<a
-				class="hover:border-b hover:border-offset-4 border-black"
-				href="#menu"
-				>Menu</a
-			>
-			<a
-				class="hover:border-b hover:border-offset-4 border-black"
-				href="#location"
-				>Location</a
-			>
-		</div>
-	</div>
-	<div class="grid grid-cols-12 h-full">
-		<!-- spinning logo -->
-		<div class="relative w-full h-full sm:col-span-6 col-span-5 sm:col-start-1 col-start-2">
-			<div class="absolute top-0 left-0 w-full h-full flex justify-center items-center">
-				<img
-					class="scale-50"
-					src="svgs/HaruCafe_Mascot.svg"
-					alt="haru-cloud" />
-			</div>
-			<div class="absolute top-0 left-0 w-full h-full flex justify-center items-center">
-				<img
-					class="rotate-5s"
-					src="svgs/HaruCafe_Letters.svg"
-					alt="haru-letters" />
-			</div>
-		</div>
-		<!-- title -->
-		<div class="flex flex-col justify-center h-full col-span-4 col-start-8">
-			<hr class="border-black border xl:my-8 lg:my-6 md:my-4 my-2" />
-			<div class="xl:my-8 lg:my-6 md:my-4 my-2">
-				<div class="xl:text-6xl lg:text-4xl md:text-2xl text-lg text-center">FRESH JUICE</div>
-				<div class="xl:text-6xl lg:text-4xl md:text-2xl text-lg text-center">& MANGA</div>
-			</div>
-			<hr class="border-black border xl:my-8 lg:my-6 md:my-4 my-2" />
-		</div>
-	</div>
+<div
+    class="bg-red-100 dark:bg-[var(--dark-salmon)] xl:h-[95vh] lg:h-[80vh] sm:h-[60vh] h-[40vh] transition"
+>
+    <haru-header class="h-full"></haru-header>
 </div>
 
 <!-- specials -->
 <div
-	id="specials"
-	class="bg-white lg:py-8 md:py-6 py-4">
-	<div class="flex justify-center">
-		<div class="font-bold lg:text-2xl sm:text-xl text-lg text-center lg:mb-8 md:mb-6 mb-4">
-			HARU SPECIALS & MORE
-		</div>
-	</div>
-	<haru-carousel 
-    #promotionalRef 
-    [slideCount]="promotionalRef.sliderRef().nativeElement.childElementCount" 
-    [canClickDots]="false" 
-    [hasArrows]="false"
-    [loop]="true"
-    [slideInterval]="5000"
-    class="h-[80vh] w-auto">
-    <!-- haru promotional video -->
-    <div class="flex items-center lg:px-0 px-4">
-      <video class="mx-auto rounded-lg h-full" poster="images/promos/haru-promo-poster.webp" controls autoplay muted playsInline>
-        <source src="videos/promos/haru-promotion.mp4" type="video/mp4">
-        Your browser does not support the video tag.
-      </video>
+    id="specials"
+    class="bg-white dark:bg-cyan-600 lg:py-8 md:py-6 py-4 transition"
+>
+    <div class="flex justify-center">
+        <div
+            class="font-bold lg:text-2xl sm:text-xl text-lg text-center lg:mb-8 md:mb-6 mb-4"
+        >
+            HARU SPECIALS & MORE
+        </div>
     </div>
-    <!-- arisen lychee lemonade -->
-    <div class="lg:px-0 px-4 flex items-center h-full">
-      <img
-        class="sm:h-full sm:w-auto w-full mx-auto rounded-lg border-2 border-cyan-200 object-contain"
-        src="images/promos/arisen-lychee-lemonade.webp"
-        alt="Arisen Lychee Lemonade" />
-    </div>
-    <!-- dandadan -->
-    <div class="flex items-center h-full lg:px-0 px-4">
-      <img
-        class="sm:h-full sm:w-auto w-full mx-auto rounded-lg border-2 border-cyan-200 object-contain"
-        src="images/promos/moe-moe-sweet-mint-beam.webp"
-        alt="Moe Moe Sweet Mint Beam" />
-    </div>
-    <div class="flex items-center h-full lg:px-0 px-4">
-      <img
-        class="sm:h-full sm:w-auto w-full mx-auto rounded-lg border-2 border-cyan-200 object-contain"
-        src="images/promos/cursed-turbo-razz-soda.webp"
-        alt="Cursed Turbo Razz Soda" />
-    </div>
-    <div class="flex items-center h-full lg:px-0 px-4">
-      <img
-        class="sm:h-full sm:w-auto w-full mx-auto rounded-lg border-2 border-cyan-200 object-contain"
-        src="images/promos/strawberry-butterfly-spiral.webp"
-        alt="strawberry Butterfly Spiral" />
-    </div>
-    <div class="flex items-center lg:px-0 px-4">
-      <video class="mx-auto rounded-lg h-full" poster="images/promos/queen-never-cry-momo-drink-poster.webp" controls autoplay muted playsInline>
-        <source src="videos/promos/moe-moe-sweet-mint-beam-promo.mp4" type="video/mp4">
-        Your browser does not support the video tag.
-      </video>
-    </div>
-    <!-- demon slayer -->
-    <div class="flex items-center h-full lg:px-0 px-4">
-      <img
-        class="sm:h-full sm:w-auto w-full mx-auto rounded-lg border-2 border-cyan-200 object-contain"
-        src="images/promos/chocolate-form-flowing-mint-latte.webp"
-        alt="Chocolate form Flowing Mint Latte" />
-    </div>
-    <div class="flex items-center h-full lg:px-0 px-4">
-      <img
-        class="sm:h-full sm:w-auto w-full mx-auto rounded-lg border-2 border-cyan-200 object-contain"
-        src="images/promos/harmonic-grapeade.webp"
-        alt="Harmonic Grapeade" />
-    </div>
-    <div class="flex items-center h-full lg:px-0 px-4">
-      <img
-        class="sm:h-full sm:w-auto w-full mx-auto rounded-lg border-2 border-cyan-200 object-contain"
-        src="images/promos/lemonade-type-explosive-razz.webp"
-        alt="Lemonade Type Explosive Razz" />
-    </div>
-    <div class="flex items-center h-full lg:px-0 px-4">
-      <img
-        class="sm:h-full sm:w-auto w-full mx-auto rounded-lg border-2 border-cyan-200 object-contain"
-        src="images/promos/love-blossom-matcha-latte.webp"
-        alt="Love Blossom Matcha Latte" />
-    </div>
-    <div class="flex items-center h-full lg:px-0 px-4">
-      <img
-        class="sm:h-full sm:w-auto w-full mx-auto rounded-lg border-2 border-cyan-200 object-contain"
-        src="images/promos/mango-flameade.webp"
-        alt="Mango Flameade" />
-    </div>
-    <!-- misc -->
-    <div class="flex items-center h-full lg:px-0 px-4">
-      <img
-        class="sm:h-full sm:w-auto w-full mx-auto rounded-lg border-2 border-cyan-200 object-contain"
-        src="images/promos/its-cold-drink-it.webp"
-        alt="Its Cold, Drink It" />
-    </div>
-    <!-- billboard -->
-    <div class="flex justify-center items-center h-full lg:px-0 px-4">
-      <img
-        class="md:h-full md:w-auto w-full mx-auto rounded-lg border-2 border-cyan-200 object-contain"
-        src="images/promos/haru-cafe-menu-billboard.webp"
-        alt="haru-cafe-menu-billboard" />
-    </div>
-  </haru-carousel>
 </div>
 
 <!-- menu -->
 <div
-	id="menu"
-	class="bg-cyan-50 lg:px-40 md:px-20 px-4 lg:py-8 py-4 flex flex-col gap-8">
-	<div class="mx-auto flex gap-3 bg-cyan-100 p-4 rounded-lg">
-		<mat-icon class="text-cyan-600">
-			<svg
-				xmlns="http://www.w3.org/2000/svg"
-				height="24px"
-				viewBox="0 -960 960 960"
-				width="24px"
-				fill="#00dddd">
-				<path
-					d="M640-80q-100 0-170-70t-70-170q0-100 70-170t170-70q100 0 170 70t70 170q0 100-70 170T640-80Zm0-80q66 0 113-47t47-113q0-66-47-113t-113-47q-66 0-113 47t-47 113q0 66 47 113t113 47Zm-480 0q-33 0-56.5-23.5T80-240v-304q0-8 1.5-16t4.5-16l80-184h-6q-17 0-28.5-11.5T120-800v-40q0-17 11.5-28.5T160-880h280q17 0 28.5 11.5T480-840v40q0 17-11.5 28.5T440-760h-6l66 152q-19 10-36 21t-32 25l-84-198h-96l-92 216v304h170q5 21 13.5 41.5T364-160H160Zm480-440q-42 0-71-29t-29-71q0-42 29-71t71-29v200q0-42 29-71t71-29q42 0 71 29t29 71H640Z" />
-			</svg>
-		</mat-icon>
-		<p>Oat milk is available upon request</p>
-	</div>
-	<div class="text-center lg:text-2xl: md:text-xl text-lg font-bold">ORDER</div>
-	<div class="flex justify-center gap-4">
-		<a
-			mat-icon-button
-			matTooltip="Google"
-			href="https://www.google.com/viewer/chooseprovider/?mid=/g/11l5x5k_0j"
-			target="_blank">
-			<img
-				src="svgs/google.svg"
-				alt="Google" />
-		</a>
-		<a
-			mat-icon-button
-			matTooltip="Uber Eats"
-			href="https://www.ubereats.com/store/haru-fresh-juice-cartoon/nVU5b1E7TnST0jYGqDDSaw?diningMode=DELIVERY&sc=SEARCH_SUGGESTION"
-			target="_blank">
-			<img
-				src="svgs/uber-eats.svg"
-				alt="Uber Eats" />
-		</a>
-		<a
-			mat-icon-button
-			matTooltip="Clover"
-			href="https://www.clover.com/online-ordering/haru-fresh-juice-cartoon-sterling-heights"
-			target="_blank">
-			<img
-				src="svgs/clover-logo.svg"
-				alt="Clover" />
-		</a>
-		<!-- <button mat-icon-button>
+    id="menu"
+    class="bg-cyan-50 dark:bg-cyan-700 lg:px-40 md:px-20 px-4 lg:py-8 py-4 flex flex-col gap-8 transition"
+>
+    <div class="mx-auto flex gap-3 bg-cyan-100 dark:bg-cyan-900 p-4 rounded-lg">
+        <mat-icon class="text-cyan-600">
+            <svg
+                xmlns="http://www.w3.org/2000/svg"
+                height="24px"
+                viewBox="0 -960 960 960"
+                width="24px"
+                fill="#00dddd"
+            >
+                <path
+                    d="M640-80q-100 0-170-70t-70-170q0-100 70-170t170-70q100 0 170 70t70 170q0 100-70 170T640-80Zm0-80q66 0 113-47t47-113q0-66-47-113t-113-47q-66 0-113 47t-47 113q0 66 47 113t113 47Zm-480 0q-33 0-56.5-23.5T80-240v-304q0-8 1.5-16t4.5-16l80-184h-6q-17 0-28.5-11.5T120-800v-40q0-17 11.5-28.5T160-880h280q17 0 28.5 11.5T480-840v40q0 17-11.5 28.5T440-760h-6l66 152q-19 10-36 21t-32 25l-84-198h-96l-92 216v304h170q5 21 13.5 41.5T364-160H160Zm480-440q-42 0-71-29t-29-71q0-42 29-71t71-29v200q0-42 29-71t71-29q42 0 71 29t29 71H640Z"
+                />
+            </svg>
+        </mat-icon>
+        <p>Oat milk is available upon request</p>
+    </div>
+    <div class="text-center lg:text-2xl: md:text-xl text-lg font-bold">
+        ORDER
+    </div>
+    <div class="flex justify-center gap-4">
+        <a
+            mat-icon-button
+            matTooltip="Google"
+            href="https://www.google.com/viewer/chooseprovider/?mid=/g/11l5x5k_0j"
+            target="_blank"
+        >
+            <img src="svgs/google.svg" alt="Google" />
+        </a>
+        <a
+            mat-icon-button
+            matTooltip="Uber Eats"
+            href="https://www.ubereats.com/store/haru-fresh-juice-cartoon/nVU5b1E7TnST0jYGqDDSaw?diningMode=DELIVERY&sc=SEARCH_SUGGESTION"
+            target="_blank"
+        >
+            <img src="svgs/uber-eats.svg" alt="Uber Eats" />
+        </a>
+        <a
+            mat-icon-button
+            matTooltip="Clover"
+            href="https://www.clover.com/online-ordering/haru-fresh-juice-cartoon-sterling-heights"
+            target="_blank"
+        >
+            <img src="svgs/clover-logo.svg" alt="Clover" />
+        </a>
+        <!-- <button mat-icon-button>
         <a
           href=""
           target="_blank">
@@ -214,53 +76,55 @@
             alt="Bento Box" />
         </a>
       </button> -->
-		<a
-			mat-icon-button
-			matTooltip="Grubhub"
-			href="https://www.grubhub.com/restaurant/haru-cafe-11445-15-mile-road-sterling-heights/7394008"
-			target="_blank">
-			<img
-				src="svgs/grubhub.svg"
-				alt="GrubHub" />
-		</a>
-		<a
-			mat-button
-			matTooltip="Seamless (powered by Grubhub)"
-			href="https://www.seamless.com/menu/haru-cafe-11445-15-mile-road-sterling-heights/7394008?utm_source=google&utm_medium=organic&utm_campaign=place-action-link&pickup=true&rwg_token=AAiGsoa0yDDk53TjyWQhiBoYlVxEmeZa97TDwzTpPD287xcz69CsKJ2OsZ329fq2omDdd2NZhy2CZpw2eBEdYlR3_ejvzGlumw%3D%3D"
-			target="_blank">
-			<img
-				class="h-4"
-				src="svgs/seamless.svg"
-				alt="Seamless" />
-		</a>
-	</div>
-	<div class="lg:text-2xl: md:text-xl text-lg text-center font-bold">SEARCH OUR MENU</div>
-	<haru-filters></haru-filters>
-	<!-- <div class="flex flex-wrap justify-center lg:gap-8 gap-4 mt-8"> -->
-	<haru-carousel
-		[slideCount]="menuItemsService.paginatedMenuItems().length">
-		@for (pageOfMenuItems of menuItemsService.paginatedMenuItems(); track $index) {
-		<div
-			class="grid lg:grid-cols-3 md:grid-cols-2 grid-cols-1 gap-[1em] px-[0.5em] keen-slider__slide">
-			@for (menuItem of pageOfMenuItems; track $index) {
-			<haru-menu-item
-				#menuItemRef
-				[ngClass]="{
+        <a
+            mat-icon-button
+            matTooltip="Grubhub"
+            href="https://www.grubhub.com/restaurant/haru-cafe-11445-15-mile-road-sterling-heights/7394008"
+            target="_blank"
+        >
+            <img src="svgs/grubhub.svg" alt="GrubHub" />
+        </a>
+        <a
+            mat-button
+            matTooltip="Seamless (powered by Grubhub)"
+            href="https://www.seamless.com/menu/haru-cafe-11445-15-mile-road-sterling-heights/7394008?utm_source=google&utm_medium=organic&utm_campaign=place-action-link&pickup=true&rwg_token=AAiGsoa0yDDk53TjyWQhiBoYlVxEmeZa97TDwzTpPD287xcz69CsKJ2OsZ329fq2omDdd2NZhy2CZpw2eBEdYlR3_ejvzGlumw%3D%3D"
+            target="_blank"
+        >
+            <img class="h-4" src="svgs/seamless.svg" alt="Seamless" />
+        </a>
+    </div>
+    <div class="lg:text-2xl: md:text-xl text-lg text-center font-bold">
+        SEARCH OUR MENU
+    </div>
+    <haru-filters></haru-filters>
+    <!-- <div class="flex flex-wrap justify-center lg:gap-8 gap-4 mt-8"> -->
+    <!-- <haru-carousel-legacy
+        [slideCount]="menuItemsService.paginatedMenuItems().length"
+    >
+        @for (pageOfMenuItems of menuItemsService.paginatedMenuItems(); track
+        $index) {
+        <div
+            class="grid lg:grid-cols-3 md:grid-cols-2 grid-cols-1 gap-[1em] px-[0.5em] keen-slider__slide"
+        >
+            @for (menuItem of pageOfMenuItems; track $index) {
+            <haru-menu-item
+                #menuItemRef
+                [ngClass]="{
           'transition-all': true,
           'row-span-1 h-[6em]': !menuItemRef.isDetailShown(),
           'row-span-3 lg:h-[22em] h-auto': menuItemRef.isDetailShown(),
         }"
-				[menuItem]="menuItem"></haru-menu-item>
-			}
-      @if (this.menuItemsService.paginatedMenuItems().length > 1) {
-        @for (empty of createEmptyArray(this.menuItemsService.pageSize() - pageOfMenuItems.length); track $index) {
-          <div class="row-span-1 h-[6em]"></div>
+                [menuItem]="menuItem"
+            ></haru-menu-item>
+            } @if (this.menuItemsService.paginatedMenuItems().length > 1) { @for
+            (empty of createEmptyArray(this.menuItemsService.pageSize() -
+            pageOfMenuItems.length); track $index) {
+            <div class="row-span-1 h-[6em]"></div>
+            } }
+        </div>
         }
-      }
-		</div>
-		}
-	</haru-carousel>
-	<!-- @for (menuItem of menuItemsService.filteredMenuItems(); track $index) {
+    </haru-carousel-legacy> -->
+    <!-- @for (menuItem of menuItemsService.filteredMenuItems(); track $index) {
   <haru-menu-item
     #menuItemRef
     [ngClass]="{
@@ -282,6 +146,4 @@
 </haru-carousel> -->
 
 <!-- location -->
-<haru-footer
-	class="lg:py-8 py-4"
-	id="location"></haru-footer>
+<haru-footer class="lg:py-8 py-4" id="location"></haru-footer>
