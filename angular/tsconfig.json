@@ -17,7 +17,6 @@
     "isolatedModules": true,
     "esModuleInterop": true,
     "experimentalDecorators": true,
-    "allowSyntheticDefaultImports": true,
     "resolveJsonModule": true,
     "moduleResolution": "bundler",
     "importHelpers": true,
