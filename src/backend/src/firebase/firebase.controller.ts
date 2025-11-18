@@ -1,9 +1,9 @@
-import { Controller, Get, UseGuards } from '@nestjs/common';
 import * as firebaseAdmin from 'firebase-admin';
-import { CurrentUser } from 'src/decorators/user.decorator';
+import { Controller, Get, UseGuards } from '@nestjs/common';
+import { CurrentUser } from '@meadsoft/firebase/decorators/user.decorator';
 import { FirebaseAuthGuard } from './auth.guard';
 
-@Controller('firebase')
+@Controller(['auth', 'firebase'])
 export class FirebaseAuthController {
     @Get('user')
     @UseGuards(FirebaseAuthGuard)
