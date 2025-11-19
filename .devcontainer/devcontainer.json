@@ -27,7 +27,6 @@
     "customizations": {
         "vscode": {
             "extensions": [
-                "bierner.markdown-mermaid",
                 "bierner.markdown-preview-github-styles",
                 "davidanson.vscode-markdownlint",
                 "streetsidesoftware.code-spell-checker",
@@ -35,7 +34,12 @@
                 "yzhang.markdown-all-in-one",
                 "cyrilletuzi.angular-schematics",
                 "dbaeumer.vscode-eslint",
-                "stylelint.vscode-stylelint"
+                "stylelint.vscode-stylelint",
+                "Angular.ng-template",
+                "usernamehw.errorlens",
+                "esbenp.prettier-vscode",
+                "rvest.vs-code-prettier-eslint",
+                "GitHub.copilot"
             ]
         }
     }

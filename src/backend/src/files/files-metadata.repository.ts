@@ -1,4 +1,4 @@
-import { FirebaseService } from '@meadsoft/firebase/firebase.service';
+import { FirebaseService } from '@meadsoft/google/firebase/firebase.service';
 import { Injectable } from '@nestjs/common';
 import { FileMetadata } from './files.model';
 

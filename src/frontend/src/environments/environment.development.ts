@@ -1,0 +1,14 @@
+import { Environment } from './environment.model';
+
+export const environment: Environment = {
+    production: false,
+    apiBaseUrl: 'http://localhost:3000/api',
+    firebase: {
+        apiKey: 'AIzaSyAuyGgJQsNIcQkB-p4OPk3UstmCzOrGlew',
+        authDomain: 'smart-quasar-297403.firebaseapp.com',
+        projectId: 'smart-quasar-297403',
+        storageBucket: 'smart-quasar-297403.firebasestorage.app',
+        messagingSenderId: '764108434612',
+        appId: '1:764108434612:web:84d96206c706c7765b3be1',
+    },
+};

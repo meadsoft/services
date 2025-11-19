@@ -1,5 +1,7 @@
 {
     "compilerOptions": {
+        "strict": true,
+        "noImplicitAny": true,
         "module": "nodenext",
         "moduleResolution": "nodenext",
         "resolvePackageJsonExports": true,
@@ -23,7 +25,6 @@
         "skipLibCheck": true,
         "strictNullChecks": true,
         "forceConsistentCasingInFileNames": true,
-        "noImplicitAny": false,
         "strictBindCallApply": false,
         "noFallthroughCasesInSwitch": false
     }

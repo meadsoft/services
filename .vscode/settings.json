@@ -1,0 +1,16 @@
+{
+    "angular-schematics.schematicsDefaultOptions": {
+        "angular-*": {
+            "externalTemplate": true,
+            "skipStyle": true
+        },
+        "angular-component": {
+            "skipChangeDetectionOnPush": true
+        }
+    },
+    "workbench.colorCustomizations": {
+        "activityBar.background": "#08286E",
+        "titleBar.activeBackground": "#0B389A",
+        "titleBar.activeForeground": "#FAFBFF"
+    }
+}

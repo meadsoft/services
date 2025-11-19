@@ -16,14 +16,13 @@ WELCOME_INFO="${SECONDARY_COLOR}
 ██ ███ ██ ██      ██      ██      ██    ██ ██  ██  ██ ██     
  ███ ███  ███████ ███████  ██████  ██████  ██      ██ ███████
 ${PRIMARY_COLOR}
-to the Eclipse Foundation ${INFO_COLOR}$(basename "$WORKSPACE_FOLDER")${PRIMARY_COLOR} code repository
+to the Haru Cafe ${INFO_COLOR}$(basename "$WORKSPACE_FOLDER")${PRIMARY_COLOR} code repository
 
 Workspace Folder       ${SECONDARY_COLOR}$WORKSPACE_FOLDER
 
 ${INFO_COLOR}Library Version(s)${PRIMARY_COLOR}
-Rust Version           ${SECONDARY_COLOR}$(rustc --version)${PRIMARY_COLOR}
-Cargo Version          ${SECONDARY_COLOR}$(cargo --version)${PRIMARY_COLOR}
-Java Version           ${SECONDARY_COLOR}$(java --version)${PRIMARY_COLOR}
+Node Version           ${SECONDARY_COLOR}$(node --version)${PRIMARY_COLOR}
+Angular Version           ${SECONDARY_COLOR}$(ng --version)${PRIMARY_COLOR}
 
 ${INFO_COLOR}Git${PRIMARY_COLOR}
 Username               ${SECONDARY_COLOR}$(git config user.name)${PRIMARY_COLOR}
