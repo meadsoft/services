@@ -1,6 +1,7 @@
-import { IOnCreationData } from './on-creation.model';
+import { DateTime } from 'luxon';
+import { IBaseModel } from './base.model';
 
-export class MenuItem implements IOnCreationData {
+export class MenuItem implements IBaseModel {
     constructor(
         public id: string,
         public name: string,
@@ -9,8 +10,8 @@ export class MenuItem implements IOnCreationData {
         public price: number | undefined,
         public isFavorite: boolean,
         public isActive: boolean,
-        public createdDate: string,
-        public updatedDate: string,
+        public createdDate: DateTime,
+        public updatedDate: DateTime,
         public createdBy: string,
         public updatedBy: string,
     ) {}

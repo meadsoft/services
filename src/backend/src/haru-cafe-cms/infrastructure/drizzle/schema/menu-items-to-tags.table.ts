@@ -1,4 +1,4 @@
-import { serial } from 'drizzle-orm/pg-core';
+import { uuid } from 'drizzle-orm/pg-core';
 import { haruCafeCmsSchema } from './haru-cafe-cms.schema';
 import { menuItems } from './menu-items.table';
 import { tags } from './tags.table';
@@ -9,10 +9,10 @@ export const MENU_ITEMS_TO_TAGS_TABLE_NAME = 'menu_items_to_tags';
 export const menuItemsToTags = haruCafeCmsSchema.table(
     MENU_ITEMS_TO_TAGS_TABLE_NAME,
     {
-        menuItemId: serial()
+        menuItemId: uuid()
             .references(() => menuItems.id)
             .notNull(),
-        tagId: serial()
+        tagId: uuid()
             .references(() => tags.id)
             .notNull(),
         ...onCreationColumns,

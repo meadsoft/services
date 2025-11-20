@@ -1,6 +1,8 @@
+import { DateTime } from 'luxon';
+
 export interface IOnCreationData {
-    createdDate: string;
-    updatedDate: string;
+    createdDate: DateTime;
+    updatedDate: DateTime;
     createdBy: string;
     updatedBy: string;
 }

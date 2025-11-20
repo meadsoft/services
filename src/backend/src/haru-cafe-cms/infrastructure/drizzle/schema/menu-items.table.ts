@@ -15,5 +15,5 @@ export const menuItems = haruCafeCmsSchema.table(MENU_ITEMS_TABLE_NAME, {
     ...onCreationColumns,
 });
 
-export type MenuItem = typeof menuItems.$inferSelect;
-export type NewMenuItem = typeof menuItems.$inferInsert;
+export type MenuItemDb = typeof menuItems.$inferSelect;
+export type NewMenuItemDb = typeof menuItems.$inferInsert;
