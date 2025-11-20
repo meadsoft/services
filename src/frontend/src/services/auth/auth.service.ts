@@ -34,7 +34,6 @@ export class AuthService {
         providerId: string,
     ): Promise<UserCredential> {
         const provider = new OAuthProvider(providerId);
-        provider.setCustomParameters({ prompt: 'consent' }); // optional
         const userCredential = await signInWithPopup(this.auth, provider);
         return userCredential;
     }

@@ -38,6 +38,6 @@ export class LoginComponent {
         await this.apiAuth.exchangeFirebaseToken(
             await userCredentials.user.getIdToken(),
         );
-        this.router.navigate(['/dashboard']);
+        this.router.navigate(['/']);
     }
 }
