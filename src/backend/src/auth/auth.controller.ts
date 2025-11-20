@@ -13,6 +13,7 @@ import type { Request, Response } from 'express';
 import { DecodedIdToken } from 'firebase-admin/auth';
 import { DEFAULT_ROLE } from './roles.enum';
 import { User } from './user.model';
+import { AuthConfig } from './auth.config';
 
 export const AUTH_COOKIE_NAME = 'jwt';
 
@@ -21,6 +22,7 @@ export class AuthController {
     constructor(
         private readonly firebaseAuth: FirebaseAuthService,
         private readonly jwtService: JwtService,
+        private readonly authConfig: AuthConfig,
     ) {}
 
     @Post('firebase-login')
@@ -44,7 +46,9 @@ export class AuthController {
             email: decoded.email,
             roles: decoded.roles || [DEFAULT_ROLE],
         };
-        const jwt = this.jwtService.sign(payload);
+        const jwt = this.jwtService.sign(payload, {
+            secret: this.authConfig.jwtSecret,
+        });
         res.cookie(AUTH_COOKIE_NAME, jwt, {
             httpOnly: true,
             secure: process.env.NODE_ENV === 'production', // HTTPS only in production
