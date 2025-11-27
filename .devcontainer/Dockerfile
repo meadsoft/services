@@ -2,14 +2,14 @@ FROM mcr.microsoft.com/devcontainers/typescript-node:dev-24-bookworm
 
 #################################################
 # general ubuntu
- 
+
 RUN apt update --yes &&  \
     apt upgrade --yes && \
     apt install git curl gnupg iputils-ping --yes
- 
+
 #################################################
 # docker in docker
- 
+
 # RUN apt update --yes && \
 #     apt upgrade --yes && \
 #     apt install git ca-certificates curl python3 --yes && \
@@ -24,17 +24,18 @@ RUN apt update --yes &&  \
 #     tee /etc/apt/sources.list.d/docker.list > /dev/null && \
 #     apt-get update && \
 #     apt-get install docker-ce docker-ce-cli containerd.io docker-buildx-plugin docker-compose-plugin --yes
- 
+
 #################################################
 # python
- 
+
 RUN apt install python3 -y && \
     apt install pipenv --yes && \
     pipenv install
- 
+
 #################################################
 # global node packages
 
+RUN curl -fsSL https://get.pnpm.io/install.sh | sh -
 RUN npm i -g @angular/cli --loglevel verbose
 RUN npm i -g @nestjs/cli --loglevel verbose
 
@@ -45,5 +46,5 @@ RUN npm i -g @nestjs/cli --loglevel verbose
 #     npm i -g @hoppscotch/cli
 
 #################################################
- 
+
 ENTRYPOINT ["tail", "-f", "/dev/null"]

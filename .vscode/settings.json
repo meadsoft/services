@@ -12,5 +12,6 @@
         "activityBar.background": "#08286E",
         "titleBar.activeBackground": "#0B389A",
         "titleBar.activeForeground": "#FAFBFF"
-    }
+    },
+    "nxConsole.nxWorkspacePath": "haru-cafe"
 }
