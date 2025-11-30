@@ -1,11 +1,11 @@
 import { uuid, varchar, text, decimal, boolean } from 'drizzle-orm/pg-core';
 import { relations } from 'drizzle-orm';
-import { haruCafeCmsSchema } from '@haru-cafe/common/repositories/haru-cafe-cms.schema';
-import { onCreationColumns } from '@haru-cafe/common/repositories/on-creation/on-creation.columns';
+import { haruCafeCmsSchema } from '../../../common/repositories/haru-cafe-cms.schema';
+import { onCreationColumns } from '../../../common/repositories/on-creation/on-creation.columns';
 import {
     MENU_ITEM_IS_ACTIVE_DEFAULT,
     MENU_ITEM_IS_FAVORITE_DEFAULT,
-} from '@haru-cafe/cms/contracts/menu-items.model';
+} from '../../../contracts/menu-items.model';
 import { menuItemsToTags } from '../menu-items-to-tags/menu-items-to-tags.table.js';
 
 export const MENU_ITEMS_TABLE_NAME = 'menu_items';

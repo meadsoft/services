@@ -1,6 +1,7 @@
-import { loadConfig } from '../../common/src/load-config.js';
+import { loadConfig } from '@haru-cafe/common';
 import { Provider } from '@nestjs/common';
 import zod from 'zod';
+import path from 'path';
 
 export const AUTH_CONFIG_KEY = 'auth';
 
@@ -32,8 +33,10 @@ export const AuthEnvironmentConfigSchema = zod.object({
 export const AuthConfigProvider: Provider = {
     provide: AuthConfig,
     useFactory: async (): Promise<AuthConfig> => {
-        const settings = await loadConfig(
+        const configDirectory = path.join(__dirname, '..');
+        const settings = await loadConfig<AuthConfig, AuthEnvironmentConfig>(
             AUTH_CONFIG_KEY,
+            configDirectory,
             undefined,
             AuthEnvironmentConfigSchema
         );

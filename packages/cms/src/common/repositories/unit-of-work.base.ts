@@ -18,7 +18,7 @@ export class UnitOfWork<TDb = unknown, TTransaction = unknown> {
     /**
      * Execute work within a transaction
      */
-    transaction<T>(work: () => Promise<T>): Promise<T> {
+    transaction<T>(_work: () => Promise<T>): Promise<T> {
         throw new NotImplementedException();
     }
 

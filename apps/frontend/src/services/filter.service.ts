@@ -1,4 +1,4 @@
-import { EventEmitter, Injectable, signal } from '@angular/core';
+import { Injectable, signal } from '@angular/core';
 import { Category } from 'src/models/Categories';
 
 @Injectable({

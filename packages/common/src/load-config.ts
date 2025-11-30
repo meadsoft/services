@@ -4,16 +4,20 @@ import * as dotenv from 'dotenv';
 import { getAppEnv } from './get-app-env';
 import { readFile, access } from 'fs/promises';
 
+export const DEFAULT_CONFIG_FILENAME_SCHEME = 'config.{env}.json';
+
 export async function loadConfig<TConfig = object, TEnvConfig = object>(
     configKey: string,
+    configFileDirectory: string,
     schema?: zod.ZodSchema<TConfig>,
     envSchema?: zod.ZodSchema<TEnvConfig>,
+    configFilenameScheme: string = DEFAULT_CONFIG_FILENAME_SCHEME,
 ): Promise<{ config: TConfig; env: Partial<TEnvConfig> }> {
     const appEnv = getAppEnv();
     let config = {} as TConfig;
     if (schema !== undefined) {
-        const configFile = `config.${appEnv}.json`;
-        const configPath = join(__dirname, '..', configFile);
+        const configFile = configFilenameScheme.replace('{env}', appEnv);
+        const configPath = join(configFileDirectory, configFile);
         try {
             await access(configPath);
         } catch {

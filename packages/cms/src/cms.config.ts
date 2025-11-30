@@ -1,6 +1,7 @@
-import { loadConfig } from '../common/load-config';
+import { loadConfig } from '@haru-cafe/common';
 import { Provider } from '@nestjs/common';
 import zod from 'zod';
+import path from 'path';
 
 export const HaruCafeCms_CONFIG_KEY = 'haru-cms';
 
@@ -20,8 +21,10 @@ export const HaruCafeCmsConfigSchema = zod.object({
 export const HaruCafeCmsConfigProvider: Provider = {
     provide: HaruCafeCmsConfig,
     useFactory: async (): Promise<HaruCafeCmsConfig> => {
-        const settings = await loadConfig(
+        const configDirectory = path.join(__dirname, '..');
+        const settings = await loadConfig<HaruCafeCmsConfig>(
             HaruCafeCms_CONFIG_KEY,
+            configDirectory,
             HaruCafeCmsConfigSchema,
             undefined,
         );

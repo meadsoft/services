@@ -1,11 +1,11 @@
 import { eq } from 'drizzle-orm';
 import { PgTableWithColumns } from 'drizzle-orm/pg-core';
-import { IBaseModel } from '@haru-cafe/cms/contracts/base.model';
-import { BaseModelService } from '@haru-cafe/common/repositories/on-creation/on-creation.mapper';
+import { IBaseModel } from '../../../contracts/base.model';
+import { BaseModelService } from '../../../common/repositories/on-creation/on-creation.mapper';
 import {
     IReadOnlyRepository,
     IRepository,
-} from '@haru-cafe/common/repositories/repository.model';
+} from '../../../common/repositories/repository.model';
 import { PostgresUnitOfWork } from './unit-of-work.service.js';
 
 export class DrizzlePgReadOnlyRepository<TModel extends IBaseModel>

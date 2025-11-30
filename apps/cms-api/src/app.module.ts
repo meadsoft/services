@@ -1,9 +1,9 @@
 import { Module } from '@nestjs/common';
 import { PassportModule } from '@nestjs/passport';
-import { FirebaseModule } from '@haru-cafe/google/firebase/firebase.module';
-import { FilesModule } from '@haru-cafe/files/files.module';
-import { DebugModule } from '@haru-cafe/debug/debug.module';
-import { AuthModule } from '@haru-cafe/auth/auth.module';
+// import { FirebaseModule } from '@haru-cafe/google';
+// import { FilesModule } from '@haru-cafe/files';
+import { DebugModule } from '@haru-cafe/debug';
+// import { AuthModule } from '@haru-cafe/auth';
 import { HttpModule } from './http.module';
 
 @Module({

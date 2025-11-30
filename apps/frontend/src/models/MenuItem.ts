@@ -12,7 +12,7 @@ export class MenuItem implements IMenuItem {
   isActive?: boolean | undefined;
   size?: Size | undefined;
 
-  constructor(private menuItem: IMenuItem) {
+  constructor(menuItem: IMenuItem) {
     this.name = menuItem.name;
     this.imageUrl = menuItem.imageUrl;
     this.description = menuItem.description;

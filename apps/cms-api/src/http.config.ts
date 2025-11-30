@@ -1,6 +1,7 @@
-import { loadConfig } from '@haru-cafe/common/load-config';
+import { loadConfig } from '@haru-cafe/common';
 import { Provider } from '@nestjs/common';
 import zod from 'zod';
+import path from 'path';
 
 export const HTTP_CONFIG_KEY = 'http';
 
@@ -15,7 +16,8 @@ export const HttpConfigSchema = zod.object({
 export const HttpConfigProvider: Provider = {
     provide: HttpConfig,
     useFactory: async (): Promise<HttpConfig> => {
-        const { config } = await loadConfig(HTTP_CONFIG_KEY, HttpConfigSchema);
+        const configDirectory = path.join(__dirname, '..');
+        const { config } = await loadConfig(HTTP_CONFIG_KEY, configDirectory, HttpConfigSchema);
         return config;
     },
 };

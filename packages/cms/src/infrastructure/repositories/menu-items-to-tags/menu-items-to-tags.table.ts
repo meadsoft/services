@@ -1,7 +1,7 @@
 import { relations } from 'drizzle-orm';
 import { uuid } from 'drizzle-orm/pg-core';
-import { onCreationColumns } from '@haru-cafe/common/repositories/on-creation/on-creation.columns';
-import { haruCafeCmsSchema } from '@haru-cafe/common/repositories/haru-cafe-cms.schema';
+import { onCreationColumns } from '../../../common/repositories/on-creation/on-creation.columns';
+import { haruCafeCmsSchema } from '../../../common/repositories/haru-cafe-cms.schema';
 import { menuItems } from '../menu-items/menu-items.table.js';
 import { tags } from '../tags/tags.table.js';
 

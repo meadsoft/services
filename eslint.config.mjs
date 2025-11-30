@@ -45,6 +45,7 @@ export default [
             "@typescript-eslint/no-explicit-any": "error",
             "@typescript-eslint/no-floating-promises": "warn",
             "@typescript-eslint/no-unsafe-argument": "warn",
+            "@typescript-eslint/no-unused-vars": "error",
             "prettier/prettier": ["error", { endOfLine: "auto" }],
         },
     },

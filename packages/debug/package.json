@@ -6,12 +6,16 @@
     "main": "./dist/index.js",
     "module": "./dist/index.js",
     "types": "./dist/index.d.ts",
+    "scripts": {
+        "build": "tsc --build tsconfig.lib.json && npx rollup ./dist/index.js --file ./dist/index.cjs --format cjs"
+    },
     "exports": {
         "./package.json": "./package.json",
         ".": {
             "@haru-cafe/monorepo": "./src/index.ts",
             "types": "./dist/index.d.ts",
             "import": "./dist/index.js",
+            "require": "./dist/index.cjs",
             "default": "./dist/index.js"
         }
     },
@@ -20,6 +24,7 @@
     },
     "dependencies": {
         "tslib": "^2.3.0",
-        "@nestjs/common": "^11.0.1"
+        "@nestjs/common": "^11.0.1",
+        "rollup": "^4.53.3"
     }
 }

@@ -1,7 +1,7 @@
 import {
     CREATED_BY_DEFAULT,
     IOnCreationData,
-} from '@haru-cafe/cms/contracts/on-creation.model';
+} from '../../../contracts/on-creation.model';
 import { Injectable } from '@nestjs/common';
 
 @Injectable()

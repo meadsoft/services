@@ -3,11 +3,9 @@ import {
     Component,
     computed,
     ElementRef,
-    EventEmitter,
     input,
     output,
     signal,
-    SimpleChanges,
     viewChild,
 } from '@angular/core';
 import { MatButtonModule } from '@angular/material/button';

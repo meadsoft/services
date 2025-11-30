@@ -1,6 +1,6 @@
 import { Body, Controller, Delete, Get, Param, Post } from '@nestjs/common';
 import { MenuItemRepository } from '../infrastructure/repositories/menu-items/menu-items.repo';
-import { MenuItem } from '@haru-cafe/cms/contracts/menu-items.model';
+import { MenuItem } from '../contracts/menu-items.model';
 
 @Controller('menu-items')
 export class MenuItemsController {

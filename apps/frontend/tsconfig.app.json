@@ -4,12 +4,16 @@
     "extends": "./tsconfig.json",
     "compilerOptions": {
         "outDir": "./out-tsc/app",
-        "composite": true,
-        "types": [
-            "node"
-        ]
+        "baseUrl": ".",
+        "rootDir": "src",
+        "emitDeclarationOnly": false,
+        "types": ["node"],
+        "lib": ["ES2022", "dom", "dom.iterable"]
     },
-    "include": [
-        "src/**/*.ts"
+    "include": ["src/**/*.ts"],
+    "references": [
+        {
+            "path": "../../packages/cms/tsconfig.lib.json"
+        }
     ]
 }

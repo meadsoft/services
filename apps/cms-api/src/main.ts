@@ -1,6 +1,3 @@
-// Register tsconfig paths BEFORE any other imports
-import 'tsconfig-paths/register';
-
 import cookieParser from 'cookie-parser';
 import { NestFactory } from '@nestjs/core';
 import { HttpConfig } from './http.config';

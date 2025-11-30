@@ -1,4 +1,5 @@
 import zod from 'zod';
+import path from 'path';
 import { Injectable, Provider } from '@nestjs/common';
 import { loadConfig, EMAIL_REGEX } from '@haru-cafe/common';
 
@@ -48,11 +49,13 @@ export const FirebaseEnvironmentConfigSchema = zod.object({
 export const FirebaseConfigProvider: Provider = {
     provide: FirebaseConfig,
     useFactory: async (): Promise<FirebaseConfig> => {
+        const configDirectory = path.join(__dirname, '..');
         const settings = await loadConfig<
             FirebaseConfig,
             FirebaseEnvironmentConfig
         >(
             FIREBASE_CONFIG_KEY,
+            configDirectory,
             FirebaseConfigSchema,
             FirebaseEnvironmentConfigSchema,
         );

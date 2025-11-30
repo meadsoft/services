@@ -1,5 +1,5 @@
 // auth.controller.ts
-import { FirebaseAuthService } from '@haru-cafe/google/firebase/firebase-auth.service';
+import { FirebaseAuthService } from '@haru-cafe/google';
 import {
     Controller,
     Get,
@@ -12,7 +12,7 @@ import { JwtService } from '@nestjs/jwt';
 import type { Request, Response } from 'express';
 import { DecodedIdToken } from 'firebase-admin/auth';
 import { DEFAULT_ROLE } from './roles.enum';
-import { User } from '../../../../packages/auth/user.model.js';
+import { User } from './user.model';
 import { AuthConfig } from './auth.config';
 import { AUTH_COOKIE_NAME } from './constants';
 

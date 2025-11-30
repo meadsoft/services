@@ -1,5 +1,5 @@
 import { Module } from '@nestjs/common';
-import { FirebaseModule } from '@haru-cafe/google/firebase/firebase.module';
+import { FirebaseModule } from '@haru-cafe/google';
 import { FilesService } from './files.service';
 import { FilesController } from './files.controller';
 import { FileMetadataRepository } from './files-metadata.repository';

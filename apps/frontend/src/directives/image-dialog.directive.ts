@@ -1,10 +1,7 @@
 import {
-    ComponentRef,
     Directive,
     ElementRef,
-    Input,
     input,
-    ViewContainerRef,
 } from '@angular/core';
 import { MatDialog } from '@angular/material/dialog';
 import {

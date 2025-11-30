@@ -1,7 +1,7 @@
 import {
     CREATED_BY_DEFAULT,
     UPDATED_BY_DEFAULT,
-} from '@haru-cafe/cms/contracts/on-creation.model';
+} from '../../../contracts/on-creation.model';
 import { uuid } from 'drizzle-orm/pg-core';
 import { timestamp } from 'drizzle-orm/pg-core/columns';
 

@@ -3,7 +3,7 @@ import {
     ExecutionContext,
     UnauthorizedException,
 } from '@nestjs/common';
-import { UserSchema, User } from '../../../../packages/auth/user.model.js';
+import { UserSchema, User } from './user.model';
 
 export const CurrentUser = createParamDecorator(
     (ctx: ExecutionContext): User | undefined => {

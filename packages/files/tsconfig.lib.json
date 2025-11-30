@@ -7,9 +7,14 @@
         "tsBuildInfoFile": "dist/tsconfig.lib.tsbuildinfo",
         "emitDeclarationOnly": false,
         "forceConsistentCasingInFileNames": true,
-        "types": ["node"]
+        "types": [
+            "node",
+            "multer"
+        ]
     },
-    "include": ["src/**/*.ts"],
+    "include": [
+        "src/**/*.ts"
+    ],
     "references": [
         {
             "path": "../google/tsconfig.lib.json"

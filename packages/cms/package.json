@@ -6,6 +6,9 @@
     "main": "./dist/index.js",
     "module": "./dist/index.js",
     "types": "./dist/index.d.ts",
+    "scripts": {
+        "build": "tsc --build tsconfig.lib.json && npx rollup ./dist/index.js --file ./dist/index.cjs --format cjs"
+    },
     "exports": {
         "./package.json": "./package.json",
         ".": {
@@ -19,6 +22,15 @@
         "name": "cms"
     },
     "dependencies": {
-        "tslib": "^2.3.0"
+        "@haru-cafe/common": "workspace:*",
+        "@nestjs/common": "^11.0.1",
+        "@types/pg": "^8.15.6",
+        "drizzle-kit": "^0.31.7",
+        "drizzle-orm": "^0.44.7",
+        "pg": "^8.16.3",
+        "rollup": "^4.53.3",
+        "tslib": "^2.3.0",
+        "tsup": "^8.5.1",
+        "zod": "^4.1.12"
     }
 }

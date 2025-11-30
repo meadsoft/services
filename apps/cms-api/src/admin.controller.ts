@@ -1,6 +1,5 @@
 import { Controller, UseGuards, Get } from '@nestjs/common';
-import { AuthGuard } from '@haru-cafe/auth/guards/auth.guard';
-import { RolesGuard } from '@haru-cafe/auth/guards/roles.guard';
+import { AuthGuard, RolesGuard } from '@haru-cafe/auth';
 
 @Controller('admin')
 @UseGuards(AuthGuard(), new RolesGuard('admin'))

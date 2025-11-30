@@ -1,6 +1,5 @@
-import { FirebaseService } from '@haru-cafe/google/firebase/firebase.service';
+import { FirebaseService } from '@haru-cafe/google';
 import { Injectable } from '@nestjs/common';
-import { DateTime } from 'luxon';
 
 @Injectable()
 export class FilesRepository {

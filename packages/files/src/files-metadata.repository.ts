@@ -1,4 +1,4 @@
-import { FirebaseService } from '@haru-cafe/google/firebase/firebase.service';
+import { FirebaseService } from '@haru-cafe/google';
 import { Injectable } from '@nestjs/common';
 import { FileMetadata } from './files.model';
 
