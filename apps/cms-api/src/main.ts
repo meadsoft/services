@@ -1,14 +1,22 @@
 import cookieParser from 'cookie-parser';
-import { NestFactory } from '@nestjs/core';
+import { NestFactory, PartialGraphHost } from '@nestjs/core';
 import { HttpConfig } from './http.config';
 import { AppModule } from './app.module';
+import fs from 'fs';
+// import { DebugService } from '@haru-cafe/debug';
 
 const DEFAULT_PORT = 3000;
 
 async function bootstrap() {
     const app = await NestFactory.create(AppModule, {
+        snapshot: true,
+        abortOnError: false,
         logger: ['error', 'warn', 'log', 'debug'],
     });
+
+    // app.get(DebugService).listRoutes(app).forEach((route) => {
+    //     console.log(`Route: ${route}`);
+    // });
 
     app.enableCors({
         origin: 'http://localhost:4200',
@@ -22,4 +30,7 @@ async function bootstrap() {
     const httpConfig = app.get(HttpConfig);
     await app.listen(httpConfig.port || DEFAULT_PORT);
 }
-bootstrap();
+bootstrap().catch(() => {
+    fs.writeFileSync('graph.json', PartialGraphHost.toString() ?? '');
+    process.exit(1);
+});

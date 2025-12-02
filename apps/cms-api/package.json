@@ -18,15 +18,25 @@
     },
     "dependencies": {
         "@haru-cafe/auth": "workspace:*",
+        "@haru-cafe/cms": "workspace:*",
         "@haru-cafe/common": "workspace:*",
         "@haru-cafe/debug": "workspace:*",
         "@haru-cafe/files": "workspace:*",
         "@haru-cafe/google": "workspace:*",
         "@nestjs/common": "^11.0.1",
         "@nestjs/core": "^11.0.1",
+        "@nestjs/devtools-integration": "^0.2.1",
         "@nestjs/passport": "^11.0.5",
+        "@nestjs/testing": "^11.1.9",
         "@types/cookie-parser": "^1.4.10",
         "cookie-parser": "^1.4.7",
         "zod": "^4.1.12"
+    },
+    "devDependencies": {
+        "@rollup/plugin-commonjs": "^29.0.0",
+        "@rollup/plugin-json": "^6.1.0",
+        "@rollup/plugin-node-resolve": "^16.0.3",
+        "@rollup/plugin-typescript": "^12.3.0",
+        "rollup": "^4.53.3"
     }
 }

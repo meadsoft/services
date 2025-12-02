@@ -1,16 +1,19 @@
 {
     "extends": "../../tsconfig.base.json",
     "compilerOptions": {
+        "customConditions": null,
         "baseUrl": ".",
         "outDir": "dist",
         "rootDir": "src",
-        "module": "nodenext",
-        "moduleResolution": "nodenext",
+        "module": "commonjs",
+        "moduleResolution": "node",
+        "esModuleInterop": true,
         "tsBuildInfoFile": "dist/tsconfig.lib.tsbuildinfo",
         "emitDecoratorMetadata": true,
         "experimentalDecorators": true,
         "emitDeclarationOnly": false,
         "sourceMap": true,
+        "declaration": true
     },
     "include": [
         "src/**/*.ts"
@@ -33,6 +36,9 @@
         },
         {
             "path": "../../packages/common/tsconfig.lib.json"
+        },
+        {
+            "path": "../../packages/cms/tsconfig.lib.json"
         },
         {
             "path": "../../packages/auth/tsconfig.lib.json"
