@@ -7,7 +7,7 @@ import {
     pgTable,
 } from 'drizzle-orm/pg-core';
 import { relations } from 'drizzle-orm';
-import { onCreationColumns } from '../../common/repositories/on-creation/on-creation.columns';
+import { onCreationColumns } from '@haru-cafe/common-infrastructure';
 import {
     MENU_ITEM_IS_ACTIVE_DEFAULT,
     MENU_ITEM_IS_FAVORITE_DEFAULT,

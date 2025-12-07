@@ -1,6 +1,10 @@
 {
     "name": "@haru-cafe/debug",
     "version": "0.0.0",
+    "tags": [
+        "util",
+        "api"
+    ],
     "private": true,
     "main": "./dist/index.js",
     "module": "./dist/index.js",

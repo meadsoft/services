@@ -6,15 +6,19 @@
         "outDir": "dist",
         "tsBuildInfoFile": "dist/tsconfig.lib.tsbuildinfo",
         "emitDeclarationOnly": false,
-        "forceConsistentCasingInFileNames": true,
         "types": [
             "node"
         ]
     },
     "include": [
-        "src/**/*.ts"
+        "src/**/*.ts",
+        "src/infrastrucutre.config.ts"
     ],
-    "references": [],
+    "references": [
+        {
+            "path": "../common/tsconfig.lib.json"
+        }
+    ],
     "exclude": [
         "jest.config.ts",
         "jest.config.cts",

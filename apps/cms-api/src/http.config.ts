@@ -17,7 +17,11 @@ export const HttpConfigProvider: Provider = {
     provide: HttpConfig,
     useFactory: async (): Promise<HttpConfig> => {
         const configDirectory = path.join(__dirname, '..');
-        const { config } = await loadConfig(HTTP_CONFIG_KEY, configDirectory, HttpConfigSchema);
+        const { config } = await loadConfig(
+            configDirectory,
+            HTTP_CONFIG_KEY,
+            HttpConfigSchema,
+        );
         return config;
     },
 };

@@ -35,15 +35,15 @@ export const AuthConfigProvider: Provider = {
     useFactory: async (): Promise<AuthConfig> => {
         const configDirectory = path.join(__dirname, '..');
         const settings = await loadConfig<AuthConfig, AuthEnvironmentConfig>(
-            AUTH_CONFIG_KEY,
             configDirectory,
+            AUTH_CONFIG_KEY,
             undefined,
-            AuthEnvironmentConfigSchema
+            AuthEnvironmentConfigSchema,
         );
         const { config, env } = settings;
         if (!env.JWT_SECRET) {
             throw new Error(
-                'JWT_SECRET is not defined in environment variables'
+                'JWT_SECRET is not defined in environment variables',
             );
         }
         const finalConfig: AuthConfig = {

@@ -1,18 +1,18 @@
 import { Test, TestingModule } from '@nestjs/testing';
 import { PostgresUnitOfWork } from './postgres/unit-of-work.service';
 import { PostgresDbService } from './postgres/postgres-db.service';
-import { HaruCafeCmsConfig } from '../../cms.config';
-import { HaruCafeDrizzlePgModule } from './drizzle.module';
+import { InfrastructureConfig } from '../infrastructure.config';
+import { DrizzlePgModule } from './drizzle.module';
 
-describe('HaruCafeDrizzlePgModule', () => {
+describe('DrizzlePgModule', () => {
     let module: TestingModule;
 
     beforeEach(async () => {
         module = await Test.createTestingModule({
-            imports: [HaruCafeDrizzlePgModule],
+            imports: [DrizzlePgModule],
         })
-            .overrideProvider(HaruCafeCmsConfig)
-            .useValue(new HaruCafeCmsConfig(''))
+            .overrideProvider(InfrastructureConfig)
+            .useValue(new InfrastructureConfig(''))
             .compile();
     });
 

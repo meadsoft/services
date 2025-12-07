@@ -1,6 +1,6 @@
 import { pgTable, uuid, varchar } from 'drizzle-orm/pg-core';
 import { relations } from 'drizzle-orm';
-import { onCreationColumns } from '../../common/repositories/on-creation/on-creation.columns';
+import { onCreationColumns } from '@haru-cafe/common-infrastructure';
 import { menuItemsToSizes } from './menu-items-to-sizes.table';
 
 export const SIZE_TABLE_NAME = 'sizes';

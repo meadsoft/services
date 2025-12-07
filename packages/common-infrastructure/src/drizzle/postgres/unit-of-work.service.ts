@@ -1,8 +1,8 @@
 import { Injectable } from '@nestjs/common';
 import { NodePgDatabase } from 'drizzle-orm/node-postgres';
 import { PgTransaction } from 'drizzle-orm/pg-core';
-import { UnitOfWork } from '../../../common/repositories/unit-of-work.base';
 import { PostgresDbService } from './postgres-db.service';
+import { UnitOfWork } from '../../unit-of-work.base';
 
 type DbOrTransaction = NodePgDatabase | PgTransaction<any, any, any>;
 

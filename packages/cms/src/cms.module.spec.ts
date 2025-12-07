@@ -1,13 +1,10 @@
 import { Test, TestingModule } from '@nestjs/testing';
 import { HaruCafeCmsModule } from './cms.module';
-import { HaruCafeCmsConfig } from './cms.config';
-import { BaseModelService } from './common/repositories/on-creation/on-creation.mapper';
 import { MenuItemRepository } from './infrastructure/repositories/menu-items.repo';
 import { SizesRepository } from './infrastructure/repositories/sizes.repo';
 import { TagsRepository } from './infrastructure/repositories/tags.repo';
 import { MenuItemsController } from './controllers/menu-items.controller';
-import { PostgresDbService } from './infrastructure/drizzle/postgres/postgres-db.service';
-import { PostgresUnitOfWork } from './infrastructure/drizzle/postgres/unit-of-work.service';
+import { InfrastructureConfig } from '@haru-cafe/common-infrastructure';
 
 describe('HaruCafeCmsModule', () => {
     let module: TestingModule;
@@ -16,8 +13,8 @@ describe('HaruCafeCmsModule', () => {
         module = await Test.createTestingModule({
             imports: [HaruCafeCmsModule],
         })
-            .overrideProvider(HaruCafeCmsConfig)
-            .useValue(new HaruCafeCmsConfig(''))
+            .overrideProvider(InfrastructureConfig)
+            .useValue(new InfrastructureConfig(''))
             .compile();
     });
 
@@ -25,24 +22,9 @@ describe('HaruCafeCmsModule', () => {
         expect(module).toBeDefined();
     });
 
-    it('should provide HaruCafeCmsConfigProvider', () => {
-        const config = module.get<HaruCafeCmsConfig>(HaruCafeCmsConfig);
+    it('should provide InfrastructureConfig', () => {
+        const config = module.get<InfrastructureConfig>(InfrastructureConfig);
         expect(config).toBeDefined();
-    });
-
-    it('should provide PostgresUnitOfWork', () => {
-        const service = module.get<PostgresUnitOfWork>(PostgresUnitOfWork);
-        expect(service).toBeDefined();
-    });
-
-    it('should provide PostgresDbService', () => {
-        const service = module.get<PostgresDbService>(PostgresDbService);
-        expect(service).toBeDefined();
-    });
-
-    it('should provide BaseModelService', () => {
-        const service = module.get<BaseModelService>(BaseModelService);
-        expect(service).toBeDefined();
     });
 
     it('should provide MenuItemRepository', () => {

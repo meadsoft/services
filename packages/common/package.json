@@ -1,6 +1,10 @@
 {
     "name": "@haru-cafe/common",
     "version": "0.0.0",
+    "tags": [
+        "util",
+        "model"
+    ],
     "private": true,
     "main": "./dist/index.js",
     "module": "./dist/index.js",
@@ -22,6 +26,7 @@
         "name": "common"
     },
     "dependencies": {
+        "@nestjs/common": "^11.0.1",
         "dotenv": "^17.2.3",
         "tslib": "^2.3.0",
         "zod": "^4.1.12"

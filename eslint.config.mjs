@@ -18,6 +18,31 @@ export default [
                     allow: ["^.*/eslint(\\.base)?\\.config\\.[cm]?[jt]s$"],
                     depConstraints: [
                         {
+                            sourceTag: "ui",
+                            onlyDependOnLibsWithTags: [
+                                "ui",
+                                "util",
+                                "model",
+                                "api",
+                            ],
+                        },
+                        {
+                            sourceTag: "api",
+                            notDependOnLibsWithTags: ["ui"],
+                        },
+                        {
+                            sourceTag: "query",
+                            onlyDependOnLibsWithTags: [
+                                "query",
+                                "util",
+                                "model",
+                            ],
+                        },
+                        {
+                            sourceTag: "util",
+                            onlyDependOnLibsWithTags: ["util", "model"],
+                        },
+                        {
                             sourceTag: "*",
                             onlyDependOnLibsWithTags: ["*"],
                         },

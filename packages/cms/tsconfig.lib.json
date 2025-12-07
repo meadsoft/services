@@ -11,10 +11,13 @@
     "include": ["src/**/*.ts", "src/drizzle.config.ts"],
     "references": [
         {
-            "path": "../cms-contracts/tsconfig.lib.json"
+            "path": "../common-infrastructure/tsconfig.lib.json"
         },
         {
             "path": "../common/tsconfig.lib.json"
+        },
+        {
+            "path": "../cms-contracts/tsconfig.lib.json"
         }
     ],
     "exclude": [

@@ -7,15 +7,15 @@ import { readFile, access } from 'fs/promises';
 export const DEFAULT_CONFIG_FILENAME_SCHEME = 'config.{env}.json';
 
 export async function loadConfig<TConfig = object, TEnvConfig = object>(
-    configKey: string,
     configFileDirectory: string,
+    configKey?: string,
     schema?: zod.ZodSchema<TConfig>,
     envSchema?: zod.ZodSchema<TEnvConfig>,
     configFilenameScheme: string = DEFAULT_CONFIG_FILENAME_SCHEME,
 ): Promise<{ config: TConfig; env: Partial<TEnvConfig> }> {
     const appEnv = getAppEnv();
     let config = {} as TConfig;
-    if (schema !== undefined) {
+    if (schema !== undefined && configKey !== undefined) {
         const configFile = configFilenameScheme.replace('{env}', appEnv);
         const configPath = join(configFileDirectory, configFile);
         try {

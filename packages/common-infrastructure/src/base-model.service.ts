@@ -1,4 +1,4 @@
-import { OnCreationData } from '../../../../../cms-contracts/src/on-creation.entity';
+import { OnCreationData } from '@haru-cafe/common';
 import { Injectable } from '@nestjs/common';
 
 @Injectable()
@@ -11,9 +11,9 @@ export class BaseModelService {
         const newItem = item as T & OnCreationData;
         //
         newItem.createdById = userId;
-        newItem.createdDate = new Date();
+        newItem.createdDate = new Date().toISOString();
         newItem.updatedById = userId;
-        newItem.updatedDate = new Date();
+        newItem.updatedDate = new Date().toISOString();
         return newItem;
     }
 
@@ -24,8 +24,8 @@ export class BaseModelService {
         return {
             ...updates,
             createdById: updates.createdById ?? null,
-            createdDate: updates.createdDate ?? new Date(),
-            updatedDate: new Date(),
+            createdDate: updates.createdDate ?? new Date().toISOString(),
+            updatedDate: new Date().toISOString(),
             updatedById: userId,
         };
     }

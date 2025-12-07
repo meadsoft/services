@@ -1,17 +1,17 @@
 import { Injectable } from '@nestjs/common';
 import { drizzle, NodePgDatabase } from 'drizzle-orm/node-postgres';
+import { InfrastructureConfig } from '../../infrastructure.config';
 // import { Pool } from 'pg';
-import { HaruCafeCmsConfig } from '../../../cms.config';
 
 @Injectable()
 export class PostgresDbService {
     // private pool: Pool;
     private _db: NodePgDatabase | null = null;
 
-    constructor(private readonly haruCafeCmsConfig: HaruCafeCmsConfig) {
+    constructor(private readonly infrastructureConfig: InfrastructureConfig) {
         // for some reason, when using the pool the client is undefined
         // this.pool = new Pool({
-        //     connectionString: this.haruCafeCmsConfig.DATABASE_URL,
+        //     connectionString: this.infrastructureConfig.DATABASE_URL,
         //     max: 20,
         //     idleTimeoutMillis: 30000,
         //     connectionTimeoutMillis: 2000,
@@ -20,7 +20,7 @@ export class PostgresDbService {
 
     getDatabase() {
         if (!this._db) {
-            this._db = drizzle(this.haruCafeCmsConfig.DATABASE_URL);
+            this._db = drizzle(this.infrastructureConfig.DATABASE_URL);
             // for some reason, when using the pool the client is undefined
             // this._db = drizzle({ client: this.pool });
         }

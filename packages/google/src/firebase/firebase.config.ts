@@ -54,8 +54,8 @@ export const FirebaseConfigProvider: Provider = {
             FirebaseConfig,
             FirebaseEnvironmentConfig
         >(
-            FIREBASE_CONFIG_KEY,
             configDirectory,
+            FIREBASE_CONFIG_KEY,
             FirebaseConfigSchema,
             FirebaseEnvironmentConfigSchema,
         );

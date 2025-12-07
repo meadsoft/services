@@ -1,8 +1,10 @@
 import { Injectable } from '@nestjs/common';
 import { NewTag, Tag } from '../../../../cms-contracts/src/tags.entity';
-import { BaseModelService } from '../../common/repositories/on-creation/on-creation.mapper';
-import { PostgresUnitOfWork } from '../drizzle/postgres/unit-of-work.service';
-import { DrizzlePgRepository } from '../drizzle/postgres/repository.service';
+import {
+    BaseModelService,
+    DrizzlePgRepository,
+    PostgresUnitOfWork,
+} from '@haru-cafe/common-infrastructure';
 import { tags } from '../tables/tags.table';
 
 @Injectable()

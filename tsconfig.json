@@ -29,6 +29,9 @@
         },
         {
             "path": "./packages/cms-contracts"
+        },
+        {
+            "path": "./packages/common-infrastructure"
         }
     ]
 }

@@ -1,4 +1,4 @@
-import { BaseCmsModel } from '../../../../cms-contracts/src/base.entity';
+import { BaseCmsModel } from '@haru-cafe/common';
 
 export interface IReadOnlyRepository<TModel extends BaseCmsModel> {
     findById(id: string): Promise<TModel | null>;

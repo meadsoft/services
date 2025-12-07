@@ -1,6 +1,10 @@
 {
     "name": "@haru-cafe/cms-contracts",
     "version": "0.0.0",
+    "tags": [
+        "model",
+        "haru-cafe-cms"
+    ],
     "private": true,
     "main": "./dist/index.js",
     "module": "./dist/index.js",
