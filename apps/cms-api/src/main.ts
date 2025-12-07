@@ -3,6 +3,7 @@ import { NestFactory, PartialGraphHost } from '@nestjs/core';
 import { HttpConfig } from './http.config';
 import { AppModule } from './app.module';
 import fs from 'fs';
+import { setupSwagger } from './swagger';
 // import { DebugService } from '@haru-cafe/debug';
 
 const DEFAULT_PORT = 3000;
@@ -27,6 +28,7 @@ async function bootstrap() {
 
     app.use(cookieParser());
 
+    setupSwagger(app, 'swagger');
     const httpConfig = app.get(HttpConfig);
     await app.listen(httpConfig.port || DEFAULT_PORT);
 }

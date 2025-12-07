@@ -1,1 +1,1 @@
-export {EMAIL_REGEX} from './regex';
+export { REGEX } from './regex';

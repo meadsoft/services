@@ -1,45 +1,56 @@
 import { eq } from 'drizzle-orm';
 import { PgTableWithColumns } from 'drizzle-orm/pg-core';
-import { IBaseModel } from '../../../contracts/base.model';
+import { BaseCmsModel } from '../../../../../cms-contracts/src/base.entity';
 import { BaseModelService } from '../../../common/repositories/on-creation/on-creation.mapper';
 import {
     IReadOnlyRepository,
     IRepository,
 } from '../../../common/repositories/repository.model';
-import { PostgresUnitOfWork } from './unit-of-work.service.js';
+import { PostgresUnitOfWork } from './unit-of-work.service';
 
-export class DrizzlePgReadOnlyRepository<TModel extends IBaseModel>
-    implements IReadOnlyRepository<TModel>
-{
+export class DrizzlePgReadOnlyRepository<
+    TModel extends BaseCmsModel,
+> implements IReadOnlyRepository<TModel> {
     constructor(
         protected pgTable: PgTableWithColumns<any>,
         protected unitOfWork: PostgresUnitOfWork,
-        protected baseModelService: BaseModelService
+        protected baseModelService: BaseModelService,
     ) {}
 
-    async findById(id: string): Promise<TModel | undefined> {
-        const [item] = await this.unitOfWork.db
+    async findById(id: string): Promise<TModel | null> {
+        const [item] = await this.unitOfWork
+            .getDatabase()
             .select()
             .from(this.pgTable)
             .where(eq(this.pgTable.id, id));
-        return item;
+        return item ?? null;
     }
 
     async findAll(): Promise<TModel[]> {
-        return await this.unitOfWork.db.select().from(this.pgTable);
+        return await this.unitOfWork.getDatabase().select().from(this.pgTable);
+    }
+
+    async exists(id: string): Promise<boolean> {
+        const [item] = await this.unitOfWork
+            .getDatabase()
+            .select()
+            .from(this.pgTable)
+            .where(eq(this.pgTable.id, id));
+        return item !== undefined;
     }
 }
 
-export class DrizzlePgRepository<TModel extends IBaseModel>
+export class DrizzlePgRepository<
+    TNewModel extends object,
+    TModel extends BaseCmsModel,
+>
     extends DrizzlePgReadOnlyRepository<TModel>
-    implements IRepository<TModel>
+    implements IRepository<TNewModel, TModel>
 {
-    async create(
-        menuItem: Omit<TModel, 'id'>,
-        userId: string
-    ): Promise<TModel> {
+    async create(menuItem: TNewModel, userId: string): Promise<TModel> {
         this.baseModelService.addCreationData(menuItem, userId);
-        const [created] = await this.unitOfWork.db
+        const [created] = await this.unitOfWork
+            .getDatabase()
             .insert(this.pgTable)
             .values(menuItem)
             .returning();
@@ -49,10 +60,11 @@ export class DrizzlePgRepository<TModel extends IBaseModel>
     async update(
         id: string,
         updates: Partial<TModel>,
-        userId: string
+        userId: string,
     ): Promise<TModel | undefined> {
         this.baseModelService.addUpdateData(updates, userId);
-        const [updated] = await this.unitOfWork.db
+        const [updated] = await this.unitOfWork
+            .getDatabase()
             .update(this.pgTable)
             .set(updates)
             .where(eq(this.pgTable.id, id))
@@ -61,7 +73,8 @@ export class DrizzlePgRepository<TModel extends IBaseModel>
     }
 
     async delete(id: string): Promise<boolean> {
-        const result = await this.unitOfWork.db
+        const result = await this.unitOfWork
+            .getDatabase()
             .delete(this.pgTable)
             .where(eq(this.pgTable.id, id));
         return result.rowCount > 0;

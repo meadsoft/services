@@ -1,24 +1,24 @@
 import { NotImplementedException } from '@nestjs/common';
 
 export class UnitOfWork<TDb = unknown, TTransaction = unknown> {
-    protected _mainDb: TDb;
+    protected _getDb: () => TDb;
     protected _currentTransaction?: TTransaction;
 
-    constructor(mainDb: TDb) {
-        this._mainDb = mainDb;
+    constructor(getDb: () => TDb) {
+        this._getDb = getDb;
     }
 
     /**
      * Get the current database connection or transaction
      */
-    get db(): TDb | TTransaction {
+    getDatabase(): TDb | TTransaction {
         throw new NotImplementedException();
     }
 
     /**
      * Execute work within a transaction
      */
-    transaction<T>(_work: () => Promise<T>): Promise<T> {
+    startTransaction<T>(_work: () => Promise<T>): Promise<T> {
         throw new NotImplementedException();
     }
 

@@ -1,0 +1,29 @@
+{
+    "name": "@haru-cafe/common-api",
+    "version": "0.0.0",
+    "private": true,
+    "main": "./dist/index.js",
+    "module": "./dist/index.js",
+    "types": "./dist/index.d.ts",
+    "scripts": {
+        "bundle": "tsup --config ../../tsup.config.ts"
+    },
+    "exports": {
+        "./package.json": "./package.json",
+        ".": {
+            "@haru-cafe/monorepo": "./src/index.ts",
+            "types": "./dist/index.d.ts",
+            "import": "./dist/index.js",
+            "require": "./dist/index.cjs",
+            "default": "./dist/index.js"
+        }
+    },
+    "nx": {
+        "name": "common-api"
+    },
+    "dependencies": {
+        "@nestjs/common": "^11.0.1",
+        "tslib": "^2.3.0",
+        "zod": "^4.1.12"
+    }
+}

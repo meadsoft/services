@@ -26,6 +26,9 @@
         },
         {
             "path": "./apps/cms-api"
+        },
+        {
+            "path": "./packages/cms-contracts"
         }
     ]
 }

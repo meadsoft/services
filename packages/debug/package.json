@@ -1,13 +1,12 @@
 {
     "name": "@haru-cafe/debug",
-    "version": "0.0.1",
+    "version": "0.0.0",
     "private": true,
-    "type": "module",
     "main": "./dist/index.js",
     "module": "./dist/index.js",
     "types": "./dist/index.d.ts",
     "scripts": {
-        "build": "tsc --build tsconfig.lib.json && npx rollup ./dist/index.js --file ./dist/index.cjs --format cjs"
+        "bundle": "tsup --config ../../tsup.config.ts"
     },
     "exports": {
         "./package.json": "./package.json",
@@ -23,8 +22,7 @@
         "name": "debug"
     },
     "dependencies": {
-        "tslib": "^2.3.0",
         "@nestjs/common": "^11.0.1",
-        "rollup": "^4.53.3"
+        "tslib": "^2.3.0"
     }
 }

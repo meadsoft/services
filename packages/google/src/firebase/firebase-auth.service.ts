@@ -1,5 +1,5 @@
 import { Injectable } from '@nestjs/common';
-import { FirebaseService } from './firebase.service.js';
+import { FirebaseService } from './firebase.service';
 
 @Injectable()
 export class FirebaseAuthService {

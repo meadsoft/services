@@ -6,6 +6,9 @@
         "deleteOutDir": true,
         "assets": [
             "config.*.json"
+        ],
+        "plugins": [
+            "@nestjs/swagger"
         ]
     }
 }

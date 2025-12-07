@@ -4,13 +4,12 @@
     "license": "MIT",
     "scripts": {},
     "private": true,
-    "dependencies": {},
     "devDependencies": {
         "@eslint/eslintrc": "^3.2.0",
         "@eslint/js": "^9.18.0",
         "@nx/angular": "22.1.2",
-        "@nx/eslint": "22.1.2",
         "@nx/eslint-plugin": "22.1.2",
+        "@nx/eslint": "22.1.2",
         "@nx/jest": "22.1.2",
         "@nx/js": "22.1.2",
         "@swc-node/register": "~1.9.1",
@@ -19,13 +18,13 @@
         "@swc/jest": "~0.2.38",
         "@types/jest": "^30.0.0",
         "@types/node": "^22.10.7",
-        "eslint": "^9.18.0",
         "eslint-config-prettier": "^10.0.1",
         "eslint-plugin-prettier": "^5.2.2",
+        "eslint": "^9.18.0",
         "globals": "^16.0.0",
-        "jest": "^30.0.2",
         "jest-environment-node": "^30.0.2",
         "jest-util": "^30.0.2",
+        "jest": "^30.0.2",
         "jsonc-eslint-parser": "^2.1.0",
         "nx": "22.1.2",
         "prettier": "^3.4.2",
@@ -36,28 +35,12 @@
         "ts-node": "^10.9.2",
         "tsconfig-paths": "^4.2.0",
         "tslib": "^2.3.0",
-        "typescript": "~5.9.2",
-        "typescript-eslint": "^8.40.0"
+        "tsup": "^8.5.1",
+        "typescript-eslint": "^8.40.0",
+        "typescript": "~5.9.2"
     },
-    "packageManager": "pnpm@10.14.0",
+    "packageManager": "pnpm@10.24.0",
     "engines": {
         "node": "24.x"
-    },
-    "jest": {
-        "moduleFileExtensions": [
-            "js",
-            "json",
-            "ts"
-        ],
-        "rootDir": "src",
-        "testRegex": ".*\\.spec\\.ts$",
-        "transform": {
-            "^.+\\.(t|j)s$": "ts-jest"
-        },
-        "collectCoverageFrom": [
-            "**/*.(t|j)s"
-        ],
-        "coverageDirectory": "../coverage",
-        "testEnvironment": "node"
     }
 }

@@ -5,32 +5,50 @@
         {
             "type": "node",
             "request": "launch",
-            "name": "Debug NestJS App",
-            "runtimeExecutable": "npm",
+            "name": "Node: Debug NestJS App",
+            "runtimeExecutable": "nx",
             "runtimeArgs": [
                 "run",
-                "start:debug"
+                "cms-api:start:debug"
             ],
             "port": 9229,
             "console": "integratedTerminal",
             "skipFiles": [
                 "<node_internals>/**"
             ],
-            "restart": true
+            "restart": true,
+            "sourceMaps": true,
+            "outFiles": [
+                "${workspaceFolder}/apps/cms-api/dist/**/*.js",
+                "${workspaceFolder}/packages/*/dist/**/*.js"
+            ],
+            "resolveSourceMapLocations": [
+                "${workspaceFolder}/**",
+                "!**/node_modules/**"
+            ]
         },
         {
             "type": "node",
             "request": "attach",
-            "name": "Attach to NestJS",
+            "name": "Node: Attach to NestJS",
             "port": 9229,
             "restart": true,
             "skipFiles": [
                 "<node_internals>/**"
+            ],
+            "sourceMaps": true,
+            "outFiles": [
+                "${workspaceFolder}/apps/cms-api/dist/**/*.js",
+                "${workspaceFolder}/packages/*/dist/**/*.js"
+            ],
+            "resolveSourceMapLocations": [
+                "${workspaceFolder}/**",
+                "!**/node_modules/**"
             ]
         },
         {
             "name": "ng serve",
-            "type": "msedge",
+            "type": "Angular: msedge",
             "request": "launch",
             "preLaunchTask": "npm: start",
             "url": "http://localhost:4200/"

@@ -1,25 +1,15 @@
-export class FileMetadata {
-    id: string;
-    name: string;
+import { z } from 'zod';
 
-    constructor(id: string, name: string) {
-        this.id = id;
-        this.name = name;
-    }
-}
+export const FileMetadataSchema = z.object({
+    id: z.string(),
+    name: z.string(),
+});
 
-export class FileUrl {
-    metadata: FileMetadata;
-    url: string;
-    urlExpirationDate: string;
+export const FileUrlSchema = z.object({
+    metadata: FileMetadataSchema,
+    url: z.string(),
+    urlExpirationDate: z.string(),
+});
 
-    constructor(
-        metadata: FileMetadata,
-        url: string,
-        urlExpirationDate: string,
-    ) {
-        this.metadata = metadata;
-        this.url = url;
-        this.urlExpirationDate = urlExpirationDate;
-    }
-}
+export type FileMetadata = z.infer<typeof FileMetadataSchema>;
+export type FileUrl = z.infer<typeof FileUrlSchema>;

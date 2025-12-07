@@ -23,6 +23,5 @@ import { HaruCafeCmsModule } from '@haru-cafe/cms';
         // AuthModule,
         // PassportModule.register({ defaultStrategy: 'google' }),
     ],
-    // providers: [...HaruCafeDrizzlePgProviders, ...HaruCafeCmsProviders],
 })
 export class AppModule {}
