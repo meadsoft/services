@@ -3,8 +3,19 @@ import { HaruCafeCmsModule } from './cms.module';
 import { MenuItemRepository } from './infrastructure/repositories/menu-items.repo';
 import { SizesRepository } from './infrastructure/repositories/sizes.repo';
 import { TagsRepository } from './infrastructure/repositories/tags.repo';
-import { MenuItemsController } from './controllers/menu-items.controller';
+import {
+    MenuItemsQueryController,
+    MenuItemsCommandController,
+} from './controllers/menu-items.controller';
 import { InfrastructureConfig } from '@haru-cafe/common-infrastructure';
+import {
+    SizesCommandController,
+    SizesQueryController,
+} from './controllers/sizes.controller';
+import {
+    TagsCommandController,
+    TagsQueryController,
+} from './controllers/tags.controller';
 
 describe('HaruCafeCmsModule', () => {
     let module: TestingModule;
@@ -42,8 +53,56 @@ describe('HaruCafeCmsModule', () => {
         expect(repository).toBeDefined();
     });
 
-    it('should provide MenuItemsController', () => {
-        const controller = module.get<MenuItemsController>(MenuItemsController);
+    it('should provide MenuItemsQueryController', () => {
+        const controller = module.get<MenuItemsQueryController>(
+            MenuItemsQueryController,
+        );
+        expect(controller).toBeDefined();
+    });
+
+    it('should provide MenuItemsCommandController', () => {
+        const controller = module.get<MenuItemsCommandController>(
+            MenuItemsCommandController,
+        );
+        expect(controller).toBeDefined();
+    });
+
+    it('should provide MenuItemsQueryController', () => {
+        const controller = module.get<MenuItemsQueryController>(
+            MenuItemsQueryController,
+        );
+        expect(controller).toBeDefined();
+    });
+
+    it('should provide MenuItemsCommandController', () => {
+        const controller = module.get<MenuItemsCommandController>(
+            MenuItemsCommandController,
+        );
+        expect(controller).toBeDefined();
+    });
+
+    it('should provide SizesQueryController', () => {
+        const controller =
+            module.get<SizesQueryController>(SizesQueryController);
+        expect(controller).toBeDefined();
+    });
+
+    it('should provide SizesCommandController', () => {
+        const controller = module.get<SizesCommandController>(
+            SizesCommandController,
+        );
+        expect(controller).toBeDefined();
+    });
+
+    it('should provide TagsQueryController', () => {
+        const controller = module.get<TagsQueryController>(TagsQueryController);
+        expect(controller).toBeDefined();
+    });
+
+    it('should provide TagsCommandController', () => {
+        const controller = module.get<TagsCommandController>(
+            TagsCommandController,
+        );
         expect(controller).toBeDefined();
     });
 });

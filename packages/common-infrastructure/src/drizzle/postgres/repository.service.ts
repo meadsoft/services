@@ -2,12 +2,12 @@ import { eq } from 'drizzle-orm';
 import { PgTableWithColumns } from 'drizzle-orm/pg-core';
 import { BaseCmsModel } from '@haru-cafe/common';
 import { BaseModelService } from '../../base-model.service';
-import { IReadOnlyRepository, IRepository } from '../../repository.model';
+import { IQueryRepository, IRepository } from '../../repository.model';
 import { PostgresUnitOfWork } from './unit-of-work.service';
 
-export class DrizzlePgReadOnlyRepository<
+export class DrizzlePgQueryRepository<
     TModel extends BaseCmsModel,
-> implements IReadOnlyRepository<TModel> {
+> implements IQueryRepository<TModel> {
     constructor(
         protected pgTable: PgTableWithColumns<any>,
         protected unitOfWork: PostgresUnitOfWork,
@@ -37,19 +37,19 @@ export class DrizzlePgReadOnlyRepository<
     }
 }
 
-export class DrizzlePgRepository<
+export class DrizzlePgCommandRepository<
     TNewModel extends object,
     TModel extends BaseCmsModel,
 >
-    extends DrizzlePgReadOnlyRepository<TModel>
+    extends DrizzlePgQueryRepository<TModel>
     implements IRepository<TNewModel, TModel>
 {
-    async create(menuItem: TNewModel, userId: string): Promise<TModel> {
-        this.baseModelService.addCreationData(menuItem, userId);
+    async create(item: TNewModel, userId: string): Promise<TModel> {
+        this.baseModelService.addCreationData(item, userId);
         const [created] = await this.unitOfWork
             .getDatabase()
             .insert(this.pgTable)
-            .values(menuItem)
+            .values(item)
             .returning();
         return created as TModel;
     }

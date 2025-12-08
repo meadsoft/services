@@ -7,9 +7,38 @@ import {
     InvalidIDException,
     BaseCmsModel,
 } from '@haru-cafe/common';
-import type { IRepository } from '@haru-cafe/common-infrastructure';
+import type {
+    ICommandRepository,
+    IQueryRepository,
+} from '@haru-cafe/common-infrastructure';
 
-export function createBaseEntityController<
+export function createQueryController<TModel extends BaseCmsModel>(
+    model: TModel,
+    _modelSchema: ZodObject,
+) {
+    class QueryController<TModel extends BaseCmsModel> {
+        constructor(public repository: IQueryRepository<TModel>) {}
+
+        @Get(':id')
+        @ApiOkResponse({ type: typeof model })
+        async findById(@Param('id') id: string): Promise<TModel | null> {
+            if (validateUuid(id) === false) {
+                throw new InvalidIDException();
+            }
+            return this.repository.findById(id);
+        }
+
+        @Get()
+        @ApiOkResponse({ type: typeof model, isArray: true })
+        async findAll(): Promise<TModel[]> {
+            return await this.repository.findAll();
+        }
+    }
+
+    return QueryController;
+}
+
+export function createCommandController<
     TModel extends BaseCmsModel,
     TNewModel extends object,
 >(
@@ -18,27 +47,11 @@ export function createBaseEntityController<
     _newModel: TNewModel,
     newModelSchema: ZodObject,
 ) {
-    class BaseModelController<
+    class CommandController<
         TModel extends BaseCmsModel,
         TNewModel extends object,
     > {
-        constructor(public repository: IRepository<TNewModel, TModel>) {}
-
-        @Get(':id')
-        @ApiOkResponse({ type: typeof model })
-        async findById(@Param('id') id: string): Promise<TModel | null> {
-            if (validateUuid(id) === false) {
-                throw new InvalidIDException();
-            }
-            const result = await this.repository.findById(id);
-            return result;
-        }
-
-        @Get()
-        @ApiOkResponse({ type: typeof model, isArray: true })
-        async findAll(): Promise<TModel[]> {
-            return await this.repository.findAll();
-        }
+        constructor(public repository: ICommandRepository<TNewModel, TModel>) {}
 
         @Post()
         @UsePipes(new ZodValidationPipe(newModelSchema))
@@ -68,5 +81,5 @@ export function createBaseEntityController<
         }
     }
 
-    return BaseModelController;
+    return CommandController;
 }

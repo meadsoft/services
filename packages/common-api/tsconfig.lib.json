@@ -6,26 +6,15 @@
         "outDir": "dist",
         "tsBuildInfoFile": "dist/tsconfig.lib.tsbuildinfo",
         "emitDeclarationOnly": false,
+        "forceConsistentCasingInFileNames": true,
         "types": [
             "node"
         ]
     },
     "include": [
-        "src/**/*.ts",
-        "src/drizzle.config.ts",
-        "../common-api/src/controllers/base-entity.controller.ts"
+        "src/**/*.ts"
     ],
-    "references": [
-        {
-            "path": "../common-infrastructure/tsconfig.lib.json"
-        },
-        {
-            "path": "../common/tsconfig.lib.json"
-        },
-        {
-            "path": "../cms-contracts/tsconfig.lib.json"
-        }
-    ],
+    "references": [],
     "exclude": [
         "jest.config.ts",
         "jest.config.cts",
