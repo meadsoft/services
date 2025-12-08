@@ -7,14 +7,17 @@
         "tsBuildInfoFile": "dist/tsconfig.lib.tsbuildinfo",
         "emitDeclarationOnly": false,
         "forceConsistentCasingInFileNames": true,
-        "types": [
-            "node"
-        ]
+        "types": ["node"]
     },
-    "include": [
-        "src/**/*.ts"
+    "include": ["src/**/*.ts"],
+    "references": [
+        {
+            "path": "../common-infrastructure/tsconfig.lib.json"
+        },
+        {
+            "path": "../common/tsconfig.lib.json"
+        }
     ],
-    "references": [],
     "exclude": [
         "jest.config.ts",
         "jest.config.cts",

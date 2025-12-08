@@ -6,16 +6,13 @@
         "outDir": "dist",
         "tsBuildInfoFile": "dist/tsconfig.lib.tsbuildinfo",
         "emitDeclarationOnly": false,
-        "types": [
-            "node"
-        ]
+        "types": ["node"]
     },
-    "include": [
-        "src/**/*.ts",
-        "src/drizzle.config.ts",
-        "../common-api/src/controllers/base-entity.controller.ts"
-    ],
+    "include": ["src/**/*.ts", "src/drizzle.config.ts"],
     "references": [
+        {
+            "path": "../common-api/tsconfig.lib.json"
+        },
         {
             "path": "../common-infrastructure/tsconfig.lib.json"
         },

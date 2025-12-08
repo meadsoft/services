@@ -26,22 +26,10 @@
     ],
     "references": [
         {
-            "path": "../../packages/google/tsconfig.lib.json"
-        },
-        {
-            "path": "../../packages/files/tsconfig.lib.json"
-        },
-        {
-            "path": "../../packages/debug/tsconfig.lib.json"
-        },
-        {
             "path": "../../packages/common/tsconfig.lib.json"
         },
         {
             "path": "../../packages/cms/tsconfig.lib.json"
-        },
-        {
-            "path": "../../packages/auth/tsconfig.lib.json"
         }
     ]
 }

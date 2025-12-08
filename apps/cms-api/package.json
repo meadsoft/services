@@ -18,12 +18,8 @@
         "test:e2e": "jest --config ./test/jest-e2e.json"
     },
     "dependencies": {
-        "@haru-cafe/auth": "workspace:*",
         "@haru-cafe/cms": "workspace:*",
         "@haru-cafe/common": "workspace:*",
-        "@haru-cafe/debug": "workspace:*",
-        "@haru-cafe/files": "workspace:*",
-        "@haru-cafe/google": "workspace:*",
         "@nestjs/cli": "^11.0.1",
         "@nestjs/common": "^11.0.1",
         "@nestjs/core": "^11.0.1",
@@ -34,6 +30,7 @@
         "@types/cookie-parser": "^1.4.10",
         "cookie-parser": "^1.4.7",
         "nestjs-zod": "^5.0.1",
+        "tslib": "^2.3.0",
         "zod": "^4.1.12"
     }
 }
