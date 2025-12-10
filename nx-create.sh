@@ -1,5 +1,5 @@
 npx create-nx-workspace@latest \
-    haru-cafe \
+    meadsoft \
     --preset ts \
     --workspaceType integrated \
     --useProjectJson false \

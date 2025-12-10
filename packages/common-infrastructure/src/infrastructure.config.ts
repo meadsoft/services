@@ -1,4 +1,4 @@
-import { loadConfig } from '@haru-cafe/common';
+import { loadConfig } from '@meadsoft/common';
 import { Provider } from '@nestjs/common';
 import path from 'path';
 import zod from 'zod';

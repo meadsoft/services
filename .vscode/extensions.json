@@ -15,6 +15,7 @@
         "rvest.vs-code-prettier-eslint",
         "GitHub.copilot",
         "nrwl.angular-console",
-        "firsttris.vscode-jest-runner"
+        "firsttris.vscode-jest-runner",
+        "github.vscode-github-actions"
     ],
 }

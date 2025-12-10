@@ -2,7 +2,7 @@
     "compilerOptions": {
         "composite": true,
         "customConditions": [
-            "@haru-cafe/monorepo"
+            "@meadsoft/monorepo"
         ],
         "declarationMap": true,
         "emitDeclarationOnly": true,

@@ -7,7 +7,7 @@
             "path": "./packages/common"
         },
         {
-            "path": "./packages/cms"
+            "path": "./packages/restaurant-catalog"
         },
         {
             "path": "./packages/debug"
@@ -25,10 +25,10 @@
             "path": "./apps/frontend"
         },
         {
-            "path": "./apps/cms-api"
+            "path": "./apps/restaurant-catalog-api"
         },
         {
-            "path": "./packages/cms-contracts"
+            "path": "./packages/restaurant-catalog-contracts"
         },
         {
             "path": "./packages/common-infrastructure"

@@ -1,5 +1,5 @@
 {
-    "name": "@haru-cafe/auth",
+    "name": "@meadsoft/auth",
     "version": "0.0.0",
     "private": true,
     "main": "./dist/index.js",
@@ -11,7 +11,7 @@
     "exports": {
         "./package.json": "./package.json",
         ".": {
-            "@haru-cafe/monorepo": "./src/index.ts",
+            "@meadsoft/monorepo": "./src/index.ts",
             "types": "./dist/index.d.ts",
             "import": "./dist/index.js",
             "require": "./dist/index.cjs",
@@ -22,8 +22,8 @@
         "name": "auth"
     },
     "dependencies": {
-        "@haru-cafe/google": "workspace:*",
-        "@haru-cafe/common": "workspace:*",
+        "@meadsoft/google": "workspace:*",
+        "@meadsoft/common": "workspace:*",
         "@nestjs/common": "^11.0.1",
         "@nestjs/jwt": "^11.0.1",
         "@nestjs/passport": "^11.0.1",

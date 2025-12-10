@@ -1,0 +1,24 @@
+name: Staging Deployment
+
+on:
+    pull_request:
+        types: [opened, synchronize]
+        branches:
+            - 'main'
+
+permissions:
+    actions: read
+    contents: read
+    packages: write
+
+jobs:
+    detect-app:
+        uses: ./.github/workflows/detect-app.yml
+        with:
+            tag: ${{ github.ref_name }}
+
+    build-image:
+        needs: detect-app
+        uses: ./.github/workflows/build-docker-image.yml
+        with:
+            app-name: ${{ needs.detect-app.outputs.app-name }}

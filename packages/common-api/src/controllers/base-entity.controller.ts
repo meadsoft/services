@@ -2,21 +2,17 @@ import { Body, Delete, Get, Param, Post, Put, UsePipes } from '@nestjs/common';
 import { ApiCreatedResponse, ApiOkResponse } from '@nestjs/swagger';
 import { ZodValidationPipe } from 'nestjs-zod';
 import { ZodObject } from 'zod';
-import {
-    validateUuid,
-    InvalidIDException,
-    BaseCmsModel,
-} from '@haru-cafe/common';
+import { validateUuid, InvalidIDException, Entity } from '@meadsoft/common';
 import type {
     ICommandRepository,
     IQueryRepository,
-} from '@haru-cafe/common-infrastructure';
+} from '@meadsoft/common-infrastructure';
 
-export function createQueryController<TModel extends BaseCmsModel>(
+export function createQueryController<TModel extends Entity>(
     model: TModel,
     _modelSchema: ZodObject,
 ) {
-    class QueryController<TModel extends BaseCmsModel> {
+    class QueryController<TModel extends Entity> {
         constructor(public repository: IQueryRepository<TModel>) {}
 
         @Get(':id')
@@ -39,7 +35,7 @@ export function createQueryController<TModel extends BaseCmsModel>(
 }
 
 export function createCommandController<
-    TModel extends BaseCmsModel,
+    TModel extends Entity,
     TNewModel extends object,
 >(
     model: TModel,
@@ -47,10 +43,7 @@ export function createCommandController<
     _newModel: TNewModel,
     newModelSchema: ZodObject,
 ) {
-    class CommandController<
-        TModel extends BaseCmsModel,
-        TNewModel extends object,
-    > {
+    class CommandController<TModel extends Entity, TNewModel extends object> {
         constructor(public repository: ICommandRepository<TNewModel, TModel>) {}
 
         @Post()

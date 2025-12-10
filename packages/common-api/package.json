@@ -1,5 +1,5 @@
 {
-    "name": "@haru-cafe/common-api",
+    "name": "@meadsoft/common-api",
     "version": "0.0.0",
     "tags": [
         "util",
@@ -16,7 +16,7 @@
     "exports": {
         "./package.json": "./package.json",
         ".": {
-            "@haru-cafe/monorepo": "./src/index.ts",
+            "@meadsoft/monorepo": "./src/index.ts",
             "types": "./dist/index.d.ts",
             "import": "./dist/index.js",
             "require": "./dist/index.cjs",
@@ -30,8 +30,8 @@
         "@nestjs/common": "^11.0.1",
         "@nestjs/swagger": "^11.2.3",
         "@nestjs/testing": "^11.0.1",
-        "@haru-cafe/common": "workspace:*",
-        "@haru-cafe/common-infrastructure": "workspace:*",
+        "@meadsoft/common": "workspace:*",
+        "@meadsoft/common-infrastructure": "workspace:*",
         "tslib": "^2.3.0",
         "tsup": "^8.5.1",
         "nestjs-zod": "^5.0.1",

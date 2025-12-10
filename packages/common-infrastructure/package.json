@@ -1,5 +1,5 @@
 {
-    "name": "@haru-cafe/common-infrastructure",
+    "name": "@meadsoft/common-infrastructure",
     "version": "0.0.0",
     "tags": [
         "util",
@@ -17,7 +17,7 @@
     "exports": {
         "./package.json": "./package.json",
         ".": {
-            "@haru-cafe/monorepo": "./src/index.ts",
+            "@meadsoft/monorepo": "./src/index.ts",
             "types": "./dist/index.d.ts",
             "import": "./dist/index.js",
             "require": "./dist/index.cjs",
@@ -28,7 +28,7 @@
         "name": "common-infrastructure"
     },
     "dependencies": {
-        "@haru-cafe/common": "workspace:*",
+        "@meadsoft/common": "workspace:*",
         "@nestjs/common": "^11.0.1",
         "@nestjs/testing": "^11.0.1",
         "@types/pg": "^8.15.6",

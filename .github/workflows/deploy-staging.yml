@@ -1,0 +1,57 @@
+name: Staging Deployment
+
+on:
+    push:
+        branches:
+            - '*/staging**'
+    workflow_dispatch:
+        inputs:
+            tag:
+                description: 'Git tag to deploy (e.g., frontend/release/v1.2.3)'
+                required: true
+                type: string
+            cloudrun-flags:
+                description: 'Additional flags for gcloud deploy command'
+                required: false
+                type: string
+                default: ''
+            region:
+                description: 'Google Cloud Run region'
+                required: false
+                type: string
+                default: 'us-central1'
+
+
+permissions:
+    actions: read
+    contents: read
+    packages: write
+
+jobs:
+    detect-app:
+        uses: ./.github/workflows/detect-app.yml
+        with:
+            tag: ${{ inputs.tag || github.ref_name }}
+
+    build-and-push-image:
+        needs: detect-app
+        uses: ./.github/workflows/build-and-push-docker-image.yml
+        with:
+            app-name: ${{ needs.detect-app.outputs.app-name }}
+            version: ${{ needs.detect-app.outputs.version }}
+            environment: production
+        secrets:
+            github-token: ${{ secrets.GITHUB_TOKEN }}
+
+    deploy:
+        needs: [detect-app, build-and-push-image]
+        uses: ./.github/workflows/deploy-cloudrun.yml
+        with:
+            app-name: ${{ needs.detect-app.outputs.app-name }}
+            version: ${{ needs.detect-app.outputs.version }}
+            environment: prod
+            region: ${{ inputs.region || 'us-central1' }}
+            cloudrun-flags: ${{ inputs.cloudrun-flags || '' }}
+        secrets:
+            GCP_SA_KEY: ${{ secrets.GCP_SA_KEY }}
+            GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}

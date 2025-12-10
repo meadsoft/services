@@ -1,12 +1,12 @@
 import { eq } from 'drizzle-orm';
 import { PgTableWithColumns } from 'drizzle-orm/pg-core';
-import { BaseCmsModel } from '@haru-cafe/common';
+import { Entity } from '@meadsoft/common';
 import { BaseModelService } from '../../base-model.service';
 import { IQueryRepository, IRepository } from '../../repository.model';
 import { PostgresUnitOfWork } from './unit-of-work.service';
 
 export class DrizzlePgQueryRepository<
-    TModel extends BaseCmsModel,
+    TModel extends Entity,
 > implements IQueryRepository<TModel> {
     constructor(
         protected pgTable: PgTableWithColumns<any>,
@@ -39,7 +39,7 @@ export class DrizzlePgQueryRepository<
 
 export class DrizzlePgCommandRepository<
     TNewModel extends object,
-    TModel extends BaseCmsModel,
+    TModel extends Entity,
 >
     extends DrizzlePgQueryRepository<TModel>
     implements IRepository<TNewModel, TModel>

@@ -1,5 +1,5 @@
 {
-    "name": "@haru-cafe/debug",
+    "name": "@meadsoft/debug",
     "version": "0.0.0",
     "tags": [
         "util",
@@ -15,7 +15,7 @@
     "exports": {
         "./package.json": "./package.json",
         ".": {
-            "@haru-cafe/monorepo": "./src/index.ts",
+            "@meadsoft/monorepo": "./src/index.ts",
             "types": "./dist/index.d.ts",
             "import": "./dist/index.js",
             "require": "./dist/index.cjs",

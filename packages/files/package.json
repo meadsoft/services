@@ -1,5 +1,5 @@
 {
-    "name": "@haru-cafe/files",
+    "name": "@meadsoft/files",
     "version": "0.0.0",
     "tags": [
         "query",
@@ -17,7 +17,7 @@
     "exports": {
         "./package.json": "./package.json",
         ".": {
-            "@haru-cafe/monorepo": "./src/index.ts",
+            "@meadsoft/monorepo": "./src/index.ts",
             "types": "./dist/index.d.ts",
             "import": "./dist/index.js",
             "require": "./dist/index.cjs",
@@ -28,7 +28,7 @@
         "name": "files"
     },
     "dependencies": {
-        "@haru-cafe/google": "workspace:*",
+        "@meadsoft/google": "workspace:*",
         "@nestjs/common": "^11.0.1",
         "@nestjs/platform-express": "^11.0.1",
         "@nestjs/swagger": "^11.2.2",

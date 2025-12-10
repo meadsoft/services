@@ -1,4 +1,4 @@
-import { OnCreationData } from '@haru-cafe/common';
+import { OnCreationData } from '@meadsoft/common';
 import { Injectable } from '@nestjs/common';
 
 @Injectable()

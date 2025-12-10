@@ -1,5 +1,5 @@
 {
-    "name": "@haru-cafe/google",
+    "name": "@meadsoft/google",
     "version": "0.0.0",
     "private": true,
     "main": "./dist/index.js",
@@ -11,7 +11,7 @@
     "exports": {
         "./package.json": "./package.json",
         ".": {
-            "@haru-cafe/monorepo": "./src/index.ts",
+            "@meadsoft/monorepo": "./src/index.ts",
             "types": "./dist/index.d.ts",
             "import": "./dist/index.js",
             "require": "./dist/index.cjs",
@@ -22,7 +22,7 @@
         "name": "google"
     },
     "dependencies": {
-        "@haru-cafe/common": "workspace:*",
+        "@meadsoft/common": "workspace:*",
         "@nestjs/common": "^11.0.1",
         "firebase-admin": "^13.6.0",
         "tslib": "^2.3.0",

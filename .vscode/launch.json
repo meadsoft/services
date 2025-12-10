@@ -9,7 +9,7 @@
             "runtimeExecutable": "nx",
             "runtimeArgs": [
                 "run",
-                "cms-api:start:debug"
+                "restaurant-catalog-api:start:debug"
             ],
             "port": 9229,
             "console": "integratedTerminal",
@@ -19,7 +19,7 @@
             "restart": true,
             "sourceMaps": true,
             "outFiles": [
-                "${workspaceFolder}/apps/cms-api/dist/**/*.js",
+                "${workspaceFolder}/apps/restaurant-catalog-api/dist/**/*.js",
                 "${workspaceFolder}/packages/*/dist/**/*.js"
             ],
             "resolveSourceMapLocations": [
@@ -38,7 +38,7 @@
             ],
             "sourceMaps": true,
             "outFiles": [
-                "${workspaceFolder}/apps/cms-api/dist/**/*.js",
+                "${workspaceFolder}/apps/restaurant-catalog-api/dist/**/*.js",
                 "${workspaceFolder}/packages/*/dist/**/*.js"
             ],
             "resolveSourceMapLocations": [

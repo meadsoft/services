@@ -39,7 +39,8 @@
                 "usernamehw.errorlens",
                 "esbenp.prettier-vscode",
                 "rvest.vs-code-prettier-eslint",
-                "GitHub.copilot"
+                "GitHub.copilot",
+                "github.vscode-github-actions"
             ]
         }
     }

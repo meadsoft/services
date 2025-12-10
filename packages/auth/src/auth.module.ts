@@ -2,7 +2,7 @@ import { Module } from '@nestjs/common';
 import { JwtModule } from '@nestjs/jwt';
 import { PassportModule } from '@nestjs/passport';
 import { JwtStrategy } from './jwt.strategy';
-import { FirebaseModule } from '@haru-cafe/google';
+import { FirebaseModule } from '@meadsoft/google';
 import { AuthController } from './auth.controller';
 import { AuthConfigProvider } from './auth.config';
 

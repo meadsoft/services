@@ -1,5 +1,5 @@
 // auth.controller.ts
-import { FirebaseAuthService } from '@haru-cafe/google';
+import { FirebaseAuthService } from '@meadsoft/google';
 import {
     Controller,
     Get,
@@ -21,13 +21,13 @@ export class AuthController {
     constructor(
         private readonly firebaseAuth: FirebaseAuthService,
         private readonly jwtService: JwtService,
-        private readonly authConfig: AuthConfig
+        private readonly authConfig: AuthConfig,
     ) {}
 
     @Post('firebase-login')
     async firebaseLogin(
         @Req() req: Request,
-        @Res({ passthrough: true }) res: Response
+        @Res({ passthrough: true }) res: Response,
     ): Promise<User> {
         const authHeader = req.headers['authorization'];
         if (!authHeader) throw new UnauthorizedException();

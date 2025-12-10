@@ -1,12 +1,12 @@
 import { OnCreationDataSchema } from './on-creation.entity';
 import { z } from 'zod';
 
-export const BaseModelSchema = OnCreationDataSchema.extend({
+export const EntitySchema = OnCreationDataSchema.extend({
     id: z.string(),
 });
 
-export type IBaseCmsModel = z.infer<typeof BaseModelSchema>;
-export class BaseCmsModel implements IBaseCmsModel {
+export type IEntity = z.infer<typeof EntitySchema>;
+export class Entity implements IEntity {
     id!: string;
     createdDate!: string | null;
     updatedDate!: string | null;

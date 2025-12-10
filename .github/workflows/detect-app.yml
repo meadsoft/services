@@ -1,0 +1,47 @@
+name: Detect App from Tag or Branch
+
+on:
+    workflow_dispatch:
+        inputs:
+            tag:
+                description: "Git tag to parse (e.g., frontend/v1.2.3)"
+                required: true
+                type: string
+    workflow_call:
+        inputs:
+            tag:
+                description: "Git tag to parse (e.g., frontend/v1.2.3)"
+                required: false
+                type: string
+        outputs:
+            app-name:
+                description: "The name of the application extracted from the tag"
+                value: ${{ jobs.detect-app.outputs.app-name }}
+            version:
+                description: "The version extracted from the tag or branch"
+                value: ${{ jobs.detect-app.outputs.version }}
+
+jobs:
+    detect-app:
+        runs-on: ubuntu-latest
+        outputs:
+            app-name: ${{ steps.parse.outputs.app }}
+            version: ${{ steps.parse.outputs.version }}
+        steps:
+            - name: Parse tag
+              id: parse
+              run: |
+                  # Extract app name and version from tag (e.g., frontend/v1.2.3)
+                  REF_NAME="${{ inputs.tag || github.ref_name }}"
+                  APP=$(echo "$REF_NAME" | cut -d'/' -f1)
+                  VERSION=$(echo "$REF_NAME" | cut -d'/' -f2-)
+                  echo "app=$APP" >> $GITHUB_OUTPUT
+                  echo "version=$VERSION" >> $GITHUB_OUTPUT
+                  echo "Deploying app: $APP version: $VERSION to PRODUCTION"
+
+            - name: Validate tag format
+              run: |
+                  if [[ ! "${{ steps.parse.outputs.version }}" =~ ^v[0-9]+\.[0-9]+\.[0-9]+$ ]]; then
+                    echo "Error: Version must follow semantic versioning (e.g., v1.2.3)"
+                    exit 1
+                  fi

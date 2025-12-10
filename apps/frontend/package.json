@@ -1,5 +1,5 @@
 {
-    "name": "haru-cafe",
+    "name": "meadsoft",
     "version": "0.0.0",
     "scripts": {
         "ng": "ng",
@@ -14,7 +14,7 @@
     },
     "private": true,
     "dependencies": {
-        "@haru-cafe/cms": "workspace:*",
+        "@meadsoft/restaurant-catalog": "workspace:*",
         "@angular/animations": "^20.3.10",
         "@angular/cdk": "^20.2.12",
         "@angular/common": "^20.3.10",
