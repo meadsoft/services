@@ -3,24 +3,23 @@ name: Staging Deployment
 on:
     push:
         branches:
-            - '*/staging**'
+            - "*/staging**"
     workflow_dispatch:
         inputs:
             tag:
-                description: 'Git tag to deploy (e.g., frontend/release/v1.2.3)'
+                description: "Git tag to deploy (e.g., frontend/release/v1.2.3)"
                 required: true
                 type: string
             cloudrun-flags:
-                description: 'Additional flags for gcloud deploy command'
+                description: "Additional flags for gcloud deploy command"
                 required: false
                 type: string
-                default: ''
+                default: ""
             region:
-                description: 'Google Cloud Run region'
+                description: "Google Cloud Run region"
                 required: false
                 type: string
-                default: 'us-central1'
-
+                default: "us-central1"
 
 permissions:
     actions: read
@@ -40,8 +39,6 @@ jobs:
             app-name: ${{ needs.detect-app.outputs.app-name }}
             version: ${{ needs.detect-app.outputs.version }}
             environment: production
-        secrets:
-            github-token: ${{ secrets.GITHUB_TOKEN }}
 
     deploy:
         needs: [detect-app, build-and-push-image]
@@ -52,6 +49,3 @@ jobs:
             environment: prod
             region: ${{ inputs.region || 'us-central1' }}
             cloudrun-flags: ${{ inputs.cloudrun-flags || '' }}
-        secrets:
-            GCP_SA_KEY: ${{ secrets.GCP_SA_KEY }}
-            GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}

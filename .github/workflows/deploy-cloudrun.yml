@@ -58,10 +58,6 @@ on:
                 required: false
                 type: string
                 default: ""
-        secrets:
-            GCP_SA_KEY:
-                description: "Google Cloud Service Account Key JSON"
-                required: true
         outputs:
             url:
                 description: "Deployment URL"
@@ -78,23 +74,12 @@ jobs:
         steps:
             - uses: actions/checkout@v4
 
-            - name: Validate GCP credentials
-              id: validate-creds
-              run: |
-                  if [ -z "$GCP_SA_KEY" ]; then
-                    echo "::error::GCP_SA_KEY secret is not set for environment '${{ inputs.app-name }}.${{ inputs.environment }}'"
-                    echo "Please configure the GCP_SA_KEY secret in:"
-                    echo "Settings → Environments → ${{ inputs.app-name }}.${{ inputs.environment }} → Secrets"
-                    exit 1
-                  fi
-                  echo "GCP credentials are configured"
-              env:
-                  GCP_SA_KEY: ${{ secrets.GCP_SA_KEY }}
-
             - name: Authenticate to Google Cloud
               uses: google-github-actions/auth@v2
               with:
-                  credentials_json: ${{ secrets.GCP_SA_KEY }}
+                  token_format: access_token
+                  workload_identity_provider: projects/764108434612/locations/global/workloadIdentityPools/github-pool/providers/github
+                  service_account: meadsoft-dev-sa@smart-quasar-297403.iam.gserviceaccount.com
 
             - name: Log in to GitHub Container Registry
               uses: docker/login-action@v3
