@@ -3,27 +3,28 @@ name: Staging Deployment
 on:
     push:
         branches:
-            - 'main'
+            - "main"
     workflow_dispatch:
         inputs:
             tag:
-                description: 'Git tag to deploy (e.g., frontend/release/v1.2.3)'
+                description: "Git tag to deploy (e.g., frontend/release/v1.2.3)"
                 required: true
                 type: string
             cloudrun-flags:
-                description: 'Additional flags for gcloud deploy command'
+                description: "Additional flags for gcloud deploy command"
                 required: false
                 type: string
-                default: ''
+                default: ""
             region:
-                description: 'Google Cloud Run region'
+                description: "Google Cloud Run region"
                 required: false
                 type: string
-                default: 'us-central1'
+                default: "us-central1"
 
 permissions:
     actions: read
     contents: read
+    packages: write
 
 jobs:
     detect-app:
