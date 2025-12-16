@@ -3,7 +3,7 @@ name: Staging Deployment
 on:
     push:
         branches:
-            - "*/dev**"
+            - "*/dev"
     workflow_dispatch:
         inputs:
             ref:

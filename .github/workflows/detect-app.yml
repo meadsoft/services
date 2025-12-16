@@ -17,6 +17,9 @@ on:
             app-name:
                 description: "The name of the application extracted from the tag or branch"
                 value: ${{ jobs.detect-app.outputs.app-name }}
+            app-env:
+                description: "The environment extracted from the tag or branch"
+                value: ${{ jobs.detect-app.outputs.app-env }}
             version:
                 description: "The version extracted from the tag or branch"
                 value: ${{ jobs.detect-app.outputs.version }}
@@ -26,6 +29,7 @@ jobs:
         runs-on: ubuntu-latest
         outputs:
             app-name: ${{ steps.parse.outputs.app }}
+            app-env: ${{ steps.parse.outputs.env }}
             version: ${{ steps.parse.outputs.version }}
         steps:
             - name: Parse ref
@@ -34,8 +38,10 @@ jobs:
                   # Extract app name and version from ref (e.g., frontend/v1.2.3)
                   REF_NAME="${{ inputs.ref || github.ref_name }}"
                   APP=$(echo "$REF_NAME" | cut -d'/' -f1)
-                  VERSION=$(echo "$REF_NAME" | cut -d'/' -f2-)
+                  ENV=$(echo "$REF_NAME" | cut -d'/' -f2)
+                  VERSION=$(echo "$REF_NAME" | cut -d'/' -f3)
                   echo "app=$APP" >> $GITHUB_OUTPUT
+                  echo "env=$ENV" >> $GITHUB_OUTPUT
                   echo "version=$VERSION" >> $GITHUB_OUTPUT
                   echo "Deploying app: $APP version: $VERSION to PRODUCTION"
 
