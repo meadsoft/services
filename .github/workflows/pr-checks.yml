@@ -4,7 +4,7 @@ on:
     pull_request:
         types: [opened, synchronize]
         branches:
-            - 'main'
+            - "main"
 
 permissions:
     actions: read
@@ -15,7 +15,7 @@ jobs:
     detect-app:
         uses: ./.github/workflows/detect-app.yml
         with:
-            tag: ${{ github.ref_name }}
+            ref: ${{ github.ref_name }}
 
     build-image:
         needs: detect-app
