@@ -1,4 +1,4 @@
-name: Staging Deployment
+name: Dev Deployment
 
 on:
     push:
@@ -38,7 +38,7 @@ jobs:
         with:
             app-name: ${{ needs.detect-app.outputs.app-name }}
             version: ${{ needs.detect-app.outputs.version }}
-            environment: production
+            environment: dev
 
     deploy:
         needs: [detect-app, build-and-push-image]

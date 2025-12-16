@@ -82,7 +82,7 @@ jobs:
                   tags: ${{ steps.meta.outputs.tags }}
                   labels: ${{ steps.meta.outputs.labels }}
                   build-args: |
-                      NODE_ENV=${{ inputs.environment }}
+                      APP_ENV=${{ inputs.environment }}
                       APP_NAME=${{ inputs.app-name }}
                       VERSION=${{ inputs.version }}
                   cache-from: type=gha
