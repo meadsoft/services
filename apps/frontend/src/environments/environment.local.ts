@@ -4,7 +4,7 @@ export const environment: Environment = {
     production: false,
     apiBaseUrl: 'http://localhost:3000',
     firebase: {
-        apiKey: 'AIzaSyAuyGgJQsNIcQkB-p4OPk3UstmCzOrGlew',
+        apiKey: '',
         authDomain: 'smart-quasar-297403.firebaseapp.com',
         projectId: 'smart-quasar-297403',
         storageBucket: 'smart-quasar-297403.firebasestorage.app',
