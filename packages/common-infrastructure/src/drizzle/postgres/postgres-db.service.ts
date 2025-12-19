@@ -19,11 +19,9 @@ export class PostgresDbService {
     }
 
     getDatabase() {
-        if (!this._db) {
-            this._db = drizzle(this.infrastructureConfig.DATABASE_URL);
-            // for some reason, when using the pool the client is undefined
-            // this._db = drizzle({ client: this.pool });
-        }
+        this._db ??= drizzle(this.infrastructureConfig.DATABASE_URL);
+        // for some reason, when using the pool the client is undefined
+        // this._db = drizzle({ client: this.pool });
         return this._db;
     }
 

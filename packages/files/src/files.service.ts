@@ -12,14 +12,12 @@ export class FilesService {
     ) {}
 
     async getUrl(id: string, expirationDate?: string): Promise<string> {
-        if (!expirationDate) {
-            expirationDate = this.getDefaultExpirationDate().toISO();
-        }
+        expirationDate ??= this.getDefaultExpirationDate().toISO();
         return await this.filesRepo.getUrl(id, expirationDate);
     }
 
     async uploadMany(files: Express.Multer.File[]): Promise<FileUrl[]> {
-        return await Promise.all(files.map((file) => this.upload(file)));
+        return await Promise.all(files.map(async (file) => this.upload(file)));
     }
 
     async upload(file: Express.Multer.File): Promise<FileUrl> {

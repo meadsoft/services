@@ -18,9 +18,12 @@ export class FirebaseService {
         if (!admin.apps.length) {
             this.app = admin.initializeApp({
                 credential: admin.credential.cert({
-                    projectId: this.config.project_id,
-                    clientEmail: this.config.client_email,
-                    privateKey: this.config.privateKey?.replace(/\\n/g, '\n'),
+                    projectId: this.config.file.project_id,
+                    clientEmail: this.config.file.client_email ?? '',
+                    privateKey: this.config.env.FIREBASE_PRIVATE_KEY?.replace(
+                        /\\n/g,
+                        '\n',
+                    ),
                 }),
             });
         }
@@ -30,7 +33,7 @@ export class FirebaseService {
         this.storage = this.app.storage();
         Logger.log(
             'Firebase initialized successfully for project: ' +
-                this.config.project_id,
+                this.config.file.project_id,
         );
     }
 }

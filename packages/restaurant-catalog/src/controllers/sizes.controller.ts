@@ -3,7 +3,6 @@ import {
     NewSize,
     NewSizeSchema,
     Size,
-    SizeSchema,
 } from '@meadsoft/restaurant-catalog-contracts';
 import {
     createCommandController,
@@ -12,21 +11,16 @@ import {
 import { SizesRepository } from '../infrastructure/repositories/sizes.repo';
 import { ApiTags } from '@nestjs/swagger';
 
-const sizesQueryController = createQueryController<Size>(
-    new Size(),
-    SizeSchema,
-);
+const sizesQueryController = createQueryController<Size>(Size);
 
 const sizesCommandController = createCommandController<Size, NewSize>(
-    new Size(),
-    SizeSchema,
-    new NewSize(),
+    Size,
     NewSizeSchema,
 );
 
 @ApiTags('Sizes')
 @Controller('sizes')
-export class SizesQueryController extends sizesQueryController<Size> {
+export class SizesQueryController extends sizesQueryController {
     constructor(repository: SizesRepository) {
         super(repository);
     }
@@ -34,10 +28,7 @@ export class SizesQueryController extends sizesQueryController<Size> {
 
 @ApiTags('Sizes')
 @Controller('sizes')
-export class SizesCommandController extends sizesCommandController<
-    Size,
-    NewSize
-> {
+export class SizesCommandController extends sizesCommandController {
     constructor(repository: SizesRepository) {
         super(repository);
     }

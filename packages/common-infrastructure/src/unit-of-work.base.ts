@@ -18,8 +18,8 @@ export class UnitOfWork<TDb = unknown, TTransaction = unknown> {
     /**
      * Execute work within a transaction
      */
-    startTransaction<T>(_work: () => Promise<T>): Promise<T> {
-        throw new NotImplementedException();
+    async startTransaction<T>(work: () => Promise<T>): Promise<T> {
+        return await work();
     }
 
     /**

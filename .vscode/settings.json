@@ -1,4 +1,5 @@
 {
+    "editor.defaultFormatter": "esbenp.prettier-vscode",
     "angular-schematics.schematicsDefaultOptions": {
         "angular-*": {
             "externalTemplate": true,

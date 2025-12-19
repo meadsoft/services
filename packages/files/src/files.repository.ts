@@ -1,5 +1,5 @@
 import { FirebaseService } from '@meadsoft/google';
-import { Injectable } from '@nestjs/common';
+import { HttpStatus, Injectable } from '@nestjs/common';
 
 @Injectable()
 export class FilesRepository {
@@ -47,6 +47,6 @@ export class FilesRepository {
             .bucket()
             .file(id)
             .delete();
-        return response.statusCode === 200;
+        return (response.statusCode as HttpStatus) === HttpStatus.OK;
     }
 }

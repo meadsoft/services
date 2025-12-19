@@ -16,7 +16,11 @@ export class FileMetadataRepository {
         if (snapshot.empty) {
             return null;
         }
-        return snapshot.docs[0].data() as FileMetadata;
+        const firstDoc = snapshot.docs.find((doc) => doc.id === id);
+        if (!firstDoc) {
+            return null;
+        }
+        return this.map(firstDoc);
     }
 
     async upsert(fileMetadata: FileMetadata): Promise<FileMetadata> {
@@ -25,7 +29,7 @@ export class FileMetadataRepository {
             .doc(fileMetadata.id);
         await docRef.set(fileMetadata, { merge: true });
         const updatedDoc = await docRef.get();
-        return updatedDoc.data() as FileMetadata;
+        return this.map(updatedDoc);
     }
 
     async delete(id: string): Promise<void> {
@@ -33,5 +37,13 @@ export class FileMetadataRepository {
             .collection(FileMetadataRepository.FILE_METADATA_TABLENAME)
             .doc(id)
             .delete();
+    }
+
+    map(document: FirebaseFirestore.DocumentSnapshot): FileMetadata {
+        const data = document.data();
+        return {
+            id: document.id,
+            name: data ? String(data.name) : '',
+        } as FileMetadata;
     }
 }

@@ -27,5 +27,8 @@
         "firebase-admin": "^13.6.0",
         "tslib": "^2.3.0",
         "zod": "^4.1.12"
+    },
+    "devDependencies": {
+        "@types/express": "^5.0.6"
     }
 }

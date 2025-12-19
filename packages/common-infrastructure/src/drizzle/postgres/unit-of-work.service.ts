@@ -1,15 +1,15 @@
 import { Injectable } from '@nestjs/common';
 import { NodePgDatabase } from 'drizzle-orm/node-postgres';
-import { PgTransaction } from 'drizzle-orm/pg-core';
+import { PgQueryResultHKT, PgTransaction } from 'drizzle-orm/pg-core';
 import { PostgresDbService } from './postgres-db.service';
 import { UnitOfWork } from '../../unit-of-work.base';
 
-type DbOrTransaction = NodePgDatabase | PgTransaction<any, any, any>;
+type DbOrTransaction = NodePgDatabase | PgTransaction<PgQueryResultHKT>;
 
 @Injectable()
 export class PostgresUnitOfWork extends UnitOfWork<
     NodePgDatabase,
-    PgTransaction<any, any, any>
+    DbOrTransaction
 > {
     constructor(postgresService: PostgresDbService) {
         super(() => postgresService.getDatabase());

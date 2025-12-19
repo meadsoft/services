@@ -1,1 +1,3 @@
-export { REGEX } from './regex';
+export * from './regex';
+export * from './strings';
+export * from './arrays';

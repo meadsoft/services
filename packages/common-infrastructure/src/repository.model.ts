@@ -1,22 +1,13 @@
-import { Entity } from '@meadsoft/common';
-
-export interface IQueryRepository<TModel extends Entity> {
+export interface IQueryRepository<TModel> {
     findById(id: string): Promise<TModel | null>;
     findAll(): Promise<TModel[]>;
 }
 
-export interface ICommandRepository<
-    TNewModel extends object,
-    TModel extends Entity,
-> {
-    create(item: TNewModel, userId: string): Promise<TModel>;
-    update(
-        id: string,
-        updates: Partial<TModel>,
-        userId: string,
-    ): Promise<TModel | undefined>;
+export interface ICudRepository<TModel> {
+    create(item: TModel): Promise<TModel>;
+    update(id: string, updates: Partial<TModel>): Promise<TModel>;
     delete(id: string): Promise<boolean>;
 }
 
-export interface IRepository<TNewModel extends object, TModel extends Entity>
-    extends IQueryRepository<TModel>, ICommandRepository<TNewModel, TModel> {}
+export interface ICrudRepository<TModel>
+    extends IQueryRepository<TModel>, ICudRepository<TModel> {}

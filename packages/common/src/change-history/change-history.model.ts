@@ -1,10 +1,10 @@
 import { z } from 'zod';
 
-export const OnCreationDataSchema = z.object({
+export const ChangeHistorySchema = z.object({
     createdDate: z.iso.datetime().nullable(),
     updatedDate: z.iso.datetime().nullable(),
     createdById: z.string().nullable(),
     updatedById: z.string().nullable(),
 });
 
-export type OnCreationData = z.infer<typeof OnCreationDataSchema>;
+export type ChangeHistory = z.infer<typeof ChangeHistorySchema>;

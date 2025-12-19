@@ -15,7 +15,7 @@ import { FileMetadata, FileUrl } from './files.model';
 
 @Controller('files')
 export class FilesController {
-    constructor(private filesService: FilesService) {}
+    constructor(private readonly filesService: FilesService) {}
 
     @Get(':id')
     async getUrl(@Param('id') id: string): Promise<string> {

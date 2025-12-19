@@ -4,27 +4,24 @@ import {
     MenuItem,
     NewMenuItem,
     NewMenuItemSchema,
-    MenuItemSchema,
 } from '@meadsoft/restaurant-catalog-contracts';
 import {
     createCommandController,
     createQueryController,
 } from '@meadsoft/common-api';
 import { ApiTags } from '@nestjs/swagger';
+import { ChangeHistoryService } from '@meadsoft/common';
 
-const menuItemQueryController = createQueryController<MenuItem>(
-    new MenuItem(),
-    MenuItemSchema,
-);
+const menuItemQueryController = createQueryController<MenuItem>(MenuItem);
 
 const menuItemCommandController = createCommandController<
     MenuItem,
     NewMenuItem
->(new MenuItem(), MenuItemSchema, new NewMenuItem(), NewMenuItemSchema);
+>(MenuItem, NewMenuItemSchema);
 
 @ApiTags('Menu Items')
 @Controller('menu-items')
-export class MenuItemsQueryController extends menuItemQueryController<MenuItem> {
+export class MenuItemsQueryController extends menuItemQueryController {
     constructor(repository: MenuItemRepository) {
         super(repository);
     }
@@ -32,11 +29,11 @@ export class MenuItemsQueryController extends menuItemQueryController<MenuItem> 
 
 @ApiTags('Menu Items')
 @Controller('menu-items')
-export class MenuItemsCommandController extends menuItemCommandController<
-    MenuItem,
-    NewMenuItem
-> {
-    constructor(repository: MenuItemRepository) {
+export class MenuItemsCommandController extends menuItemCommandController {
+    constructor(
+        repository: MenuItemRepository,
+        onCreationService: ChangeHistoryService,
+    ) {
         super(repository);
     }
 }

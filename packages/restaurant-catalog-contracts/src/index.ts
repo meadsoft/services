@@ -1,5 +1,5 @@
 export * from './base.entity';
-export * from './menu-items.entity';
-export * from './on-creation.entity';
+export * from './domain/menu-item.entity';
+export * from './menu-item.schema';
 export * from './sizes.entity';
 export * from './tags.entity';
