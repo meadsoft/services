@@ -1,6 +1,8 @@
 import { Controller } from '@nestjs/common';
 import { MenuItemRepository } from '../infrastructure/repositories/menu-items.repo';
 import {
+    IMenuItem,
+    INewMenuItem,
     MenuItem,
     NewMenuItem,
     NewMenuItemSchema,
@@ -10,7 +12,7 @@ import {
     createQueryController,
 } from '@meadsoft/common-api';
 import { ApiTags } from '@nestjs/swagger';
-import { ChangeHistoryService } from '@meadsoft/common';
+import { EntityService } from '@meadsoft/common';
 
 const menuItemQueryController = createQueryController<MenuItem>(MenuItem);
 
@@ -30,10 +32,13 @@ export class MenuItemsQueryController extends menuItemQueryController {
 @ApiTags('Menu Items')
 @Controller('menu-items')
 export class MenuItemsCommandController extends menuItemCommandController {
-    constructor(
-        repository: MenuItemRepository,
-        onCreationService: ChangeHistoryService,
-    ) {
-        super(repository);
+    constructor(repository: MenuItemRepository, entityService: EntityService) {
+        const newToPersistent = (newItem: INewMenuItem): IMenuItem => {
+            return entityService.create<INewMenuItem>('system', newItem);
+        };
+        const updater = (item: IMenuItem): IMenuItem => {
+            return entityService.update<IMenuItem>('system', item);
+        };
+        super(repository, newToPersistent, updater);
     }
 }

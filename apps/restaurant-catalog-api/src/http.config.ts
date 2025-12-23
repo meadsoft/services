@@ -1,27 +1,33 @@
-import { loadConfig } from '@meadsoft/common';
+import { JsonConfigLoader, ZodSchema } from '@meadsoft/common';
 import { Provider } from '@nestjs/common';
+import { createZodDto } from 'nestjs-zod';
 import zod from 'zod';
 import path from 'path';
 
 export const HTTP_CONFIG_KEY = 'http';
-
-export class HttpConfig {
-    port?: number;
-}
+export const MINIMUM_PORT = 1;
+export const MAXIMUM_PORT = 65535;
 
 export const HttpConfigSchema = zod.object({
-    port: zod.number().min(1).max(65535),
-}) satisfies zod.ZodType<HttpConfig>;
+    port: zod.number().min(MINIMUM_PORT).max(MAXIMUM_PORT),
+});
+
+export class HttpConfig extends createZodDto(HttpConfigSchema) {}
+
+export class HttpConfigLoader extends JsonConfigLoader<HttpConfig> {
+    constructor(configFileDirectory: string) {
+        super('http', new ZodSchema(HttpConfigSchema), configFileDirectory);
+    }
+}
 
 export const HttpConfigProvider: Provider = {
     provide: HttpConfig,
     useFactory: async (): Promise<HttpConfig> => {
-        const configDirectory = path.join(__dirname, '..');
-        const { config } = await loadConfig(
-            configDirectory,
-            HTTP_CONFIG_KEY,
-            HttpConfigSchema,
-        );
-        return config;
+        const configLoader = new HttpConfigLoader(path.join(__dirname, '..'));
+        const config = await configLoader.load();
+        if (config.err) {
+            throw config.val;
+        }
+        return config.val;
     },
 };

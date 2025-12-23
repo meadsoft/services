@@ -4,4 +4,4 @@ export * from './configuration';
 export * from './constants/index';
 export * from './validation/index';
 export * from './contracts/index';
-export * from './change-history/index';
+export * from './entity.service';

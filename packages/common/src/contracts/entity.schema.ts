@@ -1,7 +1,4 @@
-import {
-    ChangeHistory,
-    ChangeHistorySchema,
-} from '../change-history/change-history.model';
+import { IChangeHistory, ChangeHistorySchema } from './change-history.schema';
 import { z } from 'zod';
 
 export const EntitySchema = ChangeHistorySchema.extend({
@@ -10,7 +7,7 @@ export const EntitySchema = ChangeHistorySchema.extend({
 
 export type IEntity = z.infer<typeof EntitySchema>;
 
-export class Entity implements IEntity, ChangeHistory {
+export class Entity implements IEntity, IChangeHistory {
     id!: string;
     createdDate!: string | null;
     updatedDate!: string | null;

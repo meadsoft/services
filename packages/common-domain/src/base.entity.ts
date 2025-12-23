@@ -1,4 +1,4 @@
-import { ChangeHistory, ChangeHistorySchema } from '@meadsoft/common';
+import { IChangeHistory, ChangeHistorySchema } from '@meadsoft/common';
 import { z } from 'zod';
 
 export const EntitySchema = ChangeHistorySchema.extend({
@@ -7,7 +7,7 @@ export const EntitySchema = ChangeHistorySchema.extend({
 
 export type IEntity = z.infer<typeof EntitySchema>;
 
-export class Entity implements IEntity, ChangeHistory {
+export class Entity implements IEntity, IChangeHistory {
     id!: string;
     createdDate!: string | null;
     updatedDate!: string | null;

@@ -1,7 +1,7 @@
 import path, { join } from 'path';
 import { readFile, access } from 'fs/promises';
 import * as dotenv from 'dotenv';
-import { getAppEnv } from 'src/get-app-env';
+import { getAppEnv } from '../get-app-env';
 import { Schema } from '../validation/schema.model';
 import { Result, Err, Ok } from 'ts-results';
 

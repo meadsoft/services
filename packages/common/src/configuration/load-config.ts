@@ -7,6 +7,8 @@ import { getAppEnv } from '../get-app-env';
 export const DEFAULT_CONFIG_FILENAME_SCHEME = 'config.{env}.json';
 
 /**
+ * TODO: delete in favor of using the strongly typed ConfigLoader classes
+ *
  * Loads configuration from a file and environment variables, validating them against
  * the provided schemas.
  */

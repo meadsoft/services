@@ -9,5 +9,7 @@ export const NewTagSchema = z.object({
 export const TagSchema = EntitySchema.extend(NewTagSchema.shape);
 export const NewTagJsonSchema = z.toJSONSchema(NewTagSchema);
 export const TagJsonSchema = z.toJSONSchema(TagSchema);
+export type INewTag = z.infer<typeof NewTagSchema>;
 export class NewTag extends createZodDto(NewTagSchema) {}
+export type ITag = z.infer<typeof TagSchema>;
 export class Tag extends createZodDto(TagSchema) {}

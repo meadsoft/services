@@ -1,38 +1,32 @@
-import { loadConfig } from '@meadsoft/common';
+import { EnvConfigLoader, ZodSchema } from '@meadsoft/common';
 import { Provider } from '@nestjs/common';
-import path from 'path';
+import { createZodDto } from 'nestjs-zod';
 import zod from 'zod';
 
-export class InfrastructureConfig implements InfrastructureEnvironmentConfig {
-    /** # secret value. store in .env not in json */
-    DATABASE_URL: string;
-
-    constructor(databaseUrl: string) {
-        this.DATABASE_URL = databaseUrl;
-    }
-}
-
 export const InfrastructureEnvironmentConfigSchema = zod.object({
-    DATABASE_URL: zod.string().min(1),
-}) satisfies zod.ZodType<InfrastructureConfig>;
-
+    DATABASE_URL: zod.string().nonempty(),
+});
 export type InfrastructureEnvironmentConfig = zod.infer<
     typeof InfrastructureEnvironmentConfigSchema
 >;
+export class InfrastructureConfig extends createZodDto(
+    InfrastructureEnvironmentConfigSchema,
+) {}
+
+export class InfrastructureConfigLoader extends EnvConfigLoader<InfrastructureEnvironmentConfig> {
+    constructor() {
+        super(new ZodSchema(InfrastructureEnvironmentConfigSchema));
+    }
+}
 
 export const InfrastructureProvider: Provider = {
     provide: InfrastructureConfig,
     useFactory: async (): Promise<InfrastructureConfig> => {
-        const configDirectory = path.join(__dirname, '..');
-        const { env } = await loadConfig<
-            InfrastructureConfig,
-            InfrastructureEnvironmentConfig
-        >(
-            configDirectory,
-            undefined,
-            undefined,
-            InfrastructureEnvironmentConfigSchema,
-        );
-        return new InfrastructureConfig(env.DATABASE_URL!);
+        const configLoader = new InfrastructureConfigLoader();
+        const config = await configLoader.load();
+        if (config.err) {
+            throw config.val;
+        }
+        return config.val;
     },
 };

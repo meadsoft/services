@@ -9,5 +9,7 @@ export const NewSizeSchema = z.object({
 export const SizeSchema = EntitySchema.extend(NewSizeSchema.shape);
 export const NewSizeJsonSchema = z.toJSONSchema(NewSizeSchema);
 export const SizeJsonSchema = z.toJSONSchema(SizeSchema);
+export type INewSize = z.infer<typeof NewSizeSchema>;
 export class NewSize extends createZodDto(NewSizeSchema) {}
+export type ISize = z.infer<typeof SizeSchema>;
 export class Size extends createZodDto(SizeSchema) {}

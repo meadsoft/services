@@ -13,7 +13,7 @@
     "include": [
         "src/**/*.ts",
         "src/infrastrucutre.config.ts",
-        "../common/src/change-history/change-history.service.ts"
+        "../common/src/entity.service.ts"
     ],
     "references": [
         {

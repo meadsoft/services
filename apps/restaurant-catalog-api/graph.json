@@ -1,0 +1,1003 @@
+{
+  "nodes": {
+    "203550704": {
+      "id": "203550704",
+      "label": "ExternalContextCreator",
+      "parent": "555176277",
+      "metadata": {
+        "type": "provider",
+        "internal": true,
+        "sourceModuleName": "InternalCoreModule",
+        "durable": false,
+        "static": true,
+        "transient": false,
+        "exported": true,
+        "token": "ExternalContextCreator",
+        "initTime": 16.312313000000017
+      }
+    },
+    "225063248": {
+      "id": "225063248",
+      "label": "InternalCoreModule",
+      "parent": "555176277",
+      "metadata": {
+        "type": "provider",
+        "internal": true,
+        "sourceModuleName": "InternalCoreModule",
+        "durable": false,
+        "static": true,
+        "scope": 0,
+        "transient": false,
+        "exported": false,
+        "token": "InternalCoreModule",
+        "initTime": 16.814391
+      }
+    },
+    "327606515": {
+      "id": "327606515",
+      "label": "SizesCommandController",
+      "parent": "2053045243",
+      "metadata": {
+        "type": "controller",
+        "internal": false,
+        "sourceModuleName": "RestaurantCatalogModule",
+        "durable": false,
+        "static": true,
+        "transient": false,
+        "exported": false,
+        "token": "SizesCommandController",
+        "enhancers": [
+          {
+            "name": "ZodValidationPipe2",
+            "methodKey": "create",
+            "subtype": "pipe"
+          },
+          {
+            "name": "ZodValidationPipe2",
+            "methodKey": "update",
+            "subtype": "pipe"
+          }
+        ]
+      }
+    },
+    "484536027": {
+      "id": "484536027",
+      "label": "ModuleRef",
+      "parent": "2102434273",
+      "metadata": {
+        "type": "provider",
+        "internal": true,
+        "sourceModuleName": "HttpModule",
+        "durable": false,
+        "static": true,
+        "scope": 0,
+        "transient": false,
+        "exported": false,
+        "token": "ModuleRef"
+      }
+    },
+    "555176277": {
+      "id": "555176277",
+      "label": "InternalCoreModule",
+      "metadata": {
+        "type": "module",
+        "global": true,
+        "dynamic": true,
+        "internal": true
+      }
+    },
+    "631048086": {
+      "id": "631048086",
+      "label": "SizesQueryController",
+      "parent": "2053045243",
+      "metadata": {
+        "type": "controller",
+        "internal": false,
+        "sourceModuleName": "RestaurantCatalogModule",
+        "durable": false,
+        "static": true,
+        "transient": false,
+        "exported": false,
+        "token": "SizesQueryController",
+        "initTime": 0.8157360000000153
+      }
+    },
+    "671882984": {
+      "id": "671882984",
+      "label": "Reflector",
+      "parent": "555176277",
+      "metadata": {
+        "type": "provider",
+        "internal": true,
+        "sourceModuleName": "InternalCoreModule",
+        "durable": false,
+        "static": true,
+        "transient": false,
+        "exported": true,
+        "token": "Reflector",
+        "initTime": 16.704024000000004
+      }
+    },
+    "682652189": {
+      "id": "682652189",
+      "label": "TagsQueryController",
+      "parent": "2053045243",
+      "metadata": {
+        "type": "controller",
+        "internal": false,
+        "sourceModuleName": "RestaurantCatalogModule",
+        "durable": false,
+        "static": true,
+        "transient": false,
+        "exported": false,
+        "token": "TagsQueryController",
+        "initTime": 0.3904169999999567
+      }
+    },
+    "791765202": {
+      "id": "791765202",
+      "label": "PostgresUnitOfWork",
+      "parent": "-2128127094",
+      "metadata": {
+        "type": "provider",
+        "internal": false,
+        "sourceModuleName": "DrizzlePgModule",
+        "durable": false,
+        "static": true,
+        "transient": false,
+        "exported": true,
+        "token": "PostgresUnitOfWork",
+        "initTime": 16.922878000000082
+      }
+    },
+    "806959740": {
+      "id": "806959740",
+      "label": "InfrastructureModule",
+      "metadata": {
+        "type": "module",
+        "global": false,
+        "dynamic": false,
+        "internal": false
+      }
+    },
+    "895938336": {
+      "id": "895938336",
+      "label": "DrizzlePgModule",
+      "parent": "-2128127094",
+      "metadata": {
+        "type": "provider",
+        "internal": true,
+        "sourceModuleName": "DrizzlePgModule",
+        "durable": false,
+        "static": true,
+        "scope": 0,
+        "transient": false,
+        "exported": false,
+        "token": "DrizzlePgModule",
+        "initTime": 16.008620000000064
+      }
+    },
+    "1051654085": {
+      "id": "1051654085",
+      "label": "TagsRepository",
+      "parent": "2053045243",
+      "metadata": {
+        "type": "provider",
+        "internal": false,
+        "sourceModuleName": "RestaurantCatalogModule",
+        "durable": false,
+        "static": true,
+        "transient": false,
+        "exported": true,
+        "token": "TagsRepository",
+        "initTime": 17.148055
+      }
+    },
+    "1102578804": {
+      "id": "1102578804",
+      "label": "InfrastructureConfig",
+      "parent": "806959740",
+      "metadata": {
+        "type": "provider",
+        "internal": false,
+        "sourceModuleName": "InfrastructureModule",
+        "durable": false,
+        "static": true,
+        "transient": false,
+        "exported": true,
+        "token": "InfrastructureConfig",
+        "initTime": 16.00409400000001
+      }
+    },
+    "1271021985": {
+      "id": "1271021985",
+      "label": "ApplicationConfig",
+      "parent": "806959740",
+      "metadata": {
+        "type": "provider",
+        "internal": true,
+        "sourceModuleName": "InfrastructureModule",
+        "durable": false,
+        "static": true,
+        "scope": 0,
+        "transient": false,
+        "exported": false,
+        "token": "ApplicationConfig"
+      }
+    },
+    "1323483628": {
+      "id": "1323483628",
+      "label": "MenuItemRepository",
+      "parent": "2053045243",
+      "metadata": {
+        "type": "provider",
+        "internal": false,
+        "sourceModuleName": "RestaurantCatalogModule",
+        "durable": false,
+        "static": true,
+        "transient": false,
+        "exported": true,
+        "token": "MenuItemRepository",
+        "initTime": 17.31037900000001
+      }
+    },
+    "1332539038": {
+      "id": "1332539038",
+      "label": "InfrastructureModule",
+      "parent": "806959740",
+      "metadata": {
+        "type": "provider",
+        "internal": true,
+        "sourceModuleName": "InfrastructureModule",
+        "durable": false,
+        "static": true,
+        "scope": 0,
+        "transient": false,
+        "exported": false,
+        "token": "InfrastructureModule",
+        "initTime": 15.959717999999953
+      }
+    },
+    "1397076293": {
+      "id": "1397076293",
+      "label": "ApplicationConfig",
+      "parent": "-2128127094",
+      "metadata": {
+        "type": "provider",
+        "internal": true,
+        "sourceModuleName": "DrizzlePgModule",
+        "durable": false,
+        "static": true,
+        "scope": 0,
+        "transient": false,
+        "exported": false,
+        "token": "ApplicationConfig"
+      }
+    },
+    "1431660214": {
+      "id": "1431660214",
+      "label": "ApplicationConfig",
+      "parent": "2053045243",
+      "metadata": {
+        "type": "provider",
+        "internal": true,
+        "sourceModuleName": "RestaurantCatalogModule",
+        "durable": false,
+        "static": true,
+        "scope": 0,
+        "transient": false,
+        "exported": false,
+        "token": "ApplicationConfig"
+      }
+    },
+    "1434456218": {
+      "id": "1434456218",
+      "label": "Reflector",
+      "parent": "555176277",
+      "metadata": {
+        "type": "provider",
+        "internal": true,
+        "sourceModuleName": "InternalCoreModule",
+        "durable": false,
+        "static": true,
+        "scope": 0,
+        "transient": false,
+        "exported": true,
+        "token": "Reflector",
+        "initTime": 17.213202999999908
+      }
+    },
+    "1609888104": {
+      "id": "1609888104",
+      "label": "HttpModule",
+      "parent": "2102434273",
+      "metadata": {
+        "type": "provider",
+        "internal": true,
+        "sourceModuleName": "HttpModule",
+        "durable": false,
+        "static": true,
+        "scope": 0,
+        "transient": false,
+        "exported": false,
+        "token": "HttpModule",
+        "initTime": 16.225630000000024
+      }
+    },
+    "1728552694": {
+      "id": "1728552694",
+      "label": "ModuleRef",
+      "parent": "806959740",
+      "metadata": {
+        "type": "provider",
+        "internal": true,
+        "sourceModuleName": "InfrastructureModule",
+        "durable": false,
+        "static": true,
+        "scope": 0,
+        "transient": false,
+        "exported": false,
+        "token": "ModuleRef"
+      }
+    },
+    "1919157847": {
+      "id": "1919157847",
+      "label": "REQUEST",
+      "parent": "555176277",
+      "metadata": {
+        "type": "provider",
+        "internal": true,
+        "sourceModuleName": "InternalCoreModule",
+        "durable": false,
+        "static": false,
+        "scope": 2,
+        "transient": false,
+        "exported": true,
+        "token": "REQUEST",
+        "initTime": 16.131896000000097
+      }
+    },
+    "2053045243": {
+      "id": "2053045243",
+      "label": "RestaurantCatalogModule",
+      "metadata": {
+        "type": "module",
+        "global": false,
+        "dynamic": false,
+        "internal": false
+      }
+    },
+    "2079537854": {
+      "id": "2079537854",
+      "label": "HttpConfig",
+      "parent": "2102434273",
+      "metadata": {
+        "type": "provider",
+        "internal": false,
+        "sourceModuleName": "HttpModule",
+        "durable": false,
+        "static": true,
+        "transient": false,
+        "exported": false,
+        "token": "HttpConfig"
+      }
+    },
+    "2102434273": {
+      "id": "2102434273",
+      "label": "HttpModule",
+      "metadata": {
+        "type": "module",
+        "global": false,
+        "dynamic": false,
+        "internal": false
+      }
+    },
+    "-1486320561": {
+      "id": "-1486320561",
+      "label": "ModuleRef",
+      "parent": "555176277",
+      "metadata": {
+        "type": "provider",
+        "internal": true,
+        "sourceModuleName": "InternalCoreModule",
+        "durable": false,
+        "static": true,
+        "scope": 0,
+        "transient": false,
+        "exported": false,
+        "token": "ModuleRef"
+      }
+    },
+    "-651043398": {
+      "id": "-651043398",
+      "label": "ApplicationConfig",
+      "parent": "555176277",
+      "metadata": {
+        "type": "provider",
+        "internal": true,
+        "sourceModuleName": "InternalCoreModule",
+        "durable": false,
+        "static": true,
+        "scope": 0,
+        "transient": false,
+        "exported": false,
+        "token": "ApplicationConfig"
+      }
+    },
+    "-255469305": {
+      "id": "-255469305",
+      "label": "INQUIRER",
+      "parent": "555176277",
+      "metadata": {
+        "type": "provider",
+        "internal": true,
+        "sourceModuleName": "InternalCoreModule",
+        "durable": false,
+        "static": true,
+        "scope": 1,
+        "transient": true,
+        "exported": true,
+        "token": "INQUIRER",
+        "initTime": 16.12415299999998
+      }
+    },
+    "-26938366": {
+      "id": "-26938366",
+      "label": "ModulesContainer",
+      "parent": "555176277",
+      "metadata": {
+        "type": "provider",
+        "internal": true,
+        "sourceModuleName": "InternalCoreModule",
+        "durable": false,
+        "static": true,
+        "transient": false,
+        "exported": true,
+        "token": "ModulesContainer",
+        "initTime": 16.306228999999917
+      }
+    },
+    "-326832201": {
+      "id": "-326832201",
+      "label": "HttpAdapterHost",
+      "parent": "555176277",
+      "metadata": {
+        "type": "provider",
+        "internal": true,
+        "sourceModuleName": "InternalCoreModule",
+        "durable": false,
+        "static": true,
+        "transient": false,
+        "exported": true,
+        "token": "HttpAdapterHost",
+        "initTime": 16.29685100000006
+      }
+    },
+    "-702581189": {
+      "id": "-702581189",
+      "label": "LazyModuleLoader",
+      "parent": "555176277",
+      "metadata": {
+        "type": "provider",
+        "internal": true,
+        "sourceModuleName": "InternalCoreModule",
+        "durable": false,
+        "static": true,
+        "transient": false,
+        "exported": true,
+        "token": "LazyModuleLoader",
+        "initTime": 16.272898000000055
+      }
+    },
+    "-1904419534": {
+      "id": "-1904419534",
+      "label": "SerializedGraph",
+      "parent": "555176277",
+      "metadata": {
+        "type": "provider",
+        "internal": true,
+        "sourceModuleName": "InternalCoreModule",
+        "durable": false,
+        "static": true,
+        "transient": false,
+        "exported": true,
+        "token": "SerializedGraph",
+        "initTime": 16.224473000000103
+      }
+    },
+    "-19112576": {
+      "id": "-19112576",
+      "label": "AppModule",
+      "metadata": {
+        "type": "module",
+        "global": false,
+        "dynamic": false,
+        "internal": false
+      }
+    },
+    "-2139588960": {
+      "id": "-2139588960",
+      "label": "AppModule",
+      "parent": "-19112576",
+      "metadata": {
+        "type": "provider",
+        "internal": true,
+        "sourceModuleName": "AppModule",
+        "durable": false,
+        "static": true,
+        "scope": 0,
+        "transient": false,
+        "exported": false,
+        "token": "AppModule",
+        "initTime": 16.230295999999953
+      }
+    },
+    "-71302842": {
+      "id": "-71302842",
+      "label": "ModuleRef",
+      "parent": "-19112576",
+      "metadata": {
+        "type": "provider",
+        "internal": true,
+        "sourceModuleName": "AppModule",
+        "durable": false,
+        "static": true,
+        "scope": 0,
+        "transient": false,
+        "exported": false,
+        "token": "ModuleRef"
+      }
+    },
+    "-2064622725": {
+      "id": "-2064622725",
+      "label": "ApplicationConfig",
+      "parent": "-19112576",
+      "metadata": {
+        "type": "provider",
+        "internal": true,
+        "sourceModuleName": "AppModule",
+        "durable": false,
+        "static": true,
+        "scope": 0,
+        "transient": false,
+        "exported": false,
+        "token": "ApplicationConfig"
+      }
+    },
+    "-1178838202": {
+      "id": "-1178838202",
+      "label": "ApplicationConfig",
+      "parent": "2102434273",
+      "metadata": {
+        "type": "provider",
+        "internal": true,
+        "sourceModuleName": "HttpModule",
+        "durable": false,
+        "static": true,
+        "scope": 0,
+        "transient": false,
+        "exported": false,
+        "token": "ApplicationConfig"
+      }
+    },
+    "-887847168": {
+      "id": "-887847168",
+      "label": "RestaurantCatalogModule",
+      "parent": "2053045243",
+      "metadata": {
+        "type": "provider",
+        "internal": true,
+        "sourceModuleName": "RestaurantCatalogModule",
+        "durable": false,
+        "static": true,
+        "scope": 0,
+        "transient": false,
+        "exported": false,
+        "token": "RestaurantCatalogModule",
+        "initTime": 16.24877200000003
+      }
+    },
+    "-497185471": {
+      "id": "-497185471",
+      "label": "ModuleRef",
+      "parent": "2053045243",
+      "metadata": {
+        "type": "provider",
+        "internal": true,
+        "sourceModuleName": "RestaurantCatalogModule",
+        "durable": false,
+        "static": true,
+        "scope": 0,
+        "transient": false,
+        "exported": false,
+        "token": "ModuleRef"
+      }
+    },
+    "-172549460": {
+      "id": "-172549460",
+      "label": "SizesRepository",
+      "parent": "2053045243",
+      "metadata": {
+        "type": "provider",
+        "internal": false,
+        "sourceModuleName": "RestaurantCatalogModule",
+        "durable": false,
+        "static": true,
+        "transient": false,
+        "exported": true,
+        "token": "SizesRepository",
+        "initTime": 17.12285600000007
+      }
+    },
+    "-1153689243": {
+      "id": "-1153689243",
+      "label": "MenuItemsQueryController",
+      "parent": "2053045243",
+      "metadata": {
+        "type": "controller",
+        "internal": false,
+        "sourceModuleName": "RestaurantCatalogModule",
+        "durable": false,
+        "static": true,
+        "transient": false,
+        "exported": false,
+        "token": "MenuItemsQueryController",
+        "initTime": 0.9771640000000161
+      }
+    },
+    "-1113015550": {
+      "id": "-1113015550",
+      "label": "MenuItemsCommandController",
+      "parent": "2053045243",
+      "metadata": {
+        "type": "controller",
+        "internal": false,
+        "sourceModuleName": "RestaurantCatalogModule",
+        "durable": false,
+        "static": true,
+        "transient": false,
+        "exported": false,
+        "token": "MenuItemsCommandController",
+        "enhancers": [
+          {
+            "name": "ZodValidationPipe2",
+            "methodKey": "create",
+            "subtype": "pipe"
+          },
+          {
+            "name": "ZodValidationPipe2",
+            "methodKey": "update",
+            "subtype": "pipe"
+          }
+        ]
+      }
+    },
+    "-1620458054": {
+      "id": "-1620458054",
+      "label": "TagsCommandController",
+      "parent": "2053045243",
+      "metadata": {
+        "type": "controller",
+        "internal": false,
+        "sourceModuleName": "RestaurantCatalogModule",
+        "durable": false,
+        "static": true,
+        "transient": false,
+        "exported": false,
+        "token": "TagsCommandController",
+        "enhancers": [
+          {
+            "name": "ZodValidationPipe2",
+            "methodKey": "create",
+            "subtype": "pipe"
+          },
+          {
+            "name": "ZodValidationPipe2",
+            "methodKey": "update",
+            "subtype": "pipe"
+          }
+        ]
+      }
+    },
+    "-2128127094": {
+      "id": "-2128127094",
+      "label": "DrizzlePgModule",
+      "metadata": {
+        "type": "module",
+        "global": false,
+        "dynamic": false,
+        "internal": false
+      }
+    },
+    "-1986620720": {
+      "id": "-1986620720",
+      "label": "ModuleRef",
+      "parent": "-2128127094",
+      "metadata": {
+        "type": "provider",
+        "internal": true,
+        "sourceModuleName": "DrizzlePgModule",
+        "durable": false,
+        "static": true,
+        "scope": 0,
+        "transient": false,
+        "exported": false,
+        "token": "ModuleRef"
+      }
+    },
+    "-1722843239": {
+      "id": "-1722843239",
+      "label": "PostgresDbService",
+      "parent": "-2128127094",
+      "metadata": {
+        "type": "provider",
+        "internal": false,
+        "sourceModuleName": "DrizzlePgModule",
+        "durable": false,
+        "static": true,
+        "transient": false,
+        "exported": true,
+        "token": "PostgresDbService",
+        "initTime": 16.348314999999957
+      }
+    },
+    "-1451215214": {
+      "id": "-1451215214",
+      "label": "InfrastructureConfig",
+      "parent": "-2128127094",
+      "metadata": {
+        "type": "provider",
+        "internal": false,
+        "sourceModuleName": "DrizzlePgModule",
+        "durable": false,
+        "static": true,
+        "transient": false,
+        "exported": false,
+        "token": "InfrastructureConfig",
+        "initTime": 16.019533999999908
+      }
+    }
+  },
+  "edges": {
+    "160004001": {
+      "source": "2053045243",
+      "target": "555176277",
+      "metadata": {
+        "type": "module-to-module",
+        "sourceModuleName": "RestaurantCatalogModule",
+        "targetModuleName": "InternalCoreModule"
+      },
+      "id": "160004001"
+    },
+    "189694679": {
+      "source": "1434456218",
+      "target": "671882984",
+      "metadata": {
+        "type": "class-to-class",
+        "sourceModuleName": "InternalCoreModule",
+        "sourceClassName": "Reflector",
+        "targetClassName": "Reflector",
+        "sourceClassToken": "Reflector",
+        "targetClassToken": "Reflector",
+        "targetModuleName": "InternalCoreModule",
+        "keyOrIndex": 0,
+        "injectionType": "constructor",
+        "internal": true
+      },
+      "id": "189694679"
+    },
+    "516011265": {
+      "source": "-1153689243",
+      "target": "1323483628",
+      "metadata": {
+        "type": "class-to-class",
+        "sourceModuleName": "RestaurantCatalogModule",
+        "sourceClassName": "MenuItemsQueryController",
+        "targetClassName": "MenuItemRepository",
+        "sourceClassToken": "MenuItemsQueryController",
+        "targetClassToken": "MenuItemRepository",
+        "targetModuleName": "RestaurantCatalogModule",
+        "keyOrIndex": 0,
+        "injectionType": "constructor"
+      },
+      "id": "516011265"
+    },
+    "837662928": {
+      "source": "806959740",
+      "target": "555176277",
+      "metadata": {
+        "type": "module-to-module",
+        "sourceModuleName": "InfrastructureModule",
+        "targetModuleName": "InternalCoreModule"
+      },
+      "id": "837662928"
+    },
+    "1056428433": {
+      "source": "-19112576",
+      "target": "555176277",
+      "metadata": {
+        "type": "module-to-module",
+        "sourceModuleName": "AppModule",
+        "targetModuleName": "InternalCoreModule"
+      },
+      "id": "1056428433"
+    },
+    "1244766358": {
+      "source": "631048086",
+      "target": "-172549460",
+      "metadata": {
+        "type": "class-to-class",
+        "sourceModuleName": "RestaurantCatalogModule",
+        "sourceClassName": "SizesQueryController",
+        "targetClassName": "SizesRepository",
+        "sourceClassToken": "SizesQueryController",
+        "targetClassToken": "SizesRepository",
+        "targetModuleName": "RestaurantCatalogModule",
+        "keyOrIndex": 0,
+        "injectionType": "constructor"
+      },
+      "id": "1244766358"
+    },
+    "1510782999": {
+      "source": "-2128127094",
+      "target": "555176277",
+      "metadata": {
+        "type": "module-to-module",
+        "sourceModuleName": "DrizzlePgModule",
+        "targetModuleName": "InternalCoreModule"
+      },
+      "id": "1510782999"
+    },
+    "1629155435": {
+      "source": "791765202",
+      "target": "-1722843239",
+      "metadata": {
+        "type": "class-to-class",
+        "sourceModuleName": "DrizzlePgModule",
+        "sourceClassName": "PostgresUnitOfWork",
+        "targetClassName": "PostgresDbService",
+        "sourceClassToken": "PostgresUnitOfWork",
+        "targetClassToken": "PostgresDbService",
+        "targetModuleName": "DrizzlePgModule",
+        "keyOrIndex": 0,
+        "injectionType": "constructor"
+      },
+      "id": "1629155435"
+    },
+    "1832306750": {
+      "source": "-19112576",
+      "target": "2053045243",
+      "metadata": {
+        "type": "module-to-module",
+        "sourceModuleName": "AppModule",
+        "targetModuleName": "RestaurantCatalogModule"
+      },
+      "id": "1832306750"
+    },
+    "1914228742": {
+      "source": "1323483628",
+      "target": "791765202",
+      "metadata": {
+        "type": "class-to-class",
+        "sourceModuleName": "RestaurantCatalogModule",
+        "sourceClassName": "MenuItemRepository",
+        "targetClassName": "PostgresUnitOfWork",
+        "sourceClassToken": "MenuItemRepository",
+        "targetClassToken": "PostgresUnitOfWork",
+        "targetModuleName": "DrizzlePgModule",
+        "keyOrIndex": 0,
+        "injectionType": "constructor"
+      },
+      "id": "1914228742"
+    },
+    "-215918953": {
+      "source": "-1722843239",
+      "target": "-1451215214",
+      "metadata": {
+        "type": "class-to-class",
+        "sourceModuleName": "DrizzlePgModule",
+        "sourceClassName": "PostgresDbService",
+        "targetClassName": "InfrastructureConfig",
+        "sourceClassToken": "PostgresDbService",
+        "targetClassToken": "InfrastructureConfig",
+        "targetModuleName": "DrizzlePgModule",
+        "keyOrIndex": 0,
+        "injectionType": "constructor"
+      },
+      "id": "-215918953"
+    },
+    "-221549366": {
+      "source": "1051654085",
+      "target": "791765202",
+      "metadata": {
+        "type": "class-to-class",
+        "sourceModuleName": "RestaurantCatalogModule",
+        "sourceClassName": "TagsRepository",
+        "targetClassName": "PostgresUnitOfWork",
+        "sourceClassToken": "TagsRepository",
+        "targetClassToken": "PostgresUnitOfWork",
+        "targetModuleName": "DrizzlePgModule",
+        "keyOrIndex": 0,
+        "injectionType": "constructor"
+      },
+      "id": "-221549366"
+    },
+    "-92315149": {
+      "source": "-172549460",
+      "target": "791765202",
+      "metadata": {
+        "type": "class-to-class",
+        "sourceModuleName": "RestaurantCatalogModule",
+        "sourceClassName": "SizesRepository",
+        "targetClassName": "PostgresUnitOfWork",
+        "sourceClassToken": "SizesRepository",
+        "targetClassToken": "PostgresUnitOfWork",
+        "targetModuleName": "DrizzlePgModule",
+        "keyOrIndex": 0,
+        "injectionType": "constructor"
+      },
+      "id": "-92315149"
+    },
+    "-913189400": {
+      "source": "-19112576",
+      "target": "2102434273",
+      "metadata": {
+        "type": "module-to-module",
+        "sourceModuleName": "AppModule",
+        "targetModuleName": "HttpModule"
+      },
+      "id": "-913189400"
+    },
+    "-1161479487": {
+      "source": "2102434273",
+      "target": "555176277",
+      "metadata": {
+        "type": "module-to-module",
+        "sourceModuleName": "HttpModule",
+        "targetModuleName": "InternalCoreModule"
+      },
+      "id": "-1161479487"
+    },
+    "-1389966284": {
+      "source": "2053045243",
+      "target": "-2128127094",
+      "metadata": {
+        "type": "module-to-module",
+        "sourceModuleName": "RestaurantCatalogModule",
+        "targetModuleName": "DrizzlePgModule"
+      },
+      "id": "-1389966284"
+    },
+    "-2141888137": {
+      "source": "2053045243",
+      "target": "806959740",
+      "metadata": {
+        "type": "module-to-module",
+        "sourceModuleName": "RestaurantCatalogModule",
+        "targetModuleName": "InfrastructureModule"
+      },
+      "id": "-2141888137"
+    }
+  },
+  "entrypoints": {},
+  "extras": {
+    "orphanedEnhancers": [],
+    "attachedEnhancers": []
+  },
+  "status": "partial",
+  "metadata": {
+    "cause": {
+      "type": "unknown-dependencies",
+      "context": {
+        "index": 1,
+        "dependencies": [
+          "MenuItemRepository",
+          "EntityService"
+        ],
+        "name": "EntityService"
+      },
+      "moduleId": "2053045243",
+      "nodeId": "-1113015550"
+    }
+  }
+}

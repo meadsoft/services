@@ -7,4 +7,4 @@ export const ChangeHistorySchema = z.object({
     updatedById: z.string().nullable(),
 });
 
-export type ChangeHistory = z.infer<typeof ChangeHistorySchema>;
+export type IChangeHistory = z.infer<typeof ChangeHistorySchema>;

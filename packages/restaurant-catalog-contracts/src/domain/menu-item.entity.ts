@@ -64,4 +64,20 @@ export class MenuItemEntity extends AggregateRoot implements IMenuItem {
         this.updatedById = userId;
         this.addDomainEvent(new MenuItemUpdatedEvent(this, menuItem));
     }
+
+    toDTO(): IMenuItem {
+        return {
+            id: this.id,
+            name: this.name,
+            description: this.description,
+            imageUrl: this.imageUrl,
+            price: this.price,
+            isFavorite: this.isFavorite,
+            isActive: this.isActive,
+            createdDate: this.createdDate,
+            updatedDate: this.updatedDate,
+            createdById: this.createdById,
+            updatedById: this.updatedById,
+        };
+    }
 }

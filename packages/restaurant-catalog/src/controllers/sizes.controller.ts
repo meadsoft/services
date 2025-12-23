@@ -1,5 +1,7 @@
 import { Controller } from '@nestjs/common';
 import {
+    INewSize,
+    ISize,
     NewSize,
     NewSizeSchema,
     Size,
@@ -10,6 +12,7 @@ import {
 } from '@meadsoft/common-api';
 import { SizesRepository } from '../infrastructure/repositories/sizes.repo';
 import { ApiTags } from '@nestjs/swagger';
+import { EntityService } from '@meadsoft/common';
 
 const sizesQueryController = createQueryController<Size>(Size);
 
@@ -29,7 +32,13 @@ export class SizesQueryController extends sizesQueryController {
 @ApiTags('Sizes')
 @Controller('sizes')
 export class SizesCommandController extends sizesCommandController {
-    constructor(repository: SizesRepository) {
-        super(repository);
+    constructor(repository: SizesRepository, entityService: EntityService) {
+        const newToPersistent = (newItem: INewSize): ISize => {
+            return entityService.create<INewSize>('system', newItem);
+        };
+        const updater = (item: ISize): ISize => {
+            return entityService.update<ISize>('system', item);
+        };
+        super(repository, newToPersistent, updater);
     }
 }

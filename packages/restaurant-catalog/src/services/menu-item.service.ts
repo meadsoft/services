@@ -30,7 +30,6 @@ export class MenuItemService {
         menuItemUpdates: IMenuItem,
         userId: string,
     ): Promise<IMenuItem | null> {
-        // Load existing entity from database
         const existingData = await this.repository.findById(id);
         if (!existingData) {
             return null;
