@@ -6,6 +6,9 @@
             "type": "node",
             "request": "launch",
             "name": "Node: Debug NestJS App",
+            "env": {
+                "APP_ENV": "local"
+            },
             "runtimeExecutable": "nx",
             "runtimeArgs": [
                 "run",
@@ -31,6 +34,9 @@
             "type": "node",
             "request": "attach",
             "name": "Node: Attach to NestJS",
+            "env": {
+                "APP_ENV": "local"
+            },
             "port": 9229,
             "restart": true,
             "skipFiles": [

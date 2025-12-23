@@ -18,6 +18,7 @@ import {
     TagsCommandController,
     TagsQueryController,
 } from './controllers/tags.controller';
+import { EntityService } from '@meadsoft/common';
 
 @Module({
     imports: [DrizzlePgModule, InfrastructureModule],
@@ -29,7 +30,12 @@ import {
         TagsQueryController,
         TagsCommandController,
     ],
-    providers: [MenuItemRepository, TagsRepository, SizesRepository],
+    providers: [
+        EntityService,
+        MenuItemRepository,
+        TagsRepository,
+        SizesRepository,
+    ],
     exports: [MenuItemRepository, TagsRepository, SizesRepository],
 })
 export class RestaurantCatalogModule {}

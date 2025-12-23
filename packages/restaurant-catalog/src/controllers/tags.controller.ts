@@ -11,7 +11,7 @@ import {
     createQueryController,
 } from '@meadsoft/common-api';
 import { ApiTags } from '@nestjs/swagger';
-import { EntityService } from '@meadsoft/common';
+import { EntityService, SYSTEM_UUID } from '@meadsoft/common';
 import { TagsRepository } from '../infrastructure/repositories/tags.repo';
 
 const tagsQueryController = createQueryController<Tag>(Tag);
@@ -30,10 +30,10 @@ export class TagsQueryController extends tagsQueryController {}
 export class TagsCommandController extends tagsCommandController {
     constructor(repository: TagsRepository, entityService: EntityService) {
         const newToPersistent = (newItem: INewTag): ITag => {
-            return entityService.create<INewTag>('system', newItem);
+            return entityService.create<INewTag>(SYSTEM_UUID, newItem);
         };
         const updater = (item: ITag): ITag => {
-            return entityService.update<ITag>('system', item);
+            return entityService.update<ITag>(SYSTEM_UUID, item);
         };
         super(repository, newToPersistent, updater);
     }

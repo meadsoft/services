@@ -12,7 +12,7 @@ import {
 } from '@meadsoft/common-api';
 import { SizesRepository } from '../infrastructure/repositories/sizes.repo';
 import { ApiTags } from '@nestjs/swagger';
-import { EntityService } from '@meadsoft/common';
+import { EntityService, SYSTEM_UUID } from '@meadsoft/common';
 
 const sizesQueryController = createQueryController<Size>(Size);
 
@@ -34,10 +34,10 @@ export class SizesQueryController extends sizesQueryController {
 export class SizesCommandController extends sizesCommandController {
     constructor(repository: SizesRepository, entityService: EntityService) {
         const newToPersistent = (newItem: INewSize): ISize => {
-            return entityService.create<INewSize>('system', newItem);
+            return entityService.create<INewSize>(SYSTEM_UUID, newItem);
         };
         const updater = (item: ISize): ISize => {
-            return entityService.update<ISize>('system', item);
+            return entityService.update<ISize>(SYSTEM_UUID, item);
         };
         super(repository, newToPersistent, updater);
     }

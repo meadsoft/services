@@ -12,7 +12,7 @@ import {
     createQueryController,
 } from '@meadsoft/common-api';
 import { ApiTags } from '@nestjs/swagger';
-import { EntityService } from '@meadsoft/common';
+import { EntityService, SYSTEM_UUID } from '@meadsoft/common';
 
 const menuItemQueryController = createQueryController<MenuItem>(MenuItem);
 
@@ -34,10 +34,10 @@ export class MenuItemsQueryController extends menuItemQueryController {
 export class MenuItemsCommandController extends menuItemCommandController {
     constructor(repository: MenuItemRepository, entityService: EntityService) {
         const newToPersistent = (newItem: INewMenuItem): IMenuItem => {
-            return entityService.create<INewMenuItem>('system', newItem);
+            return entityService.create<INewMenuItem>(SYSTEM_UUID, newItem);
         };
         const updater = (item: IMenuItem): IMenuItem => {
-            return entityService.update<IMenuItem>('system', item);
+            return entityService.update<IMenuItem>(SYSTEM_UUID, item);
         };
         super(repository, newToPersistent, updater);
     }

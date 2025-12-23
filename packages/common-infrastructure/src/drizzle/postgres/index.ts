@@ -5,5 +5,5 @@ export {
     DrizzlePgCommandRepository as DrizzlePgRepository,
 } from './repository.service';
 
-export { onCreationColumns } from './on-creation.columns';
+export { changeHistoryColumns as onCreationColumns } from './change-history.columns';
 export { entityColumns } from './entity.columns';

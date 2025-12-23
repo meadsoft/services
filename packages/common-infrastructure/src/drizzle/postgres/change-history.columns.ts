@@ -1,18 +1,18 @@
 import { uuid } from 'drizzle-orm/pg-core';
-import { timestamp } from 'drizzle-orm/pg-core/columns';
+import { isoTimestamp } from './iso-timestamp.column';
 
-export const createdDate = timestamp({
+export const createdDate = isoTimestamp('createdDate', {
     mode: 'string',
     withTimezone: true,
-}).defaultNow();
-export const updatedDate = timestamp({
+});
+export const updatedDate = isoTimestamp('updatedDate', {
     mode: 'string',
     withTimezone: true,
-}).defaultNow();
+});
 export const createdById = uuid();
 export const updatedById = uuid();
 
-export const onCreationColumns = {
+export const changeHistoryColumns = {
     createdDate,
     updatedDate,
     createdById,
