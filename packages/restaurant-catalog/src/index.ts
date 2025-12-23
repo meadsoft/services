@@ -13,8 +13,6 @@ export {
 } from './controllers/tags.controller';
 
 // repositories
-export { MenuItemRepository } from './infrastructure/repositories/menu-items.repo';
-export { SizesRepository } from './infrastructure/repositories/sizes.repo';
-export { TagsRepository } from './infrastructure/repositories/tags.repo';
+export * from './infrastructure/repositories/index';
 
 export { RestaurantCatalogModule } from './restaurant-catalog.module';

@@ -9,7 +9,7 @@ import {
 import {
     createCommandController,
     createQueryController,
-} from '@meadsoft/common-api';
+} from '@meadsoft/common-http';
 import { SizesRepository } from '../infrastructure/repositories/sizes.repo';
 import { ApiTags } from '@nestjs/swagger';
 import { EntityService, SYSTEM_UUID } from '@meadsoft/common';

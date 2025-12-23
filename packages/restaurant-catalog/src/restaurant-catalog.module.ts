@@ -19,6 +19,8 @@ import {
     TagsQueryController,
 } from './controllers/tags.controller';
 import { EntityService } from '@meadsoft/common';
+import { MenuItemsToSizesRepository } from './infrastructure/repositories/menu-items-to-sizes.repo';
+import { MenuItemsToTagsRepository } from './infrastructure/repositories';
 
 @Module({
     imports: [DrizzlePgModule, InfrastructureModule],
@@ -35,6 +37,8 @@ import { EntityService } from '@meadsoft/common';
         MenuItemRepository,
         TagsRepository,
         SizesRepository,
+        MenuItemsToSizesRepository,
+        MenuItemsToTagsRepository,
     ],
     exports: [MenuItemRepository, TagsRepository, SizesRepository],
 })

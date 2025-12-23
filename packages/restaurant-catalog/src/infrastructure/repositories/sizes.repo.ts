@@ -1,6 +1,6 @@
 import { Injectable } from '@nestjs/common';
 import {
-    DrizzlePgRepository,
+    DrizzlePgCommandRepository,
     PostgresUnitOfWork,
 } from '@meadsoft/common-infrastructure';
 import { Size, SizeSchema } from '@meadsoft/restaurant-catalog-contracts';
@@ -9,7 +9,7 @@ import { ZodSchema } from '@meadsoft/common';
 import { eq } from 'drizzle-orm';
 
 @Injectable()
-export class SizesRepository extends DrizzlePgRepository<Size> {
+export class SizesRepository extends DrizzlePgCommandRepository<Size> {
     constructor(protected override unitOfWork: PostgresUnitOfWork) {
         super(sizes, new ZodSchema(SizeSchema), unitOfWork);
     }

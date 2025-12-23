@@ -10,7 +10,7 @@ const swcJestConfig = JSON.parse(
 swcJestConfig.swcrc = false;
 
 module.exports = {
-    displayName: "common-api",
+    displayName: "common-http",
     preset: "../../jest.preset.js",
     testEnvironment: "node",
     transform: {

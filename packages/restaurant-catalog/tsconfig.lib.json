@@ -16,7 +16,7 @@
     ],
     "references": [
         {
-            "path": "../common-api/tsconfig.lib.json"
+            "path": "../common-http/tsconfig.lib.json"
         },
         {
             "path": "../common-infrastructure/tsconfig.lib.json"

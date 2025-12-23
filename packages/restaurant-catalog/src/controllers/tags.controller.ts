@@ -9,7 +9,7 @@ import {
 import {
     createCommandController,
     createQueryController,
-} from '@meadsoft/common-api';
+} from '@meadsoft/common-http';
 import { ApiTags } from '@nestjs/swagger';
 import { EntityService, SYSTEM_UUID } from '@meadsoft/common';
 import { TagsRepository } from '../infrastructure/repositories/tags.repo';

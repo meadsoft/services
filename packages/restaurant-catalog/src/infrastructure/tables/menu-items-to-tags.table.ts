@@ -1,6 +1,6 @@
 import { relations } from 'drizzle-orm';
 import { pgTable, uuid } from 'drizzle-orm/pg-core';
-import { onCreationColumns } from '@meadsoft/common-infrastructure';
+import { changeHistoryColumns } from '@meadsoft/common-infrastructure';
 import { menuItems } from './menu-items.table';
 import { tags } from './tags.table';
 
@@ -13,7 +13,7 @@ export const menuItemsToTags = pgTable(MENU_ITEMS_TO_TAGS_TABLE_NAME, {
     tagId: uuid()
         .references(() => tags.id)
         .notNull(),
-    ...onCreationColumns,
+    ...changeHistoryColumns,
 });
 
 export const menuItemsToTagsRelations = relations(

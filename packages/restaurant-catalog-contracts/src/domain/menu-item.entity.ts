@@ -1,4 +1,4 @@
-import { AggregateRoot } from '@meadsoft/common-domain';
+import { AggregateRoot } from '@meadsoft/common-application';
 import { v4 as uuidv4 } from 'uuid';
 import { MenuItemCreatedEvent } from './events/menu-item-created.event';
 import { MenuItemUpdatedEvent } from './events/menu-item-updated.event';

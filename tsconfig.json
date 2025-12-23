@@ -34,7 +34,7 @@
             "path": "./packages/common-infrastructure"
         },
         {
-            "path": "./packages/common-api"
+            "path": "./packages/common-http"
         }
     ]
 }

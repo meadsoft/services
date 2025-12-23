@@ -27,7 +27,7 @@
     },
     "dependencies": {
         "@meadsoft/common": "workspace:*",
-        "@meadsoft/common-domain": "workspace:*",
+        "@meadsoft/common-application": "workspace:*",
         "@types/uuid": "^11.0.0",
         "ts-results": "^3.3.0",
         "nestjs-zod": "^5.0.1",

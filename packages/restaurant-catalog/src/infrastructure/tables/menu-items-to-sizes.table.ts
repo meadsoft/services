@@ -2,18 +2,24 @@ import { relations } from 'drizzle-orm';
 import { pgTable, uuid } from 'drizzle-orm/pg-core';
 import { menuItems } from './menu-items.table';
 import { sizes } from './sizes.table';
-import { onCreationColumns } from '@meadsoft/common-infrastructure';
+import { changeHistoryColumns } from '@meadsoft/common-infrastructure';
 
 export const MENU_ITEMS_TO_SIZES_TABLE_NAME = 'menu_items_to_sizes';
 
 export const menuItemsToSizes = pgTable(MENU_ITEMS_TO_SIZES_TABLE_NAME, {
     menuItemId: uuid()
-        .references(() => menuItems.id)
+        .references(() => menuItems.id, {
+            onDelete: 'cascade',
+            onUpdate: 'cascade',
+        })
         .notNull(),
     sizeId: uuid()
-        .references(() => sizes.id)
+        .references(() => sizes.id, {
+            onDelete: 'cascade',
+            onUpdate: 'cascade',
+        })
         .notNull(),
-    ...onCreationColumns,
+    ...changeHistoryColumns,
 });
 
 export const menuItemsToSizesRelations = relations(

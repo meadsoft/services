@@ -12,7 +12,10 @@
         ]
     },
     "include": [
-        "src/**/*.ts"
+        "src/**/*.ts",
+        "../common-application/src/crud.service.ts",
+        "../common-infrastructure/src/repository.schema.ts",
+        "src/contracts/service.schema.ts"
     ],
     "references": [],
     "exclude": [

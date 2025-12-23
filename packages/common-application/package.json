@@ -1,10 +1,9 @@
 {
-    "name": "@meadsoft/common-api",
+    "name": "@meadsoft/common-application",
     "version": "0.0.0",
     "tags": [
         "util",
-        "model",
-        "api"
+        "model"
     ],
     "private": true,
     "main": "./dist/index.js",
@@ -24,17 +23,16 @@
         }
     },
     "nx": {
-        "name": "common-api"
+        "name": "common-application"
     },
     "dependencies": {
-        "@nestjs/common": "^11.0.1",
-        "@nestjs/swagger": "^11.2.3",
-        "@nestjs/testing": "^11.0.1",
         "@meadsoft/common": "workspace:*",
         "@meadsoft/common-infrastructure": "workspace:*",
+        "@nestjs/common": "^11.0.1",
+        "@types/uuid": "^11.0.0",
+        "ts-results": "^3.3.0",
         "tslib": "^2.3.0",
-        "tsup": "^8.5.1",
-        "nestjs-zod": "^5.0.1",
+        "uuid": "^13.0.0",
         "zod": "^4.1.12"
     }
 }

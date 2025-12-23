@@ -1,5 +1,5 @@
 import { z } from 'zod';
-import { EntitySchema } from './base.entity';
+import { EntitySchema } from './entity.schema';
 import { createZodDto } from 'nestjs-zod';
 import { DEFAULT_STRING_LENGTH } from '@meadsoft/common';
 import type { IChangeHistory } from '@meadsoft/common';
@@ -25,3 +25,13 @@ export type IMenuItem = IChangeHistory & z.infer<typeof MenuItemSchema>;
 export class MenuItem
     extends createZodDto(MenuItemSchema)
     implements IChangeHistory {}
+
+export const NewMenuItemWithRelationsSchema = NewMenuItemSchema.extend({
+    sizes: z.uuid().array().optional(),
+    tags: z.uuid().array().optional(),
+});
+export type INewMenuItemWithRelations = IMenuItem &
+    z.infer<typeof NewMenuItemWithRelationsSchema>;
+export class NewMenuItemWithRelations extends createZodDto(
+    NewMenuItemWithRelationsSchema,
+) {}

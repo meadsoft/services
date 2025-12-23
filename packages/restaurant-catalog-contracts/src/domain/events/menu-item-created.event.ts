@@ -1,4 +1,4 @@
-import { DomainEvent } from '@meadsoft/common-domain';
+import { DomainEvent } from '@meadsoft/common-application';
 import { MenuItemEntity } from '../menu-item.entity';
 
 export class MenuItemCreatedEvent extends DomainEvent {

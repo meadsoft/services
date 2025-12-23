@@ -1,22 +1,23 @@
-import { SQL } from 'drizzle-orm';
+import { and, SQL } from 'drizzle-orm';
 import { PgTable } from 'drizzle-orm/pg-core';
 import { EMPTY_LENGTH, FIRST_INDEX, Schema } from '@meadsoft/common';
-import { IQueryRepository, ICrudRepository } from '../../repository.model';
+import { IQueryRepository, ICrudRepository } from '../../repository.schema';
 import { PostgresUnitOfWork } from './unit-of-work.service';
 import { QueryResultBase } from 'pg';
 
-export abstract class DrizzlePgEntityQueryRepository<
+export abstract class DrizzlePgQueryRepository<
     TModel extends object,
-> implements IQueryRepository<TModel> {
+    TId = string,
+> implements IQueryRepository<TModel, TId> {
     constructor(
-        protected pgTable: PgTable,
+        public readonly table: PgTable,
         protected schema: Schema<TModel>,
         protected unitOfWork: PostgresUnitOfWork,
     ) {}
 
-    abstract equals(id: string): SQL;
+    abstract equals(id: TId): SQL | undefined;
 
-    protected parseResults(item: unknown): TModel {
+    protected parseResult(item: unknown): TModel {
         const result = this.schema.parse(item);
         if (result.err) {
             throw result.val;
@@ -24,23 +25,28 @@ export abstract class DrizzlePgEntityQueryRepository<
         return result.val;
     }
 
-    async findById(id: string): Promise<TModel | null> {
+    protected parseResults(...items: unknown[]): TModel[] {
+        return items.map((item) => this.parseResult(item));
+    }
+
+    async findOne(id: TId): Promise<TModel | null> {
         const items = await this.unitOfWork
             .getDatabase()
             .select()
-            .from(this.pgTable)
+            .from(this.table)
             .where(this.equals(id));
         if (items.length === EMPTY_LENGTH) {
             return null;
         }
-        return this.parseResults(items[FIRST_INDEX]);
+        return this.parseResult(items[FIRST_INDEX]);
     }
 
-    async findAll(): Promise<TModel[]> {
+    async findMany(...filters: SQL[]): Promise<TModel[]> {
         const items = await this.unitOfWork
             .getDatabase()
             .select()
-            .from(this.pgTable);
+            .from(this.table)
+            .where(and(...filters));
         const results: TModel[] = [];
         for (const item of items) {
             const result = this.schema.parse(item);
@@ -52,47 +58,84 @@ export abstract class DrizzlePgEntityQueryRepository<
         return results;
     }
 
-    async exists(id: string): Promise<boolean> {
+    async exists(id: TId): Promise<boolean> {
         const items = await this.unitOfWork
             .getDatabase()
             .select()
-            .from(this.pgTable)
+            .from(this.table)
             .where(this.equals(id));
         return items.length > EMPTY_LENGTH;
     }
 }
 
-export abstract class DrizzlePgCommandRepository<TModel extends object>
-    extends DrizzlePgEntityQueryRepository<TModel>
-    implements ICrudRepository<TModel>
+export abstract class DrizzlePgCommandRepository<
+    TModel extends object,
+    TId = string,
+>
+    extends DrizzlePgQueryRepository<TModel, TId>
+    implements ICrudRepository<TModel, TId>
 {
-    async create(item: TModel): Promise<TModel> {
+    async createOne(item: TModel): Promise<TModel> {
         const created = await this.unitOfWork
             .getDatabase()
-            .insert(this.pgTable)
+            .insert(this.table)
             .values(item)
             .returning();
-        return this.parseResults(created[FIRST_INDEX]);
+        return this.parseResult(created[FIRST_INDEX]);
     }
 
-    async update(id: string, updates: Partial<TModel>): Promise<TModel> {
+    async createMany(...items: TModel[]): Promise<TModel[]> {
+        const created = await this.unitOfWork
+            .getDatabase()
+            .insert(this.table)
+            .values(items)
+            .returning();
+        return this.parseResults(...created);
+    }
+
+    async updateOne(id: TId, updates: Partial<TModel>): Promise<TModel> {
         const updated = await this.unitOfWork
             .getDatabase()
-            .update(this.pgTable)
+            .update(this.table)
             .set(updates)
             .where(this.equals(id))
             .returning();
-        return this.parseResults(updated[FIRST_INDEX]);
+        return this.parseResult(updated[FIRST_INDEX]);
     }
 
-    async delete(id: string): Promise<boolean> {
+    async updateMany(
+        updates: Partial<TModel>,
+        ...filters: SQL[]
+    ): Promise<number> {
+        // TODO: figure out how to type PgTransaction properly in UnitOfWork so this statements type is known
+        // eslint-disable-next-line @typescript-eslint/no-unsafe-type-assertion
+        const updated = (await this.unitOfWork
+            .getDatabase()
+            .update(this.table)
+            .set(updates)
+            .where(and(...filters))) as QueryResultBase;
+        return updated.rowCount ?? EMPTY_LENGTH;
+    }
+
+    async deleteOne(id: TId): Promise<boolean> {
+        // TODO: figure out how to type PgTransaction properly in UnitOfWork so this statements type is known
         // eslint-disable-next-line @typescript-eslint/no-unsafe-type-assertion
         const result = (await this.unitOfWork
             .getDatabase()
-            .delete(this.pgTable)
+            .delete(this.table)
             .where(this.equals(id))) as QueryResultBase;
         return result.rowCount === null
             ? false
             : result.rowCount > EMPTY_LENGTH;
+    }
+
+    async deleteMany(...filters: SQL[]): Promise<number> {
+        // TODO: figure out how to type PgTransaction properly in UnitOfWork so this statements type is known
+        // eslint-disable-next-line @typescript-eslint/no-unsafe-type-assertion
+        const result = (await this.unitOfWork
+            .getDatabase()
+            .delete(this.table)
+            .where(and(...filters))) as QueryResultBase;
+        return result.rowCount ?? EMPTY_LENGTH;
     }
 }
