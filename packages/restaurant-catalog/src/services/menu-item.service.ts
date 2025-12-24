@@ -1,69 +1,63 @@
-import { Injectable, NotImplementedException } from '@nestjs/common';
+import { Injectable } from '@nestjs/common';
 import {
     IMenuItem,
+    IMenuItemsToSizes,
+    IMenuItemsToSizesId,
+    INewMenuItem,
     INewMenuItemWithRelations,
 } from '@meadsoft/restaurant-catalog-contracts';
-import { MenuItemRepository } from '../infrastructure/repositories/menu-items.repo';
 import {
     EMPTY_LENGTH,
     ChangeHistoryService,
     ICrudService,
-    IFilter,
+    EntityService,
 } from '@meadsoft/common';
+import { QueryService, CommandService } from '@meadsoft/common-application';
+import { MenuItemRepository } from '../infrastructure/repositories/menu-items.repo';
+
 import {
     MenuItemsToSizesRepository,
     MenuItemsToTagsRepository,
-    SizesRepository,
-    TagsRepository,
 } from '../infrastructure/repositories';
-import { menuItemsToSizes } from 'src/infrastructure/tables/menu-items-to-sizes.table';
+import { menuItemsToSizes } from '../infrastructure/tables/menu-items-to-sizes.table';
 import { eq } from 'drizzle-orm';
-import { menuItemsToTags } from 'src/infrastructure/tables/menu-items-to-tags.table';
+import { menuItemsToTags } from '../infrastructure/tables/menu-items-to-tags.table';
 
 @Injectable()
-export class MenuItemService implements ICrudService<IMenuItem> {
+export class MenuItemQueryService extends QueryService<IMenuItem> {
+    constructor(repository: MenuItemRepository) {
+        super(repository);
+    }
+}
+
+@Injectable()
+export class MenuItemService
+    extends CommandService<INewMenuItem, IMenuItem>
+    implements ICrudService<INewMenuItem, IMenuItem>
+{
     constructor(
-        private readonly repository: MenuItemRepository,
-        private readonly tagsRepository: TagsRepository,
-        private readonly sizesRepository: SizesRepository,
+        repository: MenuItemRepository,
+        entityService: EntityService,
+        changeHistoryService: ChangeHistoryService,
         private readonly menuItemsToSizesRepository: MenuItemsToSizesRepository,
         private readonly menuItemsToTagsRepository: MenuItemsToTagsRepository,
-        private readonly changeHistoryService: ChangeHistoryService,
-    ) {}
-    async findOne(id: string): Promise<IMenuItem | null> {
-        return await this.repository.findOne(id);
-    }
-    async findMany(...filters: IFilter[]): Promise<IMenuItem[]> {
-        return await this.repository.findMany(...filters);
-    }
-    async createOne(item: IMenuItem): Promise<IMenuItem> {
-        return await this.repository.createOne(item);
-    }
-    async createMany(...items: IMenuItem[]): Promise<IMenuItem[]> {
-        return await this.repository.createMany(...items);
-    }
-    async updateOne(
-        id: string,
-        updates: Partial<IMenuItem>,
-    ): Promise<IMenuItem> {
-        return await this.repository.updateOne(id, updates);
-    }
-    async updateMany(): Promise<number> {
-        return await Promise.reject(new NotImplementedException());
-    }
-    async deleteOne(id: string): Promise<boolean> {
-        return await this.repository.deleteOne(id);
-    }
-    async deleteMany(): Promise<number> {
-        return await Promise.reject(new NotImplementedException());
+    ) {
+        super(
+            repository,
+            entityService,
+            changeHistoryService,
+            (userId: string, newModel: INewMenuItem) =>
+                this.entityService.create<IMenuItem>(userId, newModel),
+        );
     }
 
     async createWithRelations(
+        userId: string,
         item: INewMenuItemWithRelations,
     ): Promise<IMenuItem> {
         const created = await this.repository.createOne(item);
         if (item.sizes && item.sizes.length > EMPTY_LENGTH) {
-            await this.insertSizeRelations(created.id, item.sizes);
+            await this.upsertSizeRelationships(userId, created.id, item.sizes);
         }
         if (item.tags && item.tags.length > EMPTY_LENGTH) {
             await this.insertTagRelations(created.id, item.tags);
@@ -82,7 +76,7 @@ export class MenuItemService implements ICrudService<IMenuItem> {
                 eq(menuItemsToSizes.menuItemId, id),
             );
             if (updates.sizes.length > EMPTY_LENGTH) {
-                await this.insertSizeRelations(id, updates.sizes);
+                await this.upsertSizeRelationships(id, updates.sizes);
             }
         }
 
@@ -98,22 +92,28 @@ export class MenuItemService implements ICrudService<IMenuItem> {
         return updated;
     }
 
-    private async insertSizeRelations(
+    private async upsertSizeRelationships(
+        userId: string,
         menuItemId: string,
         sizeIds: string[],
-    ): Promise<void> {
-        const now = new Date().toISOString();
-        const relations = sizeIds.map((sizeId) => ({
-            menuItemId,
-            sizeId,
-            createdDate: now,
-            createdById: null,
-        }));
-
-        await this.menuItemsToSizesRepository.createOne(relations);
+    ): Promise<IMenuItemsToSizes[]> {
+        const menuItemToSizeRelationships: IMenuItemsToSizes[] =
+            sizeIds.map<IMenuItemsToSizes>((sizeId) => {
+                return this.changeHistoryService.create<IMenuItemsToSizesId>(
+                    userId,
+                    {
+                        menuItemId,
+                        sizeId,
+                    },
+                );
+            });
+        return await this.menuItemsToSizesRepository.createMany(
+            menuItemToSizeRelationships,
+        );
     }
 
     private async insertTagRelations(
+        userId: string,
         menuItemId: string,
         tagIds: string[],
     ): Promise<void> {
@@ -125,9 +125,6 @@ export class MenuItemService implements ICrudService<IMenuItem> {
             createdById: null,
         }));
 
-        await this.unitOfWork
-            .getDatabase()
-            .insert(menuItemsToTags)
-            .values(relations);
+        await this.menuItemsToTagsRepository.createMany(...relations);
     }
 }

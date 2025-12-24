@@ -12,9 +12,6 @@
     },
     "include": [
         "src/**/*.ts",
-        "src/infrastrucutre.config.ts",
-        "../common/src/entity.service.ts",
-        "src/repository.schema.ts"
     ],
     "references": [
         {

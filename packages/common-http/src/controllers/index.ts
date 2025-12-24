@@ -1,2 +1,2 @@
-export * from './basic-command-controller';
-export * from './basic-query-controller';
+export * from './command.controller';
+export * from './query.controller';

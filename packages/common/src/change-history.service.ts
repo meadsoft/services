@@ -1,32 +1,23 @@
-import { IChangeHistory } from './contracts';
+import { IChangeHistory, IUpdateHistory } from './contracts';
 import { Injectable } from '@nestjs/common';
 
 @Injectable()
 export class ChangeHistoryService {
-    create<TInput extends object>(
-        userId: string,
-        item: TInput,
-    ): IChangeHistory & TInput {
-        const changeItem: IChangeHistory & TInput = {
-            ...item,
+    create(userId: string): IChangeHistory {
+        return {
             createdById: userId,
             createdDate: new Date().toISOString(),
             updatedById: userId,
             updatedDate: new Date().toISOString(),
         };
-        return changeItem;
     }
 
-    update<TInput extends object>(
+    update<TOutput extends IUpdateHistory>(
         userId: string,
-        updates: IChangeHistory & TInput,
-    ): IChangeHistory & TInput {
-        return {
-            ...updates,
-            createdById: updates.createdById ?? null,
-            createdDate: updates.createdDate ?? new Date().toISOString(),
-            updatedDate: new Date().toISOString(),
-            updatedById: userId,
-        };
+        updates: TOutput,
+    ): TOutput {
+        updates.updatedDate = new Date().toISOString();
+        updates.updatedById = userId;
+        return updates;
     }
 }

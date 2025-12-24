@@ -7,24 +7,15 @@ import { ChangeHistoryService } from './change-history.service';
 export class EntityService {
     constructor(private readonly changeHistoryService: ChangeHistoryService) {}
 
-    create<TInput extends object>(
+    create<TEntity extends IEntity>(
         userId: string,
-        item: TInput,
-    ): IEntity & TInput {
-        const changeItem: IEntity & TInput = {
+        item: Partial<TEntity>,
+    ): TEntity {
+        const changeItem: IEntity & TEntity = {
             id: uuidv4(),
-            ...this.changeHistoryService.create<TInput>(userId, item),
+            ...item,
+            ...this.changeHistoryService.create(userId),
         };
         return changeItem;
-    }
-
-    update<TInput extends object>(
-        userId: string,
-        updates: IEntity & TInput,
-    ): IEntity & TInput {
-        return this.changeHistoryService.create<IEntity & TInput>(
-            userId,
-            updates,
-        );
     }
 }

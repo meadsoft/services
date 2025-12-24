@@ -8,3 +8,7 @@ export const ChangeHistorySchema = z.object({
 });
 
 export type IChangeHistory = z.infer<typeof ChangeHistorySchema>;
+export type IUpdateHistory = Pick<
+    IChangeHistory,
+    'updatedById' | 'updatedDate'
+>;

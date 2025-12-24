@@ -6,8 +6,10 @@ export class QueryService<TModel> implements IQueryService<TModel> {
     async findOne(id: string): Promise<TModel | null> {
         return await this.repository.findOne(id);
     }
+    // TODO: implement IFilter to SQL mapping
+    // async findMany(...filters: IFilter[]): Promise<TModel[]> {
     async findMany(): Promise<TModel[]> {
-        // TODO: implement IFilter to SQL mapping
+        // return await this.repository.findMany(...filters);
         return await this.repository.findMany();
     }
 }
