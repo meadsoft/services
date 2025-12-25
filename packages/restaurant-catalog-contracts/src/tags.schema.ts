@@ -1,5 +1,5 @@
 import { z } from 'zod';
-import { EntitySchema } from './entity.schema';
+import { EntitySchema } from '@meadsoft/common';
 import { createZodDto } from 'nestjs-zod';
 
 export const NewTagSchema = z.object({

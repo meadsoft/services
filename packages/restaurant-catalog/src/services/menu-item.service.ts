@@ -5,6 +5,7 @@ import {
     IMenuItemsToSizesId,
     INewMenuItem,
     INewMenuItemWithRelations,
+    MenuItemEntity,
 } from '@meadsoft/restaurant-catalog-contracts';
 import {
     EMPTY_LENGTH,
@@ -31,7 +32,7 @@ export class MenuItemQueryService extends QueryService<IMenuItem> {
 }
 
 @Injectable()
-export class MenuItemService
+export class MenuItemCrudService
     extends CommandService<INewMenuItem, IMenuItem>
     implements ICrudService<INewMenuItem, IMenuItem>
 {
@@ -47,7 +48,7 @@ export class MenuItemService
             entityService,
             changeHistoryService,
             (userId: string, newModel: INewMenuItem) =>
-                this.entityService.create<IMenuItem>(userId, newModel),
+                MenuItemEntity.create(userId, newModel, entityService),
         );
     }
 
@@ -60,7 +61,7 @@ export class MenuItemService
             await this.upsertSizeRelationships(userId, created.id, item.sizes);
         }
         if (item.tags && item.tags.length > EMPTY_LENGTH) {
-            await this.insertTagRelations(created.id, item.tags);
+            await this.insertTagRelations(userId, created.id, item.tags);
         }
         return created;
     }

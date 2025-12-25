@@ -9,6 +9,7 @@ import {
 import { ICrudRepository } from '@meadsoft/common-infrastructure';
 import { QueryService } from './query.service';
 import { NotImplementedException } from '@nestjs/common';
+import { Err, Ok, Result } from 'ts-results';
 
 export class CommandService<
     TNewModel extends object,
@@ -21,39 +22,45 @@ export class CommandService<
         repository: ICrudRepository<TModel>,
         public readonly entityService: EntityService,
         public readonly changeHistoryService: ChangeHistoryService,
-        private readonly newToPersistent: (userId: string, newModel: TNewModel) => TModel,
+        private readonly createEntity: (
+            userId: string,
+            newModel: TNewModel,
+        ) => Result<TModel, Error>,
     ) {
         super(repository);
     }
 
-    async createOne(userId: string, newItem: TNewModel): Promise<TModel> {
-        const item = this.newToPersistent(
-            userId,
-            this.entityService.create<TNewModel>(userId, newItem),
-        );
-        return await this.repository.createOne(item);
+    async createOne(
+        userId: string,
+        newItem: TNewModel,
+    ): Promise<Result<TModel, Error>> {
+        const item = this.createEntity(userId, newItem);
+        if (item.err) {
+            return Err(item.val);
+        }
+        return Ok(await this.repository.createOne(item.val));
     }
 
     async createMany(
         userId: string,
         ...newItems: TNewModel[]
-    ): Promise<TModel[]> {
-        const items = newItems.map((item) =>
-            this.newToPersistent(
-                userId,
-                this.entityService.create<TNewModel>(userId, item),
-            ),
-        );
-        return await this.repository.createMany(...items);
+    ): Promise<Result<TModel[], Error>> {
+        const items = newItems.map((item) => this.createEntity(userId, item));
+        const firstFoundError = Result.all(...items);
+        if (firstFoundError.err) {
+            return firstFoundError;
+        }
+        const okItems = items.map((res) => res.unwrap());
+        return Ok(await this.repository.createMany(...okItems));
     }
 
     async updateOne(
         userId: string,
         id: string,
         updates: IUpdateHistory & Partial<TModel>,
-    ): Promise<TModel> {
+    ): Promise<Result<TModel, Error>> {
         const updatedItem = this.changeHistoryService.update(userId, updates);
-        return await this.repository.updateOne(id, updatedItem);
+        return Ok(await this.repository.updateOne(id, updatedItem));
     }
 
     // TODO: implement IFilter to SQL mapping
@@ -61,15 +68,18 @@ export class CommandService<
         userId: string,
         updates: Partial<TModel>,
         ...filters: IFilter[]
-    ): Promise<number> {
+    ): Promise<Result<number, Error>> {
         console.log(userId, updates, filters);
-        return await Promise.reject(new NotImplementedException());
+        return Ok(await Promise.reject(new NotImplementedException()));
     }
 
-    async deleteOne(userId: string, id: string): Promise<boolean> {
+    async deleteOne(
+        userId: string,
+        id: string,
+    ): Promise<Result<boolean, Error>> {
         const existingItem = await this.repository.findOne(id);
         if (!existingItem) {
-            return false;
+            return Ok(false);
         }
         // TODO: improve typing here so unsafe assertions are not needed
         // eslint-disable-next-line @typescript-eslint/no-unsafe-type-assertion
@@ -83,10 +93,10 @@ export class CommandService<
             updates,
         );
         await this.updateOne(userId, id, updatedChangeHistory);
-        return await this.repository.deleteOne(id);
+        return Ok(await this.repository.deleteOne(id));
     }
 
-    async deleteMany(userId: string): Promise<number> {
+    async deleteMany(userId: string): Promise<Result<number, Error>> {
         // TODO: improve typing here so unsafe assertions are not needed
         // eslint-disable-next-line @typescript-eslint/no-unsafe-type-assertion
         const updates = {
@@ -99,6 +109,6 @@ export class CommandService<
             updates,
         );
         await this.updateMany(userId, updatedChangeHistory);
-        return await Promise.reject(new NotImplementedException());
+        return Ok(await Promise.reject(new NotImplementedException()));
     }
 }

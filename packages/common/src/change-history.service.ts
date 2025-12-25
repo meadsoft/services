@@ -3,6 +3,17 @@ import { Injectable } from '@nestjs/common';
 
 @Injectable()
 export class ChangeHistoryService {
+    initialize<TOutput extends IChangeHistory>(
+        userId: string,
+        item: TOutput,
+    ): TOutput {
+        item.createdById = userId;
+        item.createdDate = new Date().toISOString();
+        item.updatedById = userId;
+        item.updatedDate = new Date().toISOString();
+        return item;
+    }
+
     create(userId: string): IChangeHistory {
         return {
             createdById: userId,
