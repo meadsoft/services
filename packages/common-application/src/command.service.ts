@@ -1,40 +1,34 @@
 import {
     ChangeHistoryService,
     EntityService,
-    ICrudService,
+    ICommandService,
     IEntity,
     IFilter,
     IUpdateHistory,
 } from '@meadsoft/common';
 import { ICrudRepository } from '@meadsoft/common-infrastructure';
-import { QueryService } from './query.service';
 import { NotImplementedException } from '@nestjs/common';
 import { Err, Ok, Result } from 'ts-results';
 
 export class CommandService<
     TNewModel extends object,
     TModel extends IEntity & TNewModel,
->
-    extends QueryService<TModel>
-    implements ICrudService<TNewModel, TModel>
-{
+> implements ICommandService<TNewModel, TModel> {
     constructor(
-        repository: ICrudRepository<TModel>,
+        public readonly repository: ICrudRepository<TModel>,
         public readonly entityService: EntityService,
         public readonly changeHistoryService: ChangeHistoryService,
-        private readonly createEntity: (
+        private readonly createFromNew: (
             userId: string,
             newModel: TNewModel,
         ) => Result<TModel, Error>,
-    ) {
-        super(repository);
-    }
+    ) {}
 
     async createOne(
         userId: string,
         newItem: TNewModel,
     ): Promise<Result<TModel, Error>> {
-        const item = this.createEntity(userId, newItem);
+        const item = this.createFromNew(userId, newItem);
         if (item.err) {
             return Err(item.val);
         }
@@ -45,7 +39,7 @@ export class CommandService<
         userId: string,
         ...newItems: TNewModel[]
     ): Promise<Result<TModel[], Error>> {
-        const items = newItems.map((item) => this.createEntity(userId, item));
+        const items = newItems.map((item) => this.createFromNew(userId, item));
         const firstFoundError = Result.all(...items);
         if (firstFoundError.err) {
             return firstFoundError;

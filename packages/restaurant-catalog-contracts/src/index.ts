@@ -1,5 +1,4 @@
-export * from './entity.schema';
-export * from './domain/menu-item.entity';
+export * from './domain/index';
 export * from './menu-item.schema';
 export * from './sizes.schema';
 export * from './tags.schema';

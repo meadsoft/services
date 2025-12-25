@@ -6,22 +6,27 @@ import {
     validateUuid,
     InvalidIDException,
     Entity,
-    ICrudService,
     SYSTEM_UUID,
+    ICommandService,
 } from '@meadsoft/common';
 
 export function createCommandController<TNewModel, TModel extends Entity>(
     model: Type<TModel>,
+    newModelSchema: ZodObject,
     modelSchema: ZodObject,
 ) {
     class CommandController {
-        constructor(public service: ICrudService<TNewModel, TModel>) {}
+        constructor(public service: ICommandService<TNewModel, TModel>) {}
 
         @Post()
-        @UsePipes(new ZodValidationPipe(modelSchema))
+        @UsePipes(new ZodValidationPipe(newModelSchema))
         @ApiCreatedResponse({ type: model })
         async create(@Body() item: TNewModel): Promise<TModel> {
-            return await this.service.createOne(SYSTEM_UUID, item);
+            const result = await this.service.createOne(SYSTEM_UUID, item);
+            if (result.err) {
+                throw result.val;
+            }
+            return result.val;
         }
 
         @Put(':id')
@@ -29,9 +34,17 @@ export function createCommandController<TNewModel, TModel extends Entity>(
         @ApiOkResponse({ type: model })
         async update(
             @Param('id') id: string,
-            @Body() updates: TNewModel,
+            @Body() updates: TModel,
         ): Promise<TModel | undefined> {
-            return await this.service.updateOne(SYSTEM_UUID, id, updates);
+            const result = await this.service.updateOne(
+                SYSTEM_UUID,
+                id,
+                updates,
+            );
+            if (result.err) {
+                throw result.val;
+            }
+            return result.val;
         }
 
         @Delete(':id')
@@ -40,7 +53,11 @@ export function createCommandController<TNewModel, TModel extends Entity>(
             if (validateUuid(id) === false) {
                 throw new InvalidIDException();
             }
-            return await this.service.deleteOne(SYSTEM_UUID, id);
+            const result = await this.service.deleteOne(SYSTEM_UUID, id);
+            if (result.err) {
+                throw result.val;
+            }
+            return result.val;
         }
     }
 
