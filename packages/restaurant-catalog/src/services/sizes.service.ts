@@ -6,7 +6,7 @@ import {
     ISize,
     SizeEntity,
 } from '@meadsoft/restaurant-catalog-contracts';
-import { SizesRepository } from '../infrastructure/repositories';
+import { SizesRepository } from '../database/repositories';
 
 @Injectable()
 export class SizeQueryService extends QueryService<ISize> {

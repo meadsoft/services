@@ -15,6 +15,7 @@ import {
     MenuItemCommandService,
     MenuItemQueryService,
 } from '../services/menu-item.service';
+import { RESTAURANT_CATALOG_TAG } from './tags';
 
 const menuItemQueryController = createQueryController<IMenuItem>(MenuItem);
 
@@ -23,16 +24,18 @@ const menuItemCommandController = createCommandController<
     IMenuItem
 >(MenuItem, NewMenuItemSchema, MenuItemSchema);
 
-@ApiTags('Menu Items')
-@Controller('menu-items')
+const RESOURCE_NAME = 'menu-items';
+
+@ApiTags(RESTAURANT_CATALOG_TAG)
+@Controller(RESOURCE_NAME)
 export class MenuItemsQueryController extends menuItemQueryController {
     constructor(service: MenuItemQueryService) {
         super(service);
     }
 }
 
-@ApiTags('Menu Items')
-@Controller('menu-items')
+@ApiTags(RESTAURANT_CATALOG_TAG)
+@Controller(RESOURCE_NAME)
 export class MenuItemsCommandController extends menuItemCommandController {
     constructor(service: MenuItemCommandService) {
         super(service);

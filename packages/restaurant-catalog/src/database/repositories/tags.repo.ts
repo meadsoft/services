@@ -1,20 +1,20 @@
 import { Injectable } from '@nestjs/common';
+import { Tag, TagSchema } from '@meadsoft/restaurant-catalog-contracts';
 import {
     DrizzlePgCommandRepository,
     PostgresUnitOfWork,
 } from '@meadsoft/common-infrastructure';
-import { Size, SizeSchema } from '@meadsoft/restaurant-catalog-contracts';
-import { sizes } from '../tables/sizes.table';
+import { tagsTable } from '../tables/tags.table';
 import { ZodSchema } from '@meadsoft/common';
 import { eq } from 'drizzle-orm';
 
 @Injectable()
-export class SizesRepository extends DrizzlePgCommandRepository<Size> {
+export class TagsRepository extends DrizzlePgCommandRepository<Tag> {
     constructor(protected override unitOfWork: PostgresUnitOfWork) {
-        super(sizes, new ZodSchema(SizeSchema), unitOfWork);
+        super(tagsTable, new ZodSchema(TagSchema), unitOfWork);
     }
 
     override equals(id: string) {
-        return eq(sizes.id, id);
+        return eq(tagsTable.id, id);
     }
 }

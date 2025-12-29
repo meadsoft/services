@@ -1,5 +1,6 @@
 export * from './controllers/index';
 export * from './services/index';
-export * from './infrastructure/repositories/index';
+export * from './database/repositories/index';
+export * from './database/tables/index';
 
 export { RestaurantCatalogModule } from './restaurant-catalog.module';

@@ -12,8 +12,6 @@
     "module": "./dist/index.js",
     "types": "./dist/index.d.ts",
     "scripts": {
-        "db:generate": "drizzle-kit generate --config ./src/drizzle.config.ts",
-        "db:migrate": "drizzle-kit migrate --config ./src/drizzle.config.ts",
         "build": "../../scripts/build-and-bundle.sh"
     },
     "exports": {
@@ -39,7 +37,6 @@
         "@nestjs/swagger": "^11.2.3",
         "@nestjs/testing": "^11.0.1",
         "@types/pg": "^8.15.6",
-        "drizzle-kit": "^0.31.7",
         "drizzle-orm": "^0.44.7",
         "nestjs-zod": "^5.0.1",
         "ts-results": "^3.3.0",

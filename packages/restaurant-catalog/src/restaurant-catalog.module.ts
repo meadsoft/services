@@ -4,9 +4,9 @@ import {
     InfrastructureModule,
 } from '@meadsoft/common-infrastructure';
 import { CommonModule } from '@meadsoft/common';
-import { MenuItemRepository } from './infrastructure/repositories/menu-items.repo';
-import { SizesRepository } from './infrastructure/repositories/sizes.repo';
-import { TagsRepository } from './infrastructure/repositories/tags.repo';
+import { MenuItemRepository } from './database/repositories/menu-items.repo';
+import { SizesRepository } from './database/repositories/sizes.repo';
+import { TagsRepository } from './database/repositories/tags.repo';
 import {
     MenuItemsQueryController,
     MenuItemsCommandController,
@@ -19,14 +19,28 @@ import {
     TagsCommandController,
     TagsQueryController,
 } from './controllers/tags.controller';
-import { MenuItemsToSizesRepository } from './infrastructure/repositories/menu-items-to-sizes.repo';
-import { MenuItemsToTagsRepository } from './infrastructure/repositories';
+import { MenuItemToSizeRepository } from './database/repositories/menu-item-to-size.repo';
+import { MenuItemToTagRepository } from './database/repositories';
 import {
     MenuItemCommandService,
     MenuItemQueryService,
 } from './services/menu-item.service';
 import { TagsCommandService, TagsQueryService } from './services/tags.service';
 import { SizeCommandService, SizeQueryService } from './services/sizes.service';
+import {
+    MenuItemToTagCommandService,
+    MenuItemToTagQueryService,
+} from './services/menu-item-to-tag.service';
+import {
+    MenuItemToSizeCommandService,
+    MenuItemToSizeQueryService,
+} from './services/menu-item-to-size.service';
+import {
+    MenuItemToSizeCommandController,
+    MenuItemToSizeQueryController,
+    MenuItemToTagCommandController,
+    MenuItemToTagQueryController,
+} from './controllers';
 
 @Module({
     imports: [DrizzlePgModule, InfrastructureModule, CommonModule],
@@ -37,6 +51,10 @@ import { SizeCommandService, SizeQueryService } from './services/sizes.service';
         SizesCommandController,
         TagsQueryController,
         TagsCommandController,
+        MenuItemToSizeQueryController,
+        MenuItemToSizeCommandController,
+        MenuItemToTagQueryController,
+        MenuItemToTagCommandController,
     ],
     providers: [
         MenuItemRepository,
@@ -48,8 +66,12 @@ import { SizeCommandService, SizeQueryService } from './services/sizes.service';
         SizesRepository,
         SizeQueryService,
         SizeCommandService,
-        MenuItemsToSizesRepository,
-        MenuItemsToTagsRepository,
+        MenuItemToSizeRepository,
+        MenuItemToSizeQueryService,
+        MenuItemToSizeCommandService,
+        MenuItemToTagRepository,
+        MenuItemToTagQueryService,
+        MenuItemToTagCommandService,
     ],
     exports: [
         MenuItemQueryService,

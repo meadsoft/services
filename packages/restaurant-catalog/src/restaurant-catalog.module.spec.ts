@@ -1,8 +1,8 @@
 import { Test, TestingModule } from '@nestjs/testing';
 import { RestaurantCatalogModule } from './restaurant-catalog.module';
-import { MenuItemRepository } from './infrastructure/repositories/menu-items.repo';
-import { SizesRepository } from './infrastructure/repositories/sizes.repo';
-import { TagsRepository } from './infrastructure/repositories/tags.repo';
+import { MenuItemRepository } from './database/repositories/menu-items.repo';
+import { SizesRepository } from './database/repositories/sizes.repo';
+import { TagsRepository } from './database/repositories/tags.repo';
 import {
     MenuItemsQueryController,
     MenuItemsCommandController,

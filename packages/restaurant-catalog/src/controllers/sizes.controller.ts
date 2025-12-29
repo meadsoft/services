@@ -14,6 +14,7 @@ import {
     SizeCommandService,
     SizeQueryService,
 } from '../services/sizes.service';
+import { RESTAURANT_CATALOG_TAG } from './tags';
 
 const sizesQueryController = createQueryController<Size>(Size);
 
@@ -23,16 +24,18 @@ const sizesCommandController = createCommandController<NewSize, Size>(
     SizeSchema,
 );
 
-@ApiTags('Sizes')
-@Controller('sizes')
+const RESOURCE_NAME = 'sizes';
+
+@ApiTags(RESTAURANT_CATALOG_TAG)
+@Controller(RESOURCE_NAME)
 export class SizesQueryController extends sizesQueryController {
     constructor(service: SizeQueryService) {
         super(service);
     }
 }
 
-@ApiTags('Sizes')
-@Controller('sizes')
+@ApiTags(RESTAURANT_CATALOG_TAG)
+@Controller(RESOURCE_NAME)
 export class SizesCommandController extends sizesCommandController {
     constructor(service: SizeCommandService) {
         super(service);

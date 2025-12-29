@@ -6,7 +6,7 @@ import {
     ITag,
     TagEntity,
 } from '@meadsoft/restaurant-catalog-contracts';
-import { TagsRepository } from '../infrastructure/repositories';
+import { TagsRepository } from '../database/repositories';
 
 @Injectable()
 export class TagsQueryService extends QueryService<ITag> {

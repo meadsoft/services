@@ -1,27 +1,26 @@
 import { Injectable } from '@nestjs/common';
 import {
-    IMenuItem,
-    INewMenuItem,
-    MenuItemEntity,
+    IMenuItemToSize,
+    MenuItemToSizeEntity,
 } from '@meadsoft/restaurant-catalog-contracts';
 import { ChangeHistoryService, EntityService } from '@meadsoft/common';
 import { QueryService, CommandService } from '@meadsoft/common-application';
-import { MenuItemRepository } from '../database/repositories/menu-items.repo';
+import { MenuItemToSizeRepository } from '../database/repositories';
 
 @Injectable()
-export class MenuItemQueryService extends QueryService<IMenuItem> {
-    constructor(repository: MenuItemRepository) {
+export class MenuItemToSizeQueryService extends QueryService<IMenuItemToSize> {
+    constructor(repository: MenuItemToSizeRepository) {
         super(repository);
     }
 }
 
 @Injectable()
-export class MenuItemCommandService extends CommandService<
-    INewMenuItem,
-    IMenuItem
+export class MenuItemToSizeCommandService extends CommandService<
+    IMenuItemToSize,
+    IMenuItemToSize
 > {
     constructor(
-        repository: MenuItemRepository,
+        repository: MenuItemToSizeRepository,
         entityService: EntityService,
         changeHistoryService: ChangeHistoryService,
     ) {
@@ -29,8 +28,8 @@ export class MenuItemCommandService extends CommandService<
             repository,
             entityService,
             changeHistoryService,
-            (userId: string, newModel: INewMenuItem) =>
-                MenuItemEntity.create(userId, newModel, entityService),
+            (userId: string, newModel: IMenuItemToSize) =>
+                MenuItemToSizeEntity.create(userId, newModel, entityService),
         );
     }
 }

@@ -13,7 +13,7 @@
         "transient": false,
         "exported": true,
         "token": "ExternalContextCreator",
-        "initTime": 9.943873999999937
+        "initTime": 11.787961999999993
       }
     },
     "225063248": {
@@ -30,7 +30,7 @@
         "transient": false,
         "exported": false,
         "token": "InternalCoreModule",
-        "initTime": 10.977823000000058
+        "initTime": 12.245719000000008
       }
     },
     "313762749": {
@@ -46,7 +46,7 @@
         "transient": false,
         "exported": true,
         "token": "SizeCommandService",
-        "initTime": 11.157723999999916
+        "initTime": 15.606333000000006
       }
     },
     "327606515": {
@@ -62,7 +62,7 @@
         "transient": false,
         "exported": false,
         "token": "SizesCommandController",
-        "initTime": 0.4095990000000711,
+        "initTime": 0.21124800000001187,
         "enhancers": [
           {
             "name": "ZodValidationPipe2",
@@ -90,7 +90,7 @@
         "transient": false,
         "exported": true,
         "token": "ChangeHistoryService",
-        "initTime": 8.289115000000038
+        "initTime": 10.643619000000001
       }
     },
     "484536027": {
@@ -132,7 +132,7 @@
         "transient": false,
         "exported": false,
         "token": "SizesQueryController",
-        "initTime": 0.4278829999999516
+        "initTime": 0.2178400000000238
       }
     },
     "671882984": {
@@ -148,7 +148,7 @@
         "transient": false,
         "exported": true,
         "token": "Reflector",
-        "initTime": 10.655791000000022
+        "initTime": 12.098731999999984
       }
     },
     "682652189": {
@@ -164,7 +164,7 @@
         "transient": false,
         "exported": false,
         "token": "TagsQueryController",
-        "initTime": 0.39410400000008394
+        "initTime": 0.1577609999999936
       }
     },
     "758832460": {
@@ -180,7 +180,23 @@
         "transient": false,
         "exported": true,
         "token": "MenuItemCommandService",
-        "initTime": 11.87337100000002
+        "initTime": 16.116160999999977
+      }
+    },
+    "775833969": {
+      "id": "775833969",
+      "label": "MenuItemToTagRepository",
+      "parent": "2053045243",
+      "metadata": {
+        "type": "provider",
+        "internal": false,
+        "sourceModuleName": "RestaurantCatalogModule",
+        "durable": false,
+        "static": true,
+        "transient": false,
+        "exported": false,
+        "token": "MenuItemToTagRepository",
+        "initTime": 14.833051000000012
       }
     },
     "791765202": {
@@ -196,7 +212,7 @@
         "transient": false,
         "exported": true,
         "token": "PostgresUnitOfWork",
-        "initTime": 9.763502000000017
+        "initTime": 14.40275600000001
       }
     },
     "806959740": {
@@ -239,7 +255,7 @@
         "transient": false,
         "exported": false,
         "token": "DrizzlePgModule",
-        "initTime": 8.367727000000059
+        "initTime": 10.735839999999996
       }
     },
     "1051654085": {
@@ -255,7 +271,7 @@
         "transient": false,
         "exported": false,
         "token": "TagsRepository",
-        "initTime": 11.041017999999895
+        "initTime": 15.513282000000004
       }
     },
     "1102578804": {
@@ -271,7 +287,7 @@
         "transient": false,
         "exported": true,
         "token": "InfrastructureConfig",
-        "initTime": 8.382253999999989
+        "initTime": 12.910285999999985
       }
     },
     "1133560201": {
@@ -287,7 +303,7 @@
         "transient": false,
         "exported": true,
         "token": "MenuItemQueryService",
-        "initTime": 12.037781999999993
+        "initTime": 16.160979999999995
       }
     },
     "1136303662": {
@@ -304,7 +320,7 @@
         "transient": false,
         "exported": false,
         "token": "CommonModule",
-        "initTime": 8.326183999999898
+        "initTime": 10.705956000000015
       }
     },
     "1271021985": {
@@ -336,7 +352,7 @@
         "transient": false,
         "exported": true,
         "token": "TagsCommandService",
-        "initTime": 11.58907899999997
+        "initTime": 15.990517000000011
       }
     },
     "1323483628": {
@@ -352,7 +368,7 @@
         "transient": false,
         "exported": false,
         "token": "MenuItemRepository",
-        "initTime": 11.719097999999917
+        "initTime": 15.759770000000003
       }
     },
     "1332539038": {
@@ -369,7 +385,7 @@
         "transient": false,
         "exported": false,
         "token": "InfrastructureModule",
-        "initTime": 8.333798999999999
+        "initTime": 10.767503000000033
       }
     },
     "1397076293": {
@@ -418,7 +434,7 @@
         "transient": false,
         "exported": true,
         "token": "Reflector",
-        "initTime": 11.488536999999951
+        "initTime": 15.169961
       }
     },
     "1514376841": {
@@ -434,7 +450,7 @@
         "transient": false,
         "exported": true,
         "token": "EntityService",
-        "initTime": 9.041742999999997
+        "initTime": 13.366111999999987
       }
     },
     "1609327678": {
@@ -467,7 +483,7 @@
         "transient": false,
         "exported": false,
         "token": "HttpModule",
-        "initTime": 9.801421000000005
+        "initTime": 11.686012000000005
       }
     },
     "1631380932": {
@@ -509,7 +525,7 @@
         "transient": false,
         "exported": true,
         "token": "TagsQueryService",
-        "initTime": 11.626781999999935
+        "initTime": 16.014253999999994
       }
     },
     "1919157847": {
@@ -526,7 +542,7 @@
         "transient": false,
         "exported": true,
         "token": "REQUEST",
-        "initTime": 9.703546999999958
+        "initTime": 11.578971000000024
       }
     },
     "2053045243": {
@@ -610,7 +626,7 @@
         "transient": true,
         "exported": true,
         "token": "INQUIRER",
-        "initTime": 9.68566999999996
+        "initTime": 11.575720999999987
       }
     },
     "-26938366": {
@@ -626,7 +642,7 @@
         "transient": false,
         "exported": true,
         "token": "ModulesContainer",
-        "initTime": 9.88617499999998
+        "initTime": 11.760882999999978
       }
     },
     "-326832201": {
@@ -642,7 +658,7 @@
         "transient": false,
         "exported": true,
         "token": "HttpAdapterHost",
-        "initTime": 9.856774000000087
+        "initTime": 11.749597999999992
       }
     },
     "-702581189": {
@@ -658,7 +674,7 @@
         "transient": false,
         "exported": true,
         "token": "LazyModuleLoader",
-        "initTime": 9.844689000000017
+        "initTime": 11.745589999999993
       }
     },
     "-1904419534": {
@@ -674,7 +690,7 @@
         "transient": false,
         "exported": true,
         "token": "SerializedGraph",
-        "initTime": 9.813695000000052
+        "initTime": 11.732747999999958
       }
     },
     "-19112576": {
@@ -701,7 +717,7 @@
         "transient": false,
         "exported": false,
         "token": "AppModule",
-        "initTime": 9.82171100000005
+        "initTime": 11.72553099999999
       }
     },
     "-71302842": {
@@ -766,7 +782,7 @@
         "transient": false,
         "exported": false,
         "token": "RestaurantCatalogModule",
-        "initTime": 9.714980999999966
+        "initTime": 11.697864999999979
       }
     },
     "-497185471": {
@@ -798,7 +814,7 @@
         "transient": false,
         "exported": false,
         "token": "SizesRepository",
-        "initTime": 10.561920999999984
+        "initTime": 15.24606799999998
       }
     },
     "-860196806": {
@@ -814,12 +830,12 @@
         "transient": false,
         "exported": true,
         "token": "SizeQueryService",
-        "initTime": 11.167505000000006
+        "initTime": 15.70715899999999
       }
     },
-    "-901936760": {
-      "id": "-901936760",
-      "label": "MenuItemsToSizesRepository",
+    "-1812283984": {
+      "id": "-1812283984",
+      "label": "MenuItemToSizeRepository",
       "parent": "2053045243",
       "metadata": {
         "type": "provider",
@@ -829,24 +845,8 @@
         "static": true,
         "transient": false,
         "exported": false,
-        "token": "MenuItemsToSizesRepository",
-        "initTime": 10.474785999999995
-      }
-    },
-    "-495895191": {
-      "id": "-495895191",
-      "label": "MenuItemsToTagsRepository",
-      "parent": "2053045243",
-      "metadata": {
-        "type": "provider",
-        "internal": false,
-        "sourceModuleName": "RestaurantCatalogModule",
-        "durable": false,
-        "static": true,
-        "transient": false,
-        "exported": false,
-        "token": "MenuItemsToTagsRepository",
-        "initTime": 10.43888400000003
+        "token": "MenuItemToSizeRepository",
+        "initTime": 14.943396000000007
       }
     },
     "-1153689243": {
@@ -862,7 +862,7 @@
         "transient": false,
         "exported": false,
         "token": "MenuItemsQueryController",
-        "initTime": 0.5617100000000619
+        "initTime": 0.2687559999999962
       }
     },
     "-1113015550": {
@@ -878,7 +878,7 @@
         "transient": false,
         "exported": false,
         "token": "MenuItemsCommandController",
-        "initTime": 0.46374600000001465,
+        "initTime": 0.2294750000000363,
         "enhancers": [
           {
             "name": "ZodValidationPipe2",
@@ -906,7 +906,7 @@
         "transient": false,
         "exported": false,
         "token": "TagsCommandController",
-        "initTime": 0.30605500000001484,
+        "initTime": 0.14877400000000307,
         "enhancers": [
           {
             "name": "ZodValidationPipe2",
@@ -960,7 +960,7 @@
         "transient": false,
         "exported": true,
         "token": "PostgresDbService",
-        "initTime": 9.102935000000002
+        "initTime": 13.666123999999968
       }
     },
     "-1451215214": {
@@ -976,7 +976,7 @@
         "transient": false,
         "exported": false,
         "token": "InfrastructureConfig",
-        "initTime": 8.397737000000006
+        "initTime": 12.934807000000035
       }
     }
   },
@@ -1156,22 +1156,6 @@
       },
       "id": "1466341607"
     },
-    "1498655963": {
-      "source": "-495895191",
-      "target": "791765202",
-      "metadata": {
-        "type": "class-to-class",
-        "sourceModuleName": "RestaurantCatalogModule",
-        "sourceClassName": "MenuItemsToTagsRepository",
-        "targetClassName": "PostgresUnitOfWork",
-        "sourceClassToken": "MenuItemsToTagsRepository",
-        "targetClassToken": "PostgresUnitOfWork",
-        "targetModuleName": "DrizzlePgModule",
-        "keyOrIndex": 0,
-        "injectionType": "constructor"
-      },
-      "id": "1498655963"
-    },
     "1510782999": {
       "source": "-2128127094",
       "target": "555176277",
@@ -1320,21 +1304,37 @@
       },
       "id": "-92315149"
     },
-    "-1830773512": {
-      "source": "-901936760",
+    "-1075615323": {
+      "source": "-1812283984",
       "target": "791765202",
       "metadata": {
         "type": "class-to-class",
         "sourceModuleName": "RestaurantCatalogModule",
-        "sourceClassName": "MenuItemsToSizesRepository",
+        "sourceClassName": "MenuItemToSizeRepository",
         "targetClassName": "PostgresUnitOfWork",
-        "sourceClassToken": "MenuItemsToSizesRepository",
+        "sourceClassToken": "MenuItemToSizeRepository",
         "targetClassToken": "PostgresUnitOfWork",
         "targetModuleName": "DrizzlePgModule",
         "keyOrIndex": 0,
         "injectionType": "constructor"
       },
-      "id": "-1830773512"
+      "id": "-1075615323"
+    },
+    "-408564796": {
+      "source": "775833969",
+      "target": "791765202",
+      "metadata": {
+        "type": "class-to-class",
+        "sourceModuleName": "RestaurantCatalogModule",
+        "sourceClassName": "MenuItemToTagRepository",
+        "targetClassName": "PostgresUnitOfWork",
+        "sourceClassToken": "MenuItemToTagRepository",
+        "targetClassToken": "PostgresUnitOfWork",
+        "targetModuleName": "DrizzlePgModule",
+        "keyOrIndex": 0,
+        "injectionType": "constructor"
+      },
+      "id": "-408564796"
     },
     "-1376306478": {
       "source": "758832460",

@@ -32,7 +32,6 @@
         "@nestjs/common": "^11.0.1",
         "@nestjs/testing": "^11.0.1",
         "@types/pg": "^8.15.6",
-        "drizzle-kit": "^0.31.7",
         "drizzle-orm": "^0.44.7",
         "pg": "^8.16.3",
         "tslib": "^2.3.0",

@@ -5,12 +5,12 @@ const DATABASE_URL = process.env.DATABASE_URL;
 if (DATABASE_URL === undefined) {
     throw new Error('DATABASE_URL is not defined in environment variables');
 } else {
-    console.log();
+    console.log('DATABASE_URL is defined');
 }
 
 export default defineConfig({
-    out: 'src/infrastructure/migrations',
-    schema: 'src/infrastructure/tables',
+    out: 'src/migrations',
+    schema: '@meadsoft/restaurant-catalog',
     dialect: 'postgresql',
     dbCredentials: {
         url: DATABASE_URL,

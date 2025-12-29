@@ -11,6 +11,7 @@ import {
 } from '@meadsoft/common-http';
 import { ApiTags } from '@nestjs/swagger';
 import { TagsCommandService, TagsQueryService } from '../services/tags.service';
+import { RESTAURANT_CATALOG_TAG } from './tags';
 
 const tagsQueryController = createQueryController<Tag>(Tag);
 
@@ -20,16 +21,18 @@ const tagsCommandController = createCommandController<NewTag, Tag>(
     TagSchema,
 );
 
-@ApiTags('Tags')
-@Controller('tags')
+const RESOURCE_NAME = 'tags';
+
+@ApiTags(RESTAURANT_CATALOG_TAG)
+@Controller(RESOURCE_NAME)
 export class TagsQueryController extends tagsQueryController {
     constructor(service: TagsQueryService) {
         super(service);
     }
 }
 
-@ApiTags('Tags')
-@Controller('tags')
+@ApiTags(RESTAURANT_CATALOG_TAG)
+@Controller(RESOURCE_NAME)
 export class TagsCommandController extends tagsCommandController {
     constructor(service: TagsCommandService) {
         super(service);

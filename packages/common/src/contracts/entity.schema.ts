@@ -2,13 +2,15 @@ import { ChangeHistorySchema, IChangeHistory } from './change-history.schema';
 import { z } from 'zod';
 
 export const EntitySchema = ChangeHistorySchema.extend({
-    id: z.string(),
+    id: z.any(),
 });
 
-export type IEntity = IChangeHistory & z.infer<typeof EntitySchema>;
+export interface IEntity<Tid = string> extends IChangeHistory {
+    id: Tid;
+}
 
-export class Entity implements IEntity {
-    id!: string;
+export class Entity<Tid = string> implements IEntity<Tid> {
+    id!: Tid;
     createdDate!: string | null;
     updatedDate!: string | null;
     createdById!: string | null;

@@ -5,11 +5,11 @@ import {
     MENU_ITEM_IS_ACTIVE_DEFAULT,
     MENU_ITEM_IS_FAVORITE_DEFAULT,
 } from '@meadsoft/restaurant-catalog-contracts';
-import { menuItemsToTags } from './menu-items-to-tags.table';
+import { menuItemToTagTable } from './menu-item-to-tag.table';
 
 export const MENU_ITEMS_TABLE_NAME = 'menu_items';
 
-export const menuItems = pgTable(MENU_ITEMS_TABLE_NAME, {
+export const menuItemsTable = pgTable(MENU_ITEMS_TABLE_NAME, {
     ...entityColumns,
     name: varchar({ length: 255 }).notNull(),
     description: text(),
@@ -19,7 +19,7 @@ export const menuItems = pgTable(MENU_ITEMS_TABLE_NAME, {
     isActive: boolean().default(MENU_ITEM_IS_ACTIVE_DEFAULT).notNull(),
 });
 
-export const menuItemsRelations = relations(menuItems, ({ many }) => ({
-    menuItemsToTags: many(menuItemsToTags),
-    sizes: many(menuItemsToTags),
+export const menuItemsRelations = relations(menuItemsTable, ({ many }) => ({
+    menuItemsToTags: many(menuItemToTagTable),
+    sizes: many(menuItemToTagTable),
 }));
