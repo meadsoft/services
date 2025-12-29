@@ -1,9 +1,5 @@
 import { Injectable } from '@nestjs/common';
-import {
-    ChangeHistoryService,
-    ICommandService,
-    EntityService,
-} from '@meadsoft/common';
+import { ChangeHistoryService, EntityService } from '@meadsoft/common';
 import { QueryService, CommandService } from '@meadsoft/common-application';
 import {
     INewTag,
@@ -20,10 +16,7 @@ export class TagsQueryService extends QueryService<ITag> {
 }
 
 @Injectable()
-export class TagsCommandService
-    extends CommandService<INewTag, ITag>
-    implements ICommandService<INewTag, ITag>
-{
+export class TagsCommandService extends CommandService<INewTag, ITag> {
     constructor(
         repository: TagsRepository,
         entityService: EntityService,

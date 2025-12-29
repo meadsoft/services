@@ -3,6 +3,7 @@ import {
     DrizzlePgModule,
     InfrastructureModule,
 } from '@meadsoft/common-infrastructure';
+import { CommonModule } from '@meadsoft/common';
 import { MenuItemRepository } from './infrastructure/repositories/menu-items.repo';
 import { SizesRepository } from './infrastructure/repositories/sizes.repo';
 import { TagsRepository } from './infrastructure/repositories/tags.repo';
@@ -18,12 +19,17 @@ import {
     TagsCommandController,
     TagsQueryController,
 } from './controllers/tags.controller';
-import { EntityService } from '@meadsoft/common';
 import { MenuItemsToSizesRepository } from './infrastructure/repositories/menu-items-to-sizes.repo';
 import { MenuItemsToTagsRepository } from './infrastructure/repositories';
+import {
+    MenuItemCommandService,
+    MenuItemQueryService,
+} from './services/menu-item.service';
+import { TagsCommandService, TagsQueryService } from './services/tags.service';
+import { SizeCommandService, SizeQueryService } from './services/sizes.service';
 
 @Module({
-    imports: [DrizzlePgModule, InfrastructureModule],
+    imports: [DrizzlePgModule, InfrastructureModule, CommonModule],
     controllers: [
         MenuItemsQueryController,
         MenuItemsCommandController,
@@ -33,13 +39,25 @@ import { MenuItemsToTagsRepository } from './infrastructure/repositories';
         TagsCommandController,
     ],
     providers: [
-        EntityService,
         MenuItemRepository,
+        MenuItemQueryService,
+        MenuItemCommandService,
         TagsRepository,
+        TagsQueryService,
+        TagsCommandService,
         SizesRepository,
+        SizeQueryService,
+        SizeCommandService,
         MenuItemsToSizesRepository,
         MenuItemsToTagsRepository,
     ],
-    exports: [MenuItemRepository, TagsRepository, SizesRepository],
+    exports: [
+        MenuItemQueryService,
+        MenuItemCommandService,
+        TagsQueryService,
+        TagsCommandService,
+        SizeQueryService,
+        SizeCommandService,
+    ],
 })
 export class RestaurantCatalogModule {}

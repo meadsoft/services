@@ -32,7 +32,7 @@ export class CommandService<
         if (item.err) {
             return Err(item.val);
         }
-        return Ok(await this.repository.createOne(item.val));
+        return Ok(await this.repository.createOne(item.val as TModel));
     }
 
     async createMany(

@@ -14,7 +14,7 @@ import { ApiTags } from '@nestjs/swagger';
 import {
     MenuItemCommandService,
     MenuItemQueryService,
-} from 'src/services/menu-item.service';
+} from '../services/menu-item.service';
 
 const menuItemQueryController = createQueryController<IMenuItem>(MenuItem);
 

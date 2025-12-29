@@ -42,6 +42,7 @@
         "drizzle-kit": "^0.31.7",
         "drizzle-orm": "^0.44.7",
         "nestjs-zod": "^5.0.1",
+        "ts-results": "^3.3.0",
         "pg": "^8.16.3",
         "tslib": "^2.3.0",
         "tsup": "^8.5.1",

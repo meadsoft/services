@@ -4,11 +4,7 @@ import {
     INewMenuItem,
     MenuItemEntity,
 } from '@meadsoft/restaurant-catalog-contracts';
-import {
-    ChangeHistoryService,
-    ICommandService,
-    EntityService,
-} from '@meadsoft/common';
+import { ChangeHistoryService, EntityService } from '@meadsoft/common';
 import { QueryService, CommandService } from '@meadsoft/common-application';
 import { MenuItemRepository } from '../infrastructure/repositories/menu-items.repo';
 
@@ -20,10 +16,10 @@ export class MenuItemQueryService extends QueryService<IMenuItem> {
 }
 
 @Injectable()
-export class MenuItemCommandService
-    extends CommandService<INewMenuItem, IMenuItem>
-    implements ICommandService<INewMenuItem, IMenuItem>
-{
+export class MenuItemCommandService extends CommandService<
+    INewMenuItem,
+    IMenuItem
+> {
     constructor(
         repository: MenuItemRepository,
         entityService: EntityService,

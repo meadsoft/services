@@ -4,5 +4,6 @@ export * from './configuration';
 export * from './constants/index';
 export * from './validation/index';
 export * from './contracts/index';
-export * from './entity.service';
-export * from './change-history.service';
+export * from './services/entity.service';
+export * from './services/change-history.service';
+export * from './common.module';

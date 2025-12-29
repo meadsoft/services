@@ -1,9 +1,5 @@
 import { Injectable } from '@nestjs/common';
-import {
-    ChangeHistoryService,
-    ICommandService,
-    EntityService,
-} from '@meadsoft/common';
+import { ChangeHistoryService, EntityService } from '@meadsoft/common';
 import { QueryService, CommandService } from '@meadsoft/common-application';
 import {
     INewSize,
@@ -20,10 +16,7 @@ export class SizeQueryService extends QueryService<ISize> {
 }
 
 @Injectable()
-export class SizeCommandService
-    extends CommandService<INewSize, ISize>
-    implements ICommandService<INewSize, ISize>
-{
+export class SizeCommandService extends CommandService<INewSize, ISize> {
     constructor(
         repository: SizesRepository,
         entityService: EntityService,
