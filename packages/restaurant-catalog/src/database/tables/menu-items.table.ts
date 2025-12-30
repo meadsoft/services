@@ -17,7 +17,7 @@ export const menuItemsTable = restaurantCatalogSchema.table(
         name: varchar({ length: 255 }).notNull(),
         description: text(),
         imageUrl: varchar({ length: 512 }),
-        price: decimal<'number'>({ precision: 10, scale: 2 }),
+        price: decimal<'number'>({ precision: 10, scale: 2, mode: 'number' }),
         isFavorite: boolean().default(MENU_ITEM_IS_FAVORITE_DEFAULT).notNull(),
         isActive: boolean().default(MENU_ITEM_IS_ACTIVE_DEFAULT).notNull(),
     },

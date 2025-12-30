@@ -33,7 +33,6 @@ export class PostgresUnitOfWork extends UnitOfWorkService<
                     const result = await work();
                     return result;
                 } finally {
-                    transaction.rollback();
                     this.currentTransaction = undefined;
                 }
             },
