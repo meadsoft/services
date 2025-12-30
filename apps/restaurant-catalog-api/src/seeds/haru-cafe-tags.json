@@ -1,20 +1,56 @@
 [
-  "Ade",
-  "Anime",
-  "Bakery",
-  "Coffee",
-  "Cold",
-  "Drink",
-  "Food",
-  "Hot",
-  "Juice",
-  "Mini Pizza",
-  "Mixed Flavor",
-  "Non-Coffee",
-  "Sandwich",
-  "Seasonal",
-  "Single Flavor",
-  "Snack",
-  "Specials",
-  "Tea"
+    {
+        "name": "Ade"
+    },
+    {
+        "name": "Anime"
+    },
+    {
+        "name": "Bakery"
+    },
+    {
+        "name": "Coffee"
+    },
+    {
+        "name": "Cold"
+    },
+    {
+        "name": "Drink"
+    },
+    {
+        "name": "Food"
+    },
+    {
+        "name": "Hot"
+    },
+    {
+        "name": "Juice"
+    },
+    {
+        "name": "Mini Pizza"
+    },
+    {
+        "name": "Mixed Flavor"
+    },
+    {
+        "name": "Non-Coffee"
+    },
+    {
+        "name": "Sandwich"
+    },
+    {
+        "name": "Seasonal"
+    },
+    {
+        "name": "Single Flavor"
+    },
+    {
+        "name": "Snack"
+    },
+    {
+        "name": "Specials"
+    },
+    {
+        "name": "Tea"
+    }
 ]

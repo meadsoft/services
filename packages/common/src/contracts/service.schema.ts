@@ -1,12 +1,17 @@
-import { IFilter } from '@meadsoft/common';
+import { IFilter } from './filters.schema';
 import { Result } from 'ts-results';
 
-export interface IQueryService<TModel, TId = string> {
+export interface IQueryService<TModel = unknown, TId = string> {
+    countRows(...filters: IFilter[]): Promise<number>;
     findOne(id: TId): Promise<TModel | null>;
     findMany(...filters: IFilter[]): Promise<TModel[]>;
 }
 
-export interface ICommandService<TNewModel, TModel, TId = string> {
+export interface ICommandService<
+    TNewModel = unknown,
+    TModel = unknown,
+    TId = string,
+> {
     createOne(userId: string, item: TNewModel): Promise<Result<TModel, Error>>;
     createMany(
         userId: string,

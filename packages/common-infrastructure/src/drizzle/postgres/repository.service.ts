@@ -15,6 +15,15 @@ export abstract class DrizzlePgQueryRepository<
         protected unitOfWork: PostgresUnitOfWork,
     ) {}
 
+    async countRows(...filters: SQL[]): Promise<number> {
+        return await this.unitOfWork
+            .getDatabase()
+            .select()
+            .from(this.table)
+            .where(and(...filters))
+            .then((items) => items.length);
+    }
+
     abstract equals(id: TId): SQL | undefined;
 
     protected parseResult(item: unknown): TModel {
