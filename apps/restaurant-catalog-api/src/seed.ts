@@ -2,6 +2,8 @@ import { NestFactory } from '@nestjs/core';
 import {
     MenuItemCommandService,
     MenuItemQueryService,
+    MenuItemToTagCommandService,
+    MenuItemToTagQueryService,
     SizeCommandService,
     SizeQueryService,
     TagsCommandService,
@@ -10,6 +12,7 @@ import {
 import { RestaurantCatalogModule } from '@meadsoft/restaurant-catalog';
 import {
     NewMenuItemSchema,
+    NewMenuItemToTagSchema,
     NewSizeSchema,
     NewTagSchema,
 } from '@meadsoft/restaurant-catalog-contracts';
@@ -110,8 +113,8 @@ async function main() {
     const menuItemsToTagsCommandService = app.get(MenuItemToTagCommandService);
     const menuItemsToTagsQueryService = app.get(MenuItemToTagQueryService);
     await seed(
-        menuItemToTagQueryService,
-        menuItemToTagCommandService,
+        menuItemsToTagsQueryService,
+        menuItemsToTagsCommandService,
         NewMenuItemToTagSchema,
         path.join(__dirname, 'seeds', 'haru-cafe-menu-items-to-tags.json'),
     );
