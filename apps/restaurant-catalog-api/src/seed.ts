@@ -79,6 +79,7 @@ async function seed(
 
 async function main() {
     const app = await bootstrap();
+    // Menu Items
     const menuItemsCommandService = app.get(MenuItemCommandService);
     const menuItemsQueryService = app.get(MenuItemQueryService);
     await seed(
@@ -87,6 +88,7 @@ async function main() {
         NewMenuItemSchema,
         path.join(__dirname, 'seeds', 'haru-cafe-menu-items.json'),
     );
+    // Tags
     const tagsCommandService = app.get(TagsCommandService);
     const tagsQueryService = app.get(TagsQueryService);
     await seed(
@@ -95,6 +97,7 @@ async function main() {
         NewTagSchema,
         path.join(__dirname, 'seeds', 'haru-cafe-tags.json'),
     );
+    // Sizes
     const sizeCommandService = app.get(SizeCommandService);
     const sizeQueryService = app.get(SizeQueryService);
     await seed(
@@ -102,6 +105,15 @@ async function main() {
         sizeCommandService,
         NewSizeSchema,
         path.join(__dirname, 'seeds', 'haru-cafe-sizes.json'),
+    );
+    // Menu Items to Tags
+    const menuItemsToTagsCommandService = app.get(MenuItemToTagCommandService);
+    const menuItemsToTagsQueryService = app.get(MenuItemToTagQueryService);
+    await seed(
+        menuItemToTagQueryService,
+        menuItemToTagCommandService,
+        NewMenuItemToTagSchema,
+        path.join(__dirname, 'seeds', 'haru-cafe-menu-items-to-tags.json'),
     );
     await app.close();
 }
