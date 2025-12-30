@@ -1,6 +1,6 @@
 import { and, SQL } from 'drizzle-orm';
 import { PgTable } from 'drizzle-orm/pg-core';
-import { EMPTY_LENGTH, FIRST_INDEX, Schema } from '@meadsoft/common';
+import { EMPTY_LENGTH, FIRST_INDEX, ISchema } from '@meadsoft/common';
 import { IQueryRepository, ICrudRepository } from '../../repository.schema';
 import { PostgresUnitOfWork } from './unit-of-work.service';
 import { QueryResultBase } from 'pg';
@@ -11,7 +11,7 @@ export abstract class DrizzlePgQueryRepository<
 > implements IQueryRepository<TModel, TId> {
     constructor(
         public readonly table: PgTable,
-        protected schema: Schema<TModel>,
+        protected schema: ISchema<TModel>,
         protected unitOfWork: PostgresUnitOfWork,
     ) {}
 

@@ -1,9 +1,14 @@
-import { EnvConfigLoader, ZodSchema } from '@meadsoft/common';
+import {
+    EnvConfigLoader,
+    EnvironmentConfigSchema,
+    ZodSchema,
+} from '@meadsoft/common';
 import { Provider } from '@nestjs/common';
 import { createZodDto } from 'nestjs-zod';
 import zod from 'zod';
 
 export const InfrastructureEnvironmentConfigSchema = zod.object({
+    ...EnvironmentConfigSchema.shape,
     DATABASE_URL: zod.string().nonempty(),
 });
 export type InfrastructureEnvironmentConfig = zod.infer<

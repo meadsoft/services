@@ -223,12 +223,15 @@ importers:
       '@meadsoft/common':
         specifier: workspace:*
         version: link:../../packages/common
+      '@meadsoft/common-infrastructure':
+        specifier: workspace:*
+        version: link:../../packages/common-infrastructure
       '@meadsoft/restaurant-catalog':
         specifier: workspace:*
         version: link:../../packages/restaurant-catalog
       '@meadsoft/restaurant-catalog-contracts':
         specifier: workspace:*
-        version: link:../../packages/restaurant-catalog-contracts
+        version: file:packages/restaurant-catalog-contracts(@nestjs/common@11.1.9(reflect-metadata@0.2.2)(rxjs@7.8.2))(@nestjs/core@11.1.9)(@nestjs/platform-express@11.1.9)(@nestjs/swagger@11.2.3(@nestjs/common@11.1.9(reflect-metadata@0.2.2)(rxjs@7.8.2))(@nestjs/core@11.1.9)(reflect-metadata@0.2.2))(@opentelemetry/api@1.9.0)(@swc/core@1.5.29(@swc/helpers@0.5.17))(jiti@2.6.1)(postcss@8.5.6)(reflect-metadata@0.2.2)(rxjs@7.8.2)(tsx@4.21.0)(typescript@5.9.3)(yaml@2.8.1)
       '@nestjs/cli':
         specifier: ^11.0.1
         version: 11.0.14(@swc/core@1.5.29(@swc/helpers@0.5.17))(@types/node@22.19.1)(esbuild@0.25.12)
@@ -510,7 +513,7 @@ importers:
         version: link:../common-infrastructure
       '@meadsoft/restaurant-catalog-contracts':
         specifier: workspace:*
-        version: link:../restaurant-catalog-contracts
+        version: file:packages/restaurant-catalog-contracts(@nestjs/common@11.1.9(reflect-metadata@0.2.2)(rxjs@7.8.2))(@nestjs/core@11.1.9)(@nestjs/platform-express@11.1.9)(@nestjs/swagger@11.2.3(@nestjs/common@11.1.9(reflect-metadata@0.2.2)(rxjs@7.8.2))(@nestjs/core@11.1.9)(reflect-metadata@0.2.2))(@opentelemetry/api@1.9.0)(@swc/core@1.5.29(@swc/helpers@0.5.17))(jiti@2.6.1)(postcss@8.5.6)(reflect-metadata@0.2.2)(rxjs@7.8.2)(tsx@4.21.0)(typescript@5.9.3)(yaml@2.8.1)
       '@nestjs/common':
         specifier: ^11.0.1
         version: 11.1.9(reflect-metadata@0.2.2)(rxjs@7.8.2)
@@ -552,7 +555,7 @@ importers:
         version: link:../common
       '@meadsoft/common-application':
         specifier: workspace:*
-        version: link:../common-application
+        version: file:packages/common-application(@nestjs/core@11.1.9)(@nestjs/platform-express@11.1.9)(@nestjs/swagger@11.2.3(@nestjs/common@11.1.9(reflect-metadata@0.2.2)(rxjs@7.8.2))(@nestjs/core@11.1.9)(reflect-metadata@0.2.2))(@opentelemetry/api@1.9.0)(@swc/core@1.5.29(@swc/helpers@0.5.17))(jiti@2.6.1)(postcss@8.5.6)(reflect-metadata@0.2.2)(rxjs@7.8.2)(tsx@4.21.0)(typescript@5.9.3)(yaml@2.8.1)
       '@types/uuid':
         specifier: ^11.0.0
         version: 11.0.0
@@ -2981,6 +2984,18 @@ packages:
   '@lukeed/csprng@1.1.0':
     resolution: {integrity: sha512-Z7C/xXCiGWsg0KuKsHTKJxbWhpI3Vs5GwLfOean7MGyVFGqdRgBbAjOCh6u4bbjPc/8MJ2pZmK/0DLdCbivLDA==}
     engines: {node: '>=8'}
+
+  '@meadsoft/common-application@file:packages/common-application':
+    resolution: {directory: packages/common-application, type: directory}
+
+  '@meadsoft/common-infrastructure@file:packages/common-infrastructure':
+    resolution: {directory: packages/common-infrastructure, type: directory}
+
+  '@meadsoft/common@file:packages/common':
+    resolution: {directory: packages/common, type: directory}
+
+  '@meadsoft/restaurant-catalog-contracts@file:packages/restaurant-catalog-contracts':
+    resolution: {directory: packages/restaurant-catalog-contracts, type: directory}
 
   '@microsoft/tsdoc@0.16.0':
     resolution: {integrity: sha512-xgAyonlVVS+q7Vc7qLW0UrJU7rSFcETRWsqdXZtjzRU8dF+6CkozTK4V4y1LwOX7j8r/vHphjDeMeGI4tNGeGA==}
@@ -12543,6 +12558,194 @@ snapshots:
     optional: true
 
   '@lukeed/csprng@1.1.0': {}
+
+  '@meadsoft/common-application@file:packages/common-application(@nestjs/core@11.1.9)(@nestjs/platform-express@11.1.9)(@nestjs/swagger@11.2.3(@nestjs/common@11.1.9(reflect-metadata@0.2.2)(rxjs@7.8.2))(@nestjs/core@11.1.9)(reflect-metadata@0.2.2))(@opentelemetry/api@1.9.0)(@swc/core@1.5.29(@swc/helpers@0.5.17))(jiti@2.6.1)(postcss@8.5.6)(reflect-metadata@0.2.2)(rxjs@7.8.2)(tsx@4.21.0)(typescript@5.9.3)(yaml@2.8.1)':
+    dependencies:
+      '@meadsoft/common': file:packages/common(reflect-metadata@0.2.2)(rxjs@7.8.2)
+      '@meadsoft/common-infrastructure': file:packages/common-infrastructure(@nestjs/core@11.1.9)(@nestjs/platform-express@11.1.9)(@nestjs/swagger@11.2.3(@nestjs/common@11.1.9(reflect-metadata@0.2.2)(rxjs@7.8.2))(@nestjs/core@11.1.9)(reflect-metadata@0.2.2))(@opentelemetry/api@1.9.0)(@swc/core@1.5.29(@swc/helpers@0.5.17))(jiti@2.6.1)(postcss@8.5.6)(reflect-metadata@0.2.2)(rxjs@7.8.2)(tsx@4.21.0)(typescript@5.9.3)(yaml@2.8.1)
+      '@nestjs/common': 11.1.9(reflect-metadata@0.2.2)(rxjs@7.8.2)
+      '@types/uuid': 11.0.0
+      ts-results: 3.3.0
+      tslib: 2.8.1
+      uuid: 13.0.0
+      zod: 4.1.13
+    transitivePeerDependencies:
+      - '@aws-sdk/client-rds-data'
+      - '@cloudflare/workers-types'
+      - '@electric-sql/pglite'
+      - '@libsql/client'
+      - '@libsql/client-wasm'
+      - '@microsoft/api-extractor'
+      - '@neondatabase/serverless'
+      - '@nestjs/core'
+      - '@nestjs/microservices'
+      - '@nestjs/platform-express'
+      - '@nestjs/swagger'
+      - '@op-engineering/op-sqlite'
+      - '@opentelemetry/api'
+      - '@planetscale/database'
+      - '@prisma/client'
+      - '@swc/core'
+      - '@tidbcloud/serverless'
+      - '@types/better-sqlite3'
+      - '@types/sql.js'
+      - '@upstash/redis'
+      - '@vercel/postgres'
+      - '@xata.io/client'
+      - better-sqlite3
+      - bun-types
+      - class-transformer
+      - class-validator
+      - expo-sqlite
+      - gel
+      - jiti
+      - knex
+      - kysely
+      - mysql2
+      - pg-native
+      - postcss
+      - postgres
+      - prisma
+      - reflect-metadata
+      - rxjs
+      - sql.js
+      - sqlite3
+      - supports-color
+      - tsx
+      - typescript
+      - yaml
+
+  '@meadsoft/common-infrastructure@file:packages/common-infrastructure(@nestjs/core@11.1.9)(@nestjs/platform-express@11.1.9)(@nestjs/swagger@11.2.3(@nestjs/common@11.1.9(reflect-metadata@0.2.2)(rxjs@7.8.2))(@nestjs/core@11.1.9)(reflect-metadata@0.2.2))(@opentelemetry/api@1.9.0)(@swc/core@1.5.29(@swc/helpers@0.5.17))(jiti@2.6.1)(postcss@8.5.6)(reflect-metadata@0.2.2)(rxjs@7.8.2)(tsx@4.21.0)(typescript@5.9.3)(yaml@2.8.1)':
+    dependencies:
+      '@meadsoft/common': file:packages/common(reflect-metadata@0.2.2)(rxjs@7.8.2)
+      '@nestjs/common': 11.1.9(reflect-metadata@0.2.2)(rxjs@7.8.2)
+      '@nestjs/testing': 11.1.9(@nestjs/common@11.1.9(reflect-metadata@0.2.2)(rxjs@7.8.2))(@nestjs/core@11.1.9)(@nestjs/platform-express@11.1.9)
+      '@types/pg': 8.15.6
+      drizzle-orm: 0.44.7(@opentelemetry/api@1.9.0)(@types/pg@8.15.6)(pg@8.16.3)
+      nestjs-zod: 5.0.1(@nestjs/common@11.1.9(reflect-metadata@0.2.2)(rxjs@7.8.2))(@nestjs/swagger@11.2.3(@nestjs/common@11.1.9(reflect-metadata@0.2.2)(rxjs@7.8.2))(@nestjs/core@11.1.9)(reflect-metadata@0.2.2))(rxjs@7.8.2)(zod@4.1.13)
+      pg: 8.16.3
+      ts-results: 3.3.0
+      tslib: 2.8.1
+      tsup: 8.5.1(@swc/core@1.5.29(@swc/helpers@0.5.17))(jiti@2.6.1)(postcss@8.5.6)(tsx@4.21.0)(typescript@5.9.3)(yaml@2.8.1)
+      zod: 4.1.13
+    transitivePeerDependencies:
+      - '@aws-sdk/client-rds-data'
+      - '@cloudflare/workers-types'
+      - '@electric-sql/pglite'
+      - '@libsql/client'
+      - '@libsql/client-wasm'
+      - '@microsoft/api-extractor'
+      - '@neondatabase/serverless'
+      - '@nestjs/core'
+      - '@nestjs/microservices'
+      - '@nestjs/platform-express'
+      - '@nestjs/swagger'
+      - '@op-engineering/op-sqlite'
+      - '@opentelemetry/api'
+      - '@planetscale/database'
+      - '@prisma/client'
+      - '@swc/core'
+      - '@tidbcloud/serverless'
+      - '@types/better-sqlite3'
+      - '@types/sql.js'
+      - '@upstash/redis'
+      - '@vercel/postgres'
+      - '@xata.io/client'
+      - better-sqlite3
+      - bun-types
+      - class-transformer
+      - class-validator
+      - expo-sqlite
+      - gel
+      - jiti
+      - knex
+      - kysely
+      - mysql2
+      - pg-native
+      - postcss
+      - postgres
+      - prisma
+      - reflect-metadata
+      - rxjs
+      - sql.js
+      - sqlite3
+      - supports-color
+      - tsx
+      - typescript
+      - yaml
+
+  '@meadsoft/common@file:packages/common(reflect-metadata@0.2.2)(rxjs@7.8.2)':
+    dependencies:
+      '@nestjs/common': 11.1.9(reflect-metadata@0.2.2)(rxjs@7.8.2)
+      '@types/uuid': 11.0.0
+      dotenv: 17.2.3
+      ts-results: 3.3.0
+      tslib: 2.8.1
+      uuid: 13.0.0
+      zod: 4.1.13
+    transitivePeerDependencies:
+      - class-transformer
+      - class-validator
+      - reflect-metadata
+      - rxjs
+      - supports-color
+
+  '@meadsoft/restaurant-catalog-contracts@file:packages/restaurant-catalog-contracts(@nestjs/common@11.1.9(reflect-metadata@0.2.2)(rxjs@7.8.2))(@nestjs/core@11.1.9)(@nestjs/platform-express@11.1.9)(@nestjs/swagger@11.2.3(@nestjs/common@11.1.9(reflect-metadata@0.2.2)(rxjs@7.8.2))(@nestjs/core@11.1.9)(reflect-metadata@0.2.2))(@opentelemetry/api@1.9.0)(@swc/core@1.5.29(@swc/helpers@0.5.17))(jiti@2.6.1)(postcss@8.5.6)(reflect-metadata@0.2.2)(rxjs@7.8.2)(tsx@4.21.0)(typescript@5.9.3)(yaml@2.8.1)':
+    dependencies:
+      '@meadsoft/common': file:packages/common(reflect-metadata@0.2.2)(rxjs@7.8.2)
+      '@meadsoft/common-application': file:packages/common-application(@nestjs/core@11.1.9)(@nestjs/platform-express@11.1.9)(@nestjs/swagger@11.2.3(@nestjs/common@11.1.9(reflect-metadata@0.2.2)(rxjs@7.8.2))(@nestjs/core@11.1.9)(reflect-metadata@0.2.2))(@opentelemetry/api@1.9.0)(@swc/core@1.5.29(@swc/helpers@0.5.17))(jiti@2.6.1)(postcss@8.5.6)(reflect-metadata@0.2.2)(rxjs@7.8.2)(tsx@4.21.0)(typescript@5.9.3)(yaml@2.8.1)
+      '@types/uuid': 11.0.0
+      nestjs-zod: 5.0.1(@nestjs/common@11.1.9(reflect-metadata@0.2.2)(rxjs@7.8.2))(@nestjs/swagger@11.2.3(@nestjs/common@11.1.9(reflect-metadata@0.2.2)(rxjs@7.8.2))(@nestjs/core@11.1.9)(reflect-metadata@0.2.2))(rxjs@7.8.2)(zod@4.1.13)
+      ts-results: 3.3.0
+      tslib: 2.8.1
+      uuid: 13.0.0
+      zod: 4.1.13
+    transitivePeerDependencies:
+      - '@aws-sdk/client-rds-data'
+      - '@cloudflare/workers-types'
+      - '@electric-sql/pglite'
+      - '@libsql/client'
+      - '@libsql/client-wasm'
+      - '@microsoft/api-extractor'
+      - '@neondatabase/serverless'
+      - '@nestjs/common'
+      - '@nestjs/core'
+      - '@nestjs/microservices'
+      - '@nestjs/platform-express'
+      - '@nestjs/swagger'
+      - '@op-engineering/op-sqlite'
+      - '@opentelemetry/api'
+      - '@planetscale/database'
+      - '@prisma/client'
+      - '@swc/core'
+      - '@tidbcloud/serverless'
+      - '@types/better-sqlite3'
+      - '@types/sql.js'
+      - '@upstash/redis'
+      - '@vercel/postgres'
+      - '@xata.io/client'
+      - better-sqlite3
+      - bun-types
+      - class-transformer
+      - class-validator
+      - expo-sqlite
+      - gel
+      - jiti
+      - knex
+      - kysely
+      - mysql2
+      - pg-native
+      - postcss
+      - postgres
+      - prisma
+      - reflect-metadata
+      - rxjs
+      - sql.js
+      - sqlite3
+      - supports-color
+      - tsx
+      - typescript
+      - yaml
 
   '@microsoft/tsdoc@0.16.0': {}
 

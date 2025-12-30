@@ -20,15 +20,18 @@ import * as fs from 'fs';
 import * as path from 'path';
 import {
     EMPTY_LENGTH,
-    Environment,
     ICommandService,
     IQueryService,
     SYSTEM_UUID,
 } from '@meadsoft/common';
 import { ZodSafeParseResult, ZodType } from 'zod';
+import { InfrastructureConfigLoader } from '@meadsoft/common-infrastructure';
 
-if (process.env.APP_ENV !== Environment.LOCAL) {
-    throw new Error('Seeding is only allowed in local environments');
+const configLoader = new InfrastructureConfigLoader();
+const config = configLoader.loadSync();
+
+if (config.err) {
+    throw config.val;
 }
 
 async function bootstrap() {

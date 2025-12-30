@@ -1,11 +1,11 @@
 import { Err, Ok, Result } from 'ts-results';
 import zod from 'zod';
 
-export interface Schema<T> {
+export interface ISchema<T> {
     parse(data: unknown): Result<T, zod.ZodError>;
 }
 
-export class ZodSchema<T> implements Schema<T> {
+export class ZodSchema<T> implements ISchema<T> {
     constructor(private readonly zodSchema: zod.ZodType<T>) {}
 
     parse(data: unknown): Result<T, zod.ZodError> {

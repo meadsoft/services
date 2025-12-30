@@ -59,6 +59,34 @@
             ]
         },
         {
+            "type": "node",
+            "request": "launch",
+            "name": "Node: Debug Drizzle Generate",
+            "env": {
+                "APP_ENV": "prod"
+            },
+            "runtimeExecutable": "nx",
+            "runtimeArgs": [
+                "run",
+                "restaurant-catalog-api:db-generate"
+            ],
+            "port": 9229,
+            "console": "integratedTerminal",
+            "skipFiles": [
+                "<node_internals>/**"
+            ],
+            "restart": true,
+            "sourceMaps": true,
+            "outFiles": [
+                "${workspaceFolder}/apps/restaurant-catalog-api/dist/**/*.js",
+                "${workspaceFolder}/packages/*/dist/**/*.js"
+            ],
+            "resolveSourceMapLocations": [
+                "${workspaceFolder}/**",
+                "!**/node_modules/**"
+            ]
+        },
+        {
             "name": "ng serve",
             "type": "msedge",
             "request": "launch",
