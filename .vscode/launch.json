@@ -61,14 +61,14 @@
         {
             "type": "node",
             "request": "launch",
-            "name": "Node: Debug Drizzle Generate",
+            "name": "Node: Debug Database Backup",
             "env": {
-                "APP_ENV": "prod"
+                "APP_ENV": "dev"
             },
             "runtimeExecutable": "nx",
             "runtimeArgs": [
                 "run",
-                "restaurant-catalog-api:db-generate"
+                "restaurant-catalog-api:backup"
             ],
             "port": 9229,
             "console": "integratedTerminal",

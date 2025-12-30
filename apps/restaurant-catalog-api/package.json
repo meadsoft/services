@@ -5,6 +5,7 @@
     "scripts": {
         "build": "nest build",
         "seed": "tsx src/seed.ts",
+        "backup": "tsx src/backup-database.ts",
         "metadata": "pnpx ts-node src/generate-metadata.ts",
         "format": "prettier --write \"src/**/*.ts\" \"test/**/*.ts\"",
         "start": "nest start",
