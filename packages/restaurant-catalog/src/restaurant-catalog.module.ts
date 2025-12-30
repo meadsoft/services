@@ -1,8 +1,5 @@
 import { Module } from '@nestjs/common';
-import {
-    DrizzlePgModule,
-    InfrastructureModule,
-} from '@meadsoft/common-infrastructure';
+import { DrizzlePgModule } from '@meadsoft/common-infrastructure';
 import { CommonModule } from '@meadsoft/common';
 import { MenuItemRepository } from './database/repositories/menu-items.repo';
 import { SizesRepository } from './database/repositories/sizes.repo';
@@ -43,7 +40,7 @@ import {
 } from './controllers';
 
 @Module({
-    imports: [DrizzlePgModule, InfrastructureModule, CommonModule],
+    imports: [DrizzlePgModule, CommonModule],
     controllers: [
         MenuItemsQueryController,
         MenuItemsCommandController,

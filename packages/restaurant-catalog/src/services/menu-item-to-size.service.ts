@@ -6,6 +6,7 @@ import {
 import { ChangeHistoryService, EntityService } from '@meadsoft/common';
 import { QueryService, CommandService } from '@meadsoft/common-application';
 import { MenuItemToSizeRepository } from '../database/repositories';
+import { UnitOfWorkService } from '@meadsoft/common-infrastructure';
 
 @Injectable()
 export class MenuItemToSizeQueryService extends QueryService<IMenuItemToSize> {
@@ -22,10 +23,12 @@ export class MenuItemToSizeCommandService extends CommandService<
     constructor(
         repository: MenuItemToSizeRepository,
         entityService: EntityService,
+        unitOfWorkService: UnitOfWorkService,
         changeHistoryService: ChangeHistoryService,
     ) {
         super(
             repository,
+            unitOfWorkService,
             entityService,
             changeHistoryService,
             (userId: string, newModel: IMenuItemToSize) =>

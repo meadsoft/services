@@ -17,7 +17,7 @@ importers:
         version: 9.39.1
       '@nx/angular':
         specifier: 22.1.2
-        version: 22.1.2(e10d9ada7739337471432ab876e01238)
+        version: 22.1.2(38d95d32235f20ef9cf027760ee39ab2)
       '@nx/eslint':
         specifier: 22.1.2
         version: 22.1.2(@babel/traverse@7.28.5)(@swc-node/register@1.9.2(@swc/core@1.5.29(@swc/helpers@0.5.17))(@swc/types@0.1.25)(typescript@5.9.3))(@swc/core@1.5.29(@swc/helpers@0.5.17))(@zkochan/js-yaml@0.0.7)(eslint@9.39.1(jiti@2.6.1))(nx@22.1.2(@swc-node/register@1.9.2(@swc/core@1.5.29(@swc/helpers@0.5.17))(@swc/types@0.1.25)(typescript@5.9.3))(@swc/core@1.5.29(@swc/helpers@0.5.17)))
@@ -101,7 +101,7 @@ importers:
         version: 2.8.1
       tsup:
         specifier: ^8.5.1
-        version: 8.5.1(@swc/core@1.5.29(@swc/helpers@0.5.17))(jiti@2.6.1)(postcss@8.5.6)(typescript@5.9.3)(yaml@2.8.1)
+        version: 8.5.1(@swc/core@1.5.29(@swc/helpers@0.5.17))(jiti@2.6.1)(postcss@8.5.6)(tsx@4.21.0)(typescript@5.9.3)(yaml@2.8.1)
       typescript:
         specifier: ~5.9.2
         version: 5.9.3
@@ -198,7 +198,7 @@ importers:
     devDependencies:
       '@angular/build':
         specifier: ^20.3.9
-        version: 20.3.12(4be9bf6cfb1eea8d787807f9d34a88b1)
+        version: 20.3.12(345b1153037fc04d7a20ed6fd74cbbec)
       '@angular/cli':
         specifier: ^20.3.9
         version: 20.3.12(@types/node@20.19.25)(chokidar@4.0.3)
@@ -226,6 +226,9 @@ importers:
       '@meadsoft/restaurant-catalog':
         specifier: workspace:*
         version: link:../../packages/restaurant-catalog
+      '@meadsoft/restaurant-catalog-contracts':
+        specifier: workspace:*
+        version: link:../../packages/restaurant-catalog-contracts
       '@nestjs/cli':
         specifier: ^11.0.1
         version: 11.0.14(@swc/core@1.5.29(@swc/helpers@0.5.17))(@types/node@22.19.1)(esbuild@0.25.12)
@@ -265,6 +268,10 @@ importers:
       zod:
         specifier: ^4.1.12
         version: 4.1.13
+    devDependencies:
+      tsx:
+        specifier: ^4.21.0
+        version: 4.21.0
 
   packages/auth:
     dependencies:
@@ -379,7 +386,7 @@ importers:
         version: 2.8.1
       tsup:
         specifier: ^8.5.1
-        version: 8.5.1(@swc/core@1.5.29(@swc/helpers@0.5.17))(jiti@2.6.1)(postcss@8.5.6)(typescript@5.9.3)(yaml@2.8.1)
+        version: 8.5.1(@swc/core@1.5.29(@swc/helpers@0.5.17))(jiti@2.6.1)(postcss@8.5.6)(tsx@4.21.0)(typescript@5.9.3)(yaml@2.8.1)
       zod:
         specifier: ^4.1.12
         version: 4.1.13
@@ -415,7 +422,7 @@ importers:
         version: 2.8.1
       tsup:
         specifier: ^8.5.1
-        version: 8.5.1(@swc/core@1.5.29(@swc/helpers@0.5.17))(jiti@2.6.1)(postcss@8.5.6)(typescript@5.9.3)(yaml@2.8.1)
+        version: 8.5.1(@swc/core@1.5.29(@swc/helpers@0.5.17))(jiti@2.6.1)(postcss@8.5.6)(tsx@4.21.0)(typescript@5.9.3)(yaml@2.8.1)
       zod:
         specifier: ^4.1.12
         version: 4.1.13
@@ -503,7 +510,7 @@ importers:
         version: link:../common-infrastructure
       '@meadsoft/restaurant-catalog-contracts':
         specifier: workspace:*
-        version: file:packages/restaurant-catalog-contracts(@nestjs/common@11.1.9(reflect-metadata@0.2.2)(rxjs@7.8.2))(@nestjs/core@11.1.9)(@nestjs/platform-express@11.1.9)(@nestjs/swagger@11.2.3(@nestjs/common@11.1.9(reflect-metadata@0.2.2)(rxjs@7.8.2))(@nestjs/core@11.1.9)(reflect-metadata@0.2.2))(@opentelemetry/api@1.9.0)(@swc/core@1.5.29(@swc/helpers@0.5.17))(jiti@2.6.1)(postcss@8.5.6)(reflect-metadata@0.2.2)(rxjs@7.8.2)(typescript@5.9.3)(yaml@2.8.1)
+        version: link:../restaurant-catalog-contracts
       '@nestjs/common':
         specifier: ^11.0.1
         version: 11.1.9(reflect-metadata@0.2.2)(rxjs@7.8.2)
@@ -533,7 +540,7 @@ importers:
         version: 2.8.1
       tsup:
         specifier: ^8.5.1
-        version: 8.5.1(@swc/core@1.5.29(@swc/helpers@0.5.17))(jiti@2.6.1)(postcss@8.5.6)(typescript@5.9.3)(yaml@2.8.1)
+        version: 8.5.1(@swc/core@1.5.29(@swc/helpers@0.5.17))(jiti@2.6.1)(postcss@8.5.6)(tsx@4.21.0)(typescript@5.9.3)(yaml@2.8.1)
       zod:
         specifier: ^4.1.12
         version: 4.1.13
@@ -545,7 +552,7 @@ importers:
         version: link:../common
       '@meadsoft/common-application':
         specifier: workspace:*
-        version: file:packages/common-application(@nestjs/core@11.1.9)(@nestjs/platform-express@11.1.9)(@nestjs/swagger@11.2.3(@nestjs/common@11.1.9(reflect-metadata@0.2.2)(rxjs@7.8.2))(@nestjs/core@11.1.9)(reflect-metadata@0.2.2))(@opentelemetry/api@1.9.0)(@swc/core@1.5.29(@swc/helpers@0.5.17))(jiti@2.6.1)(postcss@8.5.6)(reflect-metadata@0.2.2)(rxjs@7.8.2)(typescript@5.9.3)(yaml@2.8.1)
+        version: link:../common-application
       '@types/uuid':
         specifier: ^11.0.0
         version: 11.0.0
@@ -2974,18 +2981,6 @@ packages:
   '@lukeed/csprng@1.1.0':
     resolution: {integrity: sha512-Z7C/xXCiGWsg0KuKsHTKJxbWhpI3Vs5GwLfOean7MGyVFGqdRgBbAjOCh6u4bbjPc/8MJ2pZmK/0DLdCbivLDA==}
     engines: {node: '>=8'}
-
-  '@meadsoft/common-application@file:packages/common-application':
-    resolution: {directory: packages/common-application, type: directory}
-
-  '@meadsoft/common-infrastructure@file:packages/common-infrastructure':
-    resolution: {directory: packages/common-infrastructure, type: directory}
-
-  '@meadsoft/common@file:packages/common':
-    resolution: {directory: packages/common, type: directory}
-
-  '@meadsoft/restaurant-catalog-contracts@file:packages/restaurant-catalog-contracts':
-    resolution: {directory: packages/restaurant-catalog-contracts, type: directory}
 
   '@microsoft/tsdoc@0.16.0':
     resolution: {integrity: sha512-xgAyonlVVS+q7Vc7qLW0UrJU7rSFcETRWsqdXZtjzRU8dF+6CkozTK4V4y1LwOX7j8r/vHphjDeMeGI4tNGeGA==}
@@ -9156,6 +9151,11 @@ packages:
       typescript:
         optional: true
 
+  tsx@4.21.0:
+    resolution: {integrity: sha512-5C1sg4USs1lfG0GFb2RLXsdpXqBSEhAaA/0kPL01wxzpMqLILNxIxIOKiILz+cdg/pLnOUxFYOR5yhHU666wbw==}
+    engines: {node: '>=18.0.0'}
+    hasBin: true
+
   tuf-js@3.1.0:
     resolution: {integrity: sha512-3T3T04WzowbwV2FDiGXBbr81t64g1MUGGJRgT4x5o97N+8ArdhVCAF9IxFrxuSJmM3E5Asn7nKHkao0ibcZXAg==}
     engines: {node: ^18.17.0 || >=20.5.0}
@@ -9787,7 +9787,7 @@ snapshots:
       '@angular/core': 20.3.14(@angular/compiler@20.3.14)(rxjs@7.8.2)(zone.js@0.15.1)
       tslib: 2.8.1
 
-  '@angular/build@20.3.12(4be9bf6cfb1eea8d787807f9d34a88b1)':
+  '@angular/build@20.3.12(345b1153037fc04d7a20ed6fd74cbbec)':
     dependencies:
       '@ampproject/remapping': 2.3.0
       '@angular-devkit/architect': 0.2003.12(chokidar@4.0.3)
@@ -9797,7 +9797,7 @@ snapshots:
       '@babel/helper-annotate-as-pure': 7.27.3
       '@babel/helper-split-export-declaration': 7.24.7
       '@inquirer/confirm': 5.1.14(@types/node@20.19.25)
-      '@vitejs/plugin-basic-ssl': 2.1.0(vite@7.1.11(@types/node@20.19.25)(jiti@2.6.1)(less@4.4.2)(lightningcss@1.30.2)(sass-embedded@1.93.3)(sass@1.90.0)(terser@5.44.1)(yaml@2.8.1))
+      '@vitejs/plugin-basic-ssl': 2.1.0(vite@7.1.11(@types/node@20.19.25)(jiti@2.6.1)(less@4.4.2)(lightningcss@1.30.2)(sass-embedded@1.93.3)(sass@1.90.0)(terser@5.44.1)(tsx@4.21.0)(yaml@2.8.1))
       beasties: 0.3.5
       browserslist: 4.28.0
       esbuild: 0.25.9
@@ -9817,7 +9817,7 @@ snapshots:
       tinyglobby: 0.2.14
       tslib: 2.8.1
       typescript: 5.9.3
-      vite: 7.1.11(@types/node@20.19.25)(jiti@2.6.1)(less@4.4.2)(lightningcss@1.30.2)(sass-embedded@1.93.3)(sass@1.90.0)(terser@5.44.1)(yaml@2.8.1)
+      vite: 7.1.11(@types/node@20.19.25)(jiti@2.6.1)(less@4.4.2)(lightningcss@1.30.2)(sass-embedded@1.93.3)(sass@1.90.0)(terser@5.44.1)(tsx@4.21.0)(yaml@2.8.1)
       watchpack: 2.4.4
     optionalDependencies:
       '@angular/core': 20.3.14(@angular/compiler@20.3.14)(rxjs@7.8.2)(zone.js@0.15.1)
@@ -9841,7 +9841,7 @@ snapshots:
       - tsx
       - yaml
 
-  '@angular/build@20.3.12(86c0472bc1b3fa99b1d1d0c3f4c6d04c)':
+  '@angular/build@20.3.12(a91b62c3b6c388fc12b8768684657f0e)':
     dependencies:
       '@ampproject/remapping': 2.3.0
       '@angular-devkit/architect': 0.2003.12(chokidar@4.0.3)
@@ -9851,7 +9851,7 @@ snapshots:
       '@babel/helper-annotate-as-pure': 7.27.3
       '@babel/helper-split-export-declaration': 7.24.7
       '@inquirer/confirm': 5.1.14(@types/node@22.19.1)
-      '@vitejs/plugin-basic-ssl': 2.1.0(vite@7.1.11(@types/node@22.19.1)(jiti@2.6.1)(less@4.4.2)(lightningcss@1.30.2)(sass-embedded@1.93.3)(sass@1.90.0)(terser@5.44.1)(yaml@2.8.1))
+      '@vitejs/plugin-basic-ssl': 2.1.0(vite@7.1.11(@types/node@22.19.1)(jiti@2.6.1)(less@4.4.2)(lightningcss@1.30.2)(sass-embedded@1.93.3)(sass@1.90.0)(terser@5.44.1)(tsx@4.21.0)(yaml@2.8.1))
       beasties: 0.3.5
       browserslist: 4.28.0
       esbuild: 0.25.9
@@ -9871,7 +9871,7 @@ snapshots:
       tinyglobby: 0.2.14
       tslib: 2.8.1
       typescript: 5.9.3
-      vite: 7.1.11(@types/node@22.19.1)(jiti@2.6.1)(less@4.4.2)(lightningcss@1.30.2)(sass-embedded@1.93.3)(sass@1.90.0)(terser@5.44.1)(yaml@2.8.1)
+      vite: 7.1.11(@types/node@22.19.1)(jiti@2.6.1)(less@4.4.2)(lightningcss@1.30.2)(sass-embedded@1.93.3)(sass@1.90.0)(terser@5.44.1)(tsx@4.21.0)(yaml@2.8.1)
       watchpack: 2.4.4
     optionalDependencies:
       '@angular/core': 20.3.14(@angular/compiler@20.3.14)(rxjs@7.8.2)(zone.js@0.15.1)
@@ -12544,194 +12544,6 @@ snapshots:
 
   '@lukeed/csprng@1.1.0': {}
 
-  '@meadsoft/common-application@file:packages/common-application(@nestjs/core@11.1.9)(@nestjs/platform-express@11.1.9)(@nestjs/swagger@11.2.3(@nestjs/common@11.1.9(reflect-metadata@0.2.2)(rxjs@7.8.2))(@nestjs/core@11.1.9)(reflect-metadata@0.2.2))(@opentelemetry/api@1.9.0)(@swc/core@1.5.29(@swc/helpers@0.5.17))(jiti@2.6.1)(postcss@8.5.6)(reflect-metadata@0.2.2)(rxjs@7.8.2)(typescript@5.9.3)(yaml@2.8.1)':
-    dependencies:
-      '@meadsoft/common': file:packages/common(reflect-metadata@0.2.2)(rxjs@7.8.2)
-      '@meadsoft/common-infrastructure': file:packages/common-infrastructure(@nestjs/core@11.1.9)(@nestjs/platform-express@11.1.9)(@nestjs/swagger@11.2.3(@nestjs/common@11.1.9(reflect-metadata@0.2.2)(rxjs@7.8.2))(@nestjs/core@11.1.9)(reflect-metadata@0.2.2))(@opentelemetry/api@1.9.0)(@swc/core@1.5.29(@swc/helpers@0.5.17))(jiti@2.6.1)(postcss@8.5.6)(reflect-metadata@0.2.2)(rxjs@7.8.2)(typescript@5.9.3)(yaml@2.8.1)
-      '@nestjs/common': 11.1.9(reflect-metadata@0.2.2)(rxjs@7.8.2)
-      '@types/uuid': 11.0.0
-      ts-results: 3.3.0
-      tslib: 2.8.1
-      uuid: 13.0.0
-      zod: 4.1.13
-    transitivePeerDependencies:
-      - '@aws-sdk/client-rds-data'
-      - '@cloudflare/workers-types'
-      - '@electric-sql/pglite'
-      - '@libsql/client'
-      - '@libsql/client-wasm'
-      - '@microsoft/api-extractor'
-      - '@neondatabase/serverless'
-      - '@nestjs/core'
-      - '@nestjs/microservices'
-      - '@nestjs/platform-express'
-      - '@nestjs/swagger'
-      - '@op-engineering/op-sqlite'
-      - '@opentelemetry/api'
-      - '@planetscale/database'
-      - '@prisma/client'
-      - '@swc/core'
-      - '@tidbcloud/serverless'
-      - '@types/better-sqlite3'
-      - '@types/sql.js'
-      - '@upstash/redis'
-      - '@vercel/postgres'
-      - '@xata.io/client'
-      - better-sqlite3
-      - bun-types
-      - class-transformer
-      - class-validator
-      - expo-sqlite
-      - gel
-      - jiti
-      - knex
-      - kysely
-      - mysql2
-      - pg-native
-      - postcss
-      - postgres
-      - prisma
-      - reflect-metadata
-      - rxjs
-      - sql.js
-      - sqlite3
-      - supports-color
-      - tsx
-      - typescript
-      - yaml
-
-  '@meadsoft/common-infrastructure@file:packages/common-infrastructure(@nestjs/core@11.1.9)(@nestjs/platform-express@11.1.9)(@nestjs/swagger@11.2.3(@nestjs/common@11.1.9(reflect-metadata@0.2.2)(rxjs@7.8.2))(@nestjs/core@11.1.9)(reflect-metadata@0.2.2))(@opentelemetry/api@1.9.0)(@swc/core@1.5.29(@swc/helpers@0.5.17))(jiti@2.6.1)(postcss@8.5.6)(reflect-metadata@0.2.2)(rxjs@7.8.2)(typescript@5.9.3)(yaml@2.8.1)':
-    dependencies:
-      '@meadsoft/common': file:packages/common(reflect-metadata@0.2.2)(rxjs@7.8.2)
-      '@nestjs/common': 11.1.9(reflect-metadata@0.2.2)(rxjs@7.8.2)
-      '@nestjs/testing': 11.1.9(@nestjs/common@11.1.9(reflect-metadata@0.2.2)(rxjs@7.8.2))(@nestjs/core@11.1.9)(@nestjs/platform-express@11.1.9)
-      '@types/pg': 8.15.6
-      drizzle-orm: 0.44.7(@opentelemetry/api@1.9.0)(@types/pg@8.15.6)(pg@8.16.3)
-      nestjs-zod: 5.0.1(@nestjs/common@11.1.9(reflect-metadata@0.2.2)(rxjs@7.8.2))(@nestjs/swagger@11.2.3(@nestjs/common@11.1.9(reflect-metadata@0.2.2)(rxjs@7.8.2))(@nestjs/core@11.1.9)(reflect-metadata@0.2.2))(rxjs@7.8.2)(zod@4.1.13)
-      pg: 8.16.3
-      ts-results: 3.3.0
-      tslib: 2.8.1
-      tsup: 8.5.1(@swc/core@1.5.29(@swc/helpers@0.5.17))(jiti@2.6.1)(postcss@8.5.6)(typescript@5.9.3)(yaml@2.8.1)
-      zod: 4.1.13
-    transitivePeerDependencies:
-      - '@aws-sdk/client-rds-data'
-      - '@cloudflare/workers-types'
-      - '@electric-sql/pglite'
-      - '@libsql/client'
-      - '@libsql/client-wasm'
-      - '@microsoft/api-extractor'
-      - '@neondatabase/serverless'
-      - '@nestjs/core'
-      - '@nestjs/microservices'
-      - '@nestjs/platform-express'
-      - '@nestjs/swagger'
-      - '@op-engineering/op-sqlite'
-      - '@opentelemetry/api'
-      - '@planetscale/database'
-      - '@prisma/client'
-      - '@swc/core'
-      - '@tidbcloud/serverless'
-      - '@types/better-sqlite3'
-      - '@types/sql.js'
-      - '@upstash/redis'
-      - '@vercel/postgres'
-      - '@xata.io/client'
-      - better-sqlite3
-      - bun-types
-      - class-transformer
-      - class-validator
-      - expo-sqlite
-      - gel
-      - jiti
-      - knex
-      - kysely
-      - mysql2
-      - pg-native
-      - postcss
-      - postgres
-      - prisma
-      - reflect-metadata
-      - rxjs
-      - sql.js
-      - sqlite3
-      - supports-color
-      - tsx
-      - typescript
-      - yaml
-
-  '@meadsoft/common@file:packages/common(reflect-metadata@0.2.2)(rxjs@7.8.2)':
-    dependencies:
-      '@nestjs/common': 11.1.9(reflect-metadata@0.2.2)(rxjs@7.8.2)
-      '@types/uuid': 11.0.0
-      dotenv: 17.2.3
-      ts-results: 3.3.0
-      tslib: 2.8.1
-      uuid: 13.0.0
-      zod: 4.1.13
-    transitivePeerDependencies:
-      - class-transformer
-      - class-validator
-      - reflect-metadata
-      - rxjs
-      - supports-color
-
-  '@meadsoft/restaurant-catalog-contracts@file:packages/restaurant-catalog-contracts(@nestjs/common@11.1.9(reflect-metadata@0.2.2)(rxjs@7.8.2))(@nestjs/core@11.1.9)(@nestjs/platform-express@11.1.9)(@nestjs/swagger@11.2.3(@nestjs/common@11.1.9(reflect-metadata@0.2.2)(rxjs@7.8.2))(@nestjs/core@11.1.9)(reflect-metadata@0.2.2))(@opentelemetry/api@1.9.0)(@swc/core@1.5.29(@swc/helpers@0.5.17))(jiti@2.6.1)(postcss@8.5.6)(reflect-metadata@0.2.2)(rxjs@7.8.2)(typescript@5.9.3)(yaml@2.8.1)':
-    dependencies:
-      '@meadsoft/common': file:packages/common(reflect-metadata@0.2.2)(rxjs@7.8.2)
-      '@meadsoft/common-application': file:packages/common-application(@nestjs/core@11.1.9)(@nestjs/platform-express@11.1.9)(@nestjs/swagger@11.2.3(@nestjs/common@11.1.9(reflect-metadata@0.2.2)(rxjs@7.8.2))(@nestjs/core@11.1.9)(reflect-metadata@0.2.2))(@opentelemetry/api@1.9.0)(@swc/core@1.5.29(@swc/helpers@0.5.17))(jiti@2.6.1)(postcss@8.5.6)(reflect-metadata@0.2.2)(rxjs@7.8.2)(typescript@5.9.3)(yaml@2.8.1)
-      '@types/uuid': 11.0.0
-      nestjs-zod: 5.0.1(@nestjs/common@11.1.9(reflect-metadata@0.2.2)(rxjs@7.8.2))(@nestjs/swagger@11.2.3(@nestjs/common@11.1.9(reflect-metadata@0.2.2)(rxjs@7.8.2))(@nestjs/core@11.1.9)(reflect-metadata@0.2.2))(rxjs@7.8.2)(zod@4.1.13)
-      ts-results: 3.3.0
-      tslib: 2.8.1
-      uuid: 13.0.0
-      zod: 4.1.13
-    transitivePeerDependencies:
-      - '@aws-sdk/client-rds-data'
-      - '@cloudflare/workers-types'
-      - '@electric-sql/pglite'
-      - '@libsql/client'
-      - '@libsql/client-wasm'
-      - '@microsoft/api-extractor'
-      - '@neondatabase/serverless'
-      - '@nestjs/common'
-      - '@nestjs/core'
-      - '@nestjs/microservices'
-      - '@nestjs/platform-express'
-      - '@nestjs/swagger'
-      - '@op-engineering/op-sqlite'
-      - '@opentelemetry/api'
-      - '@planetscale/database'
-      - '@prisma/client'
-      - '@swc/core'
-      - '@tidbcloud/serverless'
-      - '@types/better-sqlite3'
-      - '@types/sql.js'
-      - '@upstash/redis'
-      - '@vercel/postgres'
-      - '@xata.io/client'
-      - better-sqlite3
-      - bun-types
-      - class-transformer
-      - class-validator
-      - expo-sqlite
-      - gel
-      - jiti
-      - knex
-      - kysely
-      - mysql2
-      - pg-native
-      - postcss
-      - postgres
-      - prisma
-      - reflect-metadata
-      - rxjs
-      - sql.js
-      - sqlite3
-      - supports-color
-      - tsx
-      - typescript
-      - yaml
-
   '@microsoft/tsdoc@0.16.0': {}
 
   '@modelcontextprotocol/sdk@1.17.3':
@@ -13264,7 +13076,7 @@ snapshots:
     dependencies:
       consola: 3.4.2
 
-  '@nx/angular@22.1.2(e10d9ada7739337471432ab876e01238)':
+  '@nx/angular@22.1.2(38d95d32235f20ef9cf027760ee39ab2)':
     dependencies:
       '@angular-devkit/core': 20.3.12(chokidar@4.0.3)
       '@angular-devkit/schematics': 20.3.12(chokidar@4.0.3)
@@ -13288,7 +13100,7 @@ snapshots:
       tslib: 2.8.1
       webpack-merge: 5.10.0
     optionalDependencies:
-      '@angular/build': 20.3.12(86c0472bc1b3fa99b1d1d0c3f4c6d04c)
+      '@angular/build': 20.3.12(a91b62c3b6c388fc12b8768684657f0e)
     transitivePeerDependencies:
       - '@babel/traverse'
       - '@module-federation/enhanced'
@@ -14695,13 +14507,13 @@ snapshots:
   '@unrs/resolver-binding-win32-x64-msvc@1.11.1':
     optional: true
 
-  '@vitejs/plugin-basic-ssl@2.1.0(vite@7.1.11(@types/node@20.19.25)(jiti@2.6.1)(less@4.4.2)(lightningcss@1.30.2)(sass-embedded@1.93.3)(sass@1.90.0)(terser@5.44.1)(yaml@2.8.1))':
+  '@vitejs/plugin-basic-ssl@2.1.0(vite@7.1.11(@types/node@20.19.25)(jiti@2.6.1)(less@4.4.2)(lightningcss@1.30.2)(sass-embedded@1.93.3)(sass@1.90.0)(terser@5.44.1)(tsx@4.21.0)(yaml@2.8.1))':
     dependencies:
-      vite: 7.1.11(@types/node@20.19.25)(jiti@2.6.1)(less@4.4.2)(lightningcss@1.30.2)(sass-embedded@1.93.3)(sass@1.90.0)(terser@5.44.1)(yaml@2.8.1)
+      vite: 7.1.11(@types/node@20.19.25)(jiti@2.6.1)(less@4.4.2)(lightningcss@1.30.2)(sass-embedded@1.93.3)(sass@1.90.0)(terser@5.44.1)(tsx@4.21.0)(yaml@2.8.1)
 
-  '@vitejs/plugin-basic-ssl@2.1.0(vite@7.1.11(@types/node@22.19.1)(jiti@2.6.1)(less@4.4.2)(lightningcss@1.30.2)(sass-embedded@1.93.3)(sass@1.90.0)(terser@5.44.1)(yaml@2.8.1))':
+  '@vitejs/plugin-basic-ssl@2.1.0(vite@7.1.11(@types/node@22.19.1)(jiti@2.6.1)(less@4.4.2)(lightningcss@1.30.2)(sass-embedded@1.93.3)(sass@1.90.0)(terser@5.44.1)(tsx@4.21.0)(yaml@2.8.1))':
     dependencies:
-      vite: 7.1.11(@types/node@22.19.1)(jiti@2.6.1)(less@4.4.2)(lightningcss@1.30.2)(sass-embedded@1.93.3)(sass@1.90.0)(terser@5.44.1)(yaml@2.8.1)
+      vite: 7.1.11(@types/node@22.19.1)(jiti@2.6.1)(less@4.4.2)(lightningcss@1.30.2)(sass-embedded@1.93.3)(sass@1.90.0)(terser@5.44.1)(tsx@4.21.0)(yaml@2.8.1)
     optional: true
 
   '@webassemblyjs/ast@1.14.1':
@@ -18560,12 +18372,13 @@ snapshots:
       read-cache: 1.0.0
       resolve: 1.22.11
 
-  postcss-load-config@6.0.1(jiti@2.6.1)(postcss@8.5.6)(yaml@2.8.1):
+  postcss-load-config@6.0.1(jiti@2.6.1)(postcss@8.5.6)(tsx@4.21.0)(yaml@2.8.1):
     dependencies:
       lilconfig: 3.1.3
     optionalDependencies:
       jiti: 2.6.1
       postcss: 8.5.6
+      tsx: 4.21.0
       yaml: 2.8.1
 
   postcss-loader@6.2.1(postcss@8.5.6)(webpack@5.103.0(@swc/core@1.5.29(@swc/helpers@0.5.17))(esbuild@0.27.0)):
@@ -19853,7 +19666,7 @@ snapshots:
 
   tsscmp@1.0.6: {}
 
-  tsup@8.5.1(@swc/core@1.5.29(@swc/helpers@0.5.17))(jiti@2.6.1)(postcss@8.5.6)(typescript@5.9.3)(yaml@2.8.1):
+  tsup@8.5.1(@swc/core@1.5.29(@swc/helpers@0.5.17))(jiti@2.6.1)(postcss@8.5.6)(tsx@4.21.0)(typescript@5.9.3)(yaml@2.8.1):
     dependencies:
       bundle-require: 5.1.0(esbuild@0.27.0)
       cac: 6.7.14
@@ -19864,7 +19677,7 @@ snapshots:
       fix-dts-default-cjs-exports: 1.0.1
       joycon: 3.1.1
       picocolors: 1.1.1
-      postcss-load-config: 6.0.1(jiti@2.6.1)(postcss@8.5.6)(yaml@2.8.1)
+      postcss-load-config: 6.0.1(jiti@2.6.1)(postcss@8.5.6)(tsx@4.21.0)(yaml@2.8.1)
       resolve-from: 5.0.0
       rollup: 4.53.3
       source-map: 0.7.6
@@ -19881,6 +19694,13 @@ snapshots:
       - supports-color
       - tsx
       - yaml
+
+  tsx@4.21.0:
+    dependencies:
+      esbuild: 0.27.0
+      get-tsconfig: 4.13.0
+    optionalDependencies:
+      fsevents: 2.3.3
 
   tuf-js@3.1.0:
     dependencies:
@@ -20039,7 +19859,7 @@ snapshots:
 
   vary@1.1.2: {}
 
-  vite@7.1.11(@types/node@20.19.25)(jiti@2.6.1)(less@4.4.2)(lightningcss@1.30.2)(sass-embedded@1.93.3)(sass@1.90.0)(terser@5.44.1)(yaml@2.8.1):
+  vite@7.1.11(@types/node@20.19.25)(jiti@2.6.1)(less@4.4.2)(lightningcss@1.30.2)(sass-embedded@1.93.3)(sass@1.90.0)(terser@5.44.1)(tsx@4.21.0)(yaml@2.8.1):
     dependencies:
       esbuild: 0.25.12
       fdir: 6.5.0(picomatch@4.0.3)
@@ -20056,9 +19876,10 @@ snapshots:
       sass: 1.90.0
       sass-embedded: 1.93.3
       terser: 5.44.1
+      tsx: 4.21.0
       yaml: 2.8.1
 
-  vite@7.1.11(@types/node@22.19.1)(jiti@2.6.1)(less@4.4.2)(lightningcss@1.30.2)(sass-embedded@1.93.3)(sass@1.90.0)(terser@5.44.1)(yaml@2.8.1):
+  vite@7.1.11(@types/node@22.19.1)(jiti@2.6.1)(less@4.4.2)(lightningcss@1.30.2)(sass-embedded@1.93.3)(sass@1.90.0)(terser@5.44.1)(tsx@4.21.0)(yaml@2.8.1):
     dependencies:
       esbuild: 0.25.12
       fdir: 6.5.0(picomatch@4.0.3)
@@ -20075,6 +19896,7 @@ snapshots:
       sass: 1.90.0
       sass-embedded: 1.93.3
       terser: 5.44.1
+      tsx: 4.21.0
       yaml: 2.8.1
     optional: true
 

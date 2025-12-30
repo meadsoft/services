@@ -5,7 +5,7 @@
         {
             "type": "node",
             "request": "launch",
-            "name": "Node: Debug NestJS App",
+            "name": "Node: Debug Restaurant Catalog",
             "env": {
                 "APP_ENV": "local"
             },
@@ -32,16 +32,22 @@
         },
         {
             "type": "node",
-            "request": "attach",
-            "name": "Node: Attach to NestJS",
+            "request": "launch",
+            "name": "Node: Debug Seeding",
             "env": {
                 "APP_ENV": "local"
             },
+            "runtimeExecutable": "nx",
+            "runtimeArgs": [
+                "run",
+                "restaurant-catalog-api:seed"
+            ],
             "port": 9229,
-            "restart": true,
+            "console": "integratedTerminal",
             "skipFiles": [
                 "<node_internals>/**"
             ],
+            "restart": true,
             "sourceMaps": true,
             "outFiles": [
                 "${workspaceFolder}/apps/restaurant-catalog-api/dist/**/*.js",
@@ -54,7 +60,7 @@
         },
         {
             "name": "ng serve",
-            "type": "Angular: msedge",
+            "type": "msedge",
             "request": "launch",
             "preLaunchTask": "npm: start",
             "url": "http://localhost:4200/"

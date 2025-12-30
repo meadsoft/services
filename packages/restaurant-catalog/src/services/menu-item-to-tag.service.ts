@@ -5,6 +5,7 @@ import {
 } from '@meadsoft/restaurant-catalog-contracts';
 import { ChangeHistoryService, EntityService } from '@meadsoft/common';
 import { QueryService, CommandService } from '@meadsoft/common-application';
+import { UnitOfWorkService } from '@meadsoft/common-infrastructure';
 import { MenuItemToTagRepository } from '../database/repositories';
 
 @Injectable()
@@ -22,10 +23,12 @@ export class MenuItemToTagCommandService extends CommandService<
     constructor(
         repository: MenuItemToTagRepository,
         entityService: EntityService,
+        unitOfWorkService: UnitOfWorkService,
         changeHistoryService: ChangeHistoryService,
     ) {
         super(
             repository,
+            unitOfWorkService,
             entityService,
             changeHistoryService,
             (userId: string, newModel: IMenuItemToTag) =>

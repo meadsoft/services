@@ -4,8 +4,8 @@ export * from './drizzle/drizzle.module';
 
 // generic
 export type * from './repository.schema';
-export * from './unit-of-work.base';
-export * from './infrastructure.module';
+export type * from './unit-of-work.schema';
+export { UnitOfWorkService } from './unit-of-work.service';
 
 // config
 export * from './infrastructure.config';

@@ -4,6 +4,7 @@
     "private": true,
     "scripts": {
         "build": "nest build",
+        "seed": "tsx src/seed.ts",
         "metadata": "pnpx ts-node src/generate-metadata.ts",
         "format": "prettier --write \"src/**/*.ts\" \"test/**/*.ts\"",
         "start": "nest start",
@@ -20,8 +21,9 @@
         "db-migrate": "drizzle-kit migrate --config ./src/drizzle.config.ts"
     },
     "dependencies": {
-        "@meadsoft/restaurant-catalog": "workspace:*",
         "@meadsoft/common": "workspace:*",
+        "@meadsoft/restaurant-catalog": "workspace:*",
+        "@meadsoft/restaurant-catalog-contracts": "workspace:*",
         "@nestjs/cli": "^11.0.1",
         "@nestjs/common": "^11.0.1",
         "@nestjs/core": "^11.0.1",
@@ -30,10 +32,13 @@
         "@nestjs/swagger": "^11.2.3",
         "@nestjs/testing": "^11.1.9",
         "@types/cookie-parser": "^1.4.10",
-        "drizzle-kit": "^0.31.7",
         "cookie-parser": "^1.4.7",
+        "drizzle-kit": "^0.31.7",
         "nestjs-zod": "^5.0.1",
         "tslib": "^2.3.0",
         "zod": "^4.1.12"
+    },
+    "devDependencies": {
+        "tsx": "^4.21.0"
     }
 }

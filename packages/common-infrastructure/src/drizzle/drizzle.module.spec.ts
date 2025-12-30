@@ -12,7 +12,7 @@ describe('DrizzlePgModule', () => {
             imports: [DrizzlePgModule],
         })
             .overrideProvider(InfrastructureConfig)
-            .useValue(new InfrastructureConfig(''))
+            .useValue(new InfrastructureConfig())
             .compile();
     });
 

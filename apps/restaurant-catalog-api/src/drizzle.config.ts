@@ -10,7 +10,7 @@ if (DATABASE_URL === undefined) {
 
 export default defineConfig({
     out: 'src/migrations',
-    schema: '@meadsoft/restaurant-catalog',
+    schema: 'node_modules/@meadsoft/restaurant-catalog/src/database/tables',
     dialect: 'postgresql',
     dbCredentials: {
         url: DATABASE_URL,

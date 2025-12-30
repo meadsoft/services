@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { RouterOutlet } from '@angular/router';
-import { DebugService } from 'src/services/debug.service';
+import { DebugService } from '../services/debug.service';
 import { NavComponent } from '../nav/nav.component';
 
 @Component({

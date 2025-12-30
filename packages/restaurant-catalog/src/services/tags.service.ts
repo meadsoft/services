@@ -7,6 +7,7 @@ import {
     TagEntity,
 } from '@meadsoft/restaurant-catalog-contracts';
 import { TagsRepository } from '../database/repositories';
+import { UnitOfWorkService } from '@meadsoft/common-infrastructure';
 
 @Injectable()
 export class TagsQueryService extends QueryService<ITag> {
@@ -20,10 +21,12 @@ export class TagsCommandService extends CommandService<INewTag, ITag> {
     constructor(
         repository: TagsRepository,
         entityService: EntityService,
+        unitOfWorkService: UnitOfWorkService,
         changeHistoryService: ChangeHistoryService,
     ) {
         super(
             repository,
+            unitOfWorkService,
             entityService,
             changeHistoryService,
             (userId: string, newModel: INewTag) =>

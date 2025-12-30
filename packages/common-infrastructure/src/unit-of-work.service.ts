@@ -1,11 +1,15 @@
 import { NotImplementedException } from '@nestjs/common';
+import { IUnitOfWorkService } from './unit-of-work.schema';
 
-export class UnitOfWork<TDb = unknown, TTransaction = unknown> {
-    protected _getDb: () => TDb;
-    protected _currentTransaction?: TTransaction;
+export class UnitOfWorkService<
+    TDb = unknown,
+    TTransaction = unknown,
+> implements IUnitOfWorkService<TDb, TTransaction> {
+    protected getActualDatabase: () => TDb;
+    protected currentTransaction?: TTransaction;
 
-    constructor(getDb: () => TDb) {
-        this._getDb = getDb;
+    constructor(getDatabase: () => TDb) {
+        this.getActualDatabase = getDatabase;
     }
 
     /**
@@ -26,6 +30,6 @@ export class UnitOfWork<TDb = unknown, TTransaction = unknown> {
      * Check if currently in a transaction
      */
     isInTransaction(): boolean {
-        return this._currentTransaction !== undefined;
+        return this.currentTransaction !== undefined;
     }
 }

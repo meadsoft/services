@@ -7,6 +7,7 @@ import {
 import { ChangeHistoryService, EntityService } from '@meadsoft/common';
 import { QueryService, CommandService } from '@meadsoft/common-application';
 import { MenuItemRepository } from '../database/repositories/menu-items.repo';
+import { UnitOfWorkService } from '@meadsoft/common-infrastructure';
 
 @Injectable()
 export class MenuItemQueryService extends QueryService<IMenuItem> {
@@ -23,10 +24,12 @@ export class MenuItemCommandService extends CommandService<
     constructor(
         repository: MenuItemRepository,
         entityService: EntityService,
+        unitOfWorkService: UnitOfWorkService,
         changeHistoryService: ChangeHistoryService,
     ) {
         super(
             repository,
+            unitOfWorkService,
             entityService,
             changeHistoryService,
             (userId: string, newModel: INewMenuItem) =>

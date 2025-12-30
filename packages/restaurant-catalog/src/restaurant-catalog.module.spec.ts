@@ -25,7 +25,7 @@ describe('RestaurantCatalogModule', () => {
             imports: [RestaurantCatalogModule],
         })
             .overrideProvider(InfrastructureConfig)
-            .useValue(new InfrastructureConfig(''))
+            .useValue(new InfrastructureConfig())
             .compile();
     });
 

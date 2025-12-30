@@ -17,7 +17,7 @@
     },
     "include": [
         "src/**/*.ts",
-        "drizzle.config.ts"
+        "src/drizzle.config.ts"
     ],
     "exclude": [
         "node_modules",
@@ -25,12 +25,4 @@
         "dist",
         "**/*spec.ts"
     ],
-    "references": [
-        {
-            "path": "../../packages/common/tsconfig.lib.json"
-        },
-        {
-            "path": "../../packages/restaurant-catalog/tsconfig.lib.json"
-        }
-    ]
 }

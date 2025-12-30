@@ -6,7 +6,10 @@ import {
     IFilter,
     IUpdateHistory,
 } from '@meadsoft/common';
-import { ICrudRepository } from '@meadsoft/common-infrastructure';
+import {
+    ICrudRepository,
+    IUnitOfWorkService,
+} from '@meadsoft/common-infrastructure';
 import { NotImplementedException } from '@nestjs/common';
 import { Err, Ok, Result } from 'ts-results';
 
@@ -16,6 +19,7 @@ export class CommandService<
 > implements ICommandService<TNewModel, TModel> {
     constructor(
         public readonly repository: ICrudRepository<TModel>,
+        public readonly unitOfWork: IUnitOfWorkService,
         public readonly entityService: EntityService,
         public readonly changeHistoryService: ChangeHistoryService,
         private readonly createFromNew: (
@@ -32,7 +36,9 @@ export class CommandService<
         if (item.err) {
             return Err(item.val);
         }
-        return Ok(await this.repository.createOne(item.val as TModel));
+        return this.unitOfWork.startTransaction(async () => {
+            return Ok(await this.repository.createOne(item.val));
+        });
     }
 
     async createMany(
@@ -45,7 +51,13 @@ export class CommandService<
             return firstFoundError;
         }
         const okItems = items.map((res) => res.unwrap());
-        return Ok(await this.repository.createMany(...okItems));
+        return this.unitOfWork.startTransaction(async () => {
+            return Ok(
+                await this.repository.createMany.bind(this.repository)(
+                    ...okItems,
+                ),
+            );
+        });
     }
 
     async updateOne(
@@ -54,7 +66,9 @@ export class CommandService<
         updates: IUpdateHistory & Partial<TModel>,
     ): Promise<Result<TModel, Error>> {
         const updatedItem = this.changeHistoryService.update(userId, updates);
-        return Ok(await this.repository.updateOne(id, updatedItem));
+        return this.unitOfWork.startTransaction(async () => {
+            return Ok(await this.repository.updateOne(id, updatedItem));
+        });
     }
 
     // TODO: implement IFilter to SQL mapping
@@ -86,11 +100,14 @@ export class CommandService<
             userId,
             updates,
         );
-        await this.updateOne(userId, id, updatedChangeHistory);
-        return Ok(await this.repository.deleteOne(id));
+        return await this.unitOfWork.startTransaction(async () => {
+            await this.updateOne(userId, id, updatedChangeHistory);
+            return Ok(await this.repository.deleteOne(id));
+        });
     }
 
     async deleteMany(userId: string): Promise<Result<number, Error>> {
+        return Ok(await Promise.reject(new NotImplementedException()));
         // TODO: improve typing here so unsafe assertions are not needed
         // eslint-disable-next-line @typescript-eslint/no-unsafe-type-assertion
         const updates = {
@@ -102,7 +119,9 @@ export class CommandService<
             userId,
             updates,
         );
-        await this.updateMany(userId, updatedChangeHistory);
-        return Ok(await Promise.reject(new NotImplementedException()));
+        return await this.unitOfWork.startTransaction(async () => {
+            await this.updateMany(userId, updatedChangeHistory);
+            return Ok(await Promise.reject(new NotImplementedException()));
+        });
     }
 }

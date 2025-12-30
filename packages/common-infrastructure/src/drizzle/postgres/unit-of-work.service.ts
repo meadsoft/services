@@ -2,38 +2,41 @@ import { Injectable } from '@nestjs/common';
 import { NodePgDatabase } from 'drizzle-orm/node-postgres';
 import { PgQueryResultHKT, PgTransaction } from 'drizzle-orm/pg-core';
 import { PostgresDbService } from './postgres-db.service';
-import { UnitOfWork } from '../../unit-of-work.base';
+import { UnitOfWorkService } from '../../unit-of-work.service';
 
 type DbOrTransaction = NodePgDatabase | PgTransaction<PgQueryResultHKT>;
 
 @Injectable()
-export class PostgresUnitOfWork extends UnitOfWork<
+export class PostgresUnitOfWork extends UnitOfWorkService<
     NodePgDatabase,
     DbOrTransaction
 > {
-    constructor(postgresService: PostgresDbService) {
-        super(() => postgresService.getDatabase());
+    constructor(databaseService: PostgresDbService) {
+        super(() => databaseService.getDatabase());
     }
 
     /**
      * Get current database connection or transaction
      */
     override getDatabase(): DbOrTransaction {
-        return this._currentTransaction ?? this._getDb();
+        return this.currentTransaction ?? this.getActualDatabase();
     }
 
     /**
      * Execute work within a transaction
      */
     override async startTransaction<T>(work: () => Promise<T>): Promise<T> {
-        return await this._getDb().transaction(async (transaction) => {
-            this._currentTransaction = transaction;
-            try {
-                const result = await work();
-                return result;
-            } finally {
-                this._currentTransaction = undefined;
-            }
-        });
+        return await this.getActualDatabase().transaction(
+            async (transaction) => {
+                this.currentTransaction = transaction;
+                try {
+                    const result = await work();
+                    return result;
+                } finally {
+                    transaction.rollback();
+                    this.currentTransaction = undefined;
+                }
+            },
+        );
     }
 }

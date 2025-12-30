@@ -107,7 +107,7 @@ export abstract class DrizzlePgCommandRepository<
         updates: Partial<TModel>,
         ...filters: SQL[]
     ): Promise<number> {
-        // TODO: figure out how to type PgTransaction properly in UnitOfWork so this statements type is known
+        // TODO: figure out how to type PgTransaction properly in UnitOfWorkService so this statements type is known
         // eslint-disable-next-line @typescript-eslint/no-unsafe-type-assertion
         const updated = (await this.unitOfWork
             .getDatabase()
@@ -118,7 +118,7 @@ export abstract class DrizzlePgCommandRepository<
     }
 
     async deleteOne(id: TId): Promise<boolean> {
-        // TODO: figure out how to type PgTransaction properly in UnitOfWork so this statements type is known
+        // TODO: figure out how to type PgTransaction properly in UnitOfWorkService so this statements type is known
         // eslint-disable-next-line @typescript-eslint/no-unsafe-type-assertion
         const result = (await this.unitOfWork
             .getDatabase()
@@ -130,7 +130,7 @@ export abstract class DrizzlePgCommandRepository<
     }
 
     async deleteMany(...filters: SQL[]): Promise<number> {
-        // TODO: figure out how to type PgTransaction properly in UnitOfWork so this statements type is known
+        // TODO: figure out how to type PgTransaction properly in UnitOfWorkService so this statements type is known
         // eslint-disable-next-line @typescript-eslint/no-unsafe-type-assertion
         const result = (await this.unitOfWork
             .getDatabase()

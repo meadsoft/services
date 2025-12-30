@@ -7,9 +7,9 @@ export const MENU_ITEM_IS_ACTIVE_DEFAULT = false;
 
 export const NewMenuItemSchema = z.object({
     name: z.string().nonempty().max(DEFAULT_STRING_LENGTH),
-    description: z.string().nullable(),
-    imageUrl: z.string().nullable(),
-    price: z.number().nullable(),
+    description: z.string().nullable().default(null),
+    imageUrl: z.string().nullable().default(null),
+    price: z.number().nullable().default(null),
     isFavorite: z.boolean().default(MENU_ITEM_IS_FAVORITE_DEFAULT),
     isActive: z.boolean().default(MENU_ITEM_IS_ACTIVE_DEFAULT),
 });
