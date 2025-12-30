@@ -8,8 +8,6 @@ if (config.err) {
     throw config.val;
 }
 
-console.log(config.val.DATABASE_URL);
-
 export default defineConfig({
     out: `src/migrations/${config.val.APP_ENV}`,
     schema: 'node_modules/@meadsoft/restaurant-catalog/src/database/tables',
