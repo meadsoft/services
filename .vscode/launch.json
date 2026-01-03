@@ -5,7 +5,7 @@
         {
             "type": "node",
             "request": "launch",
-            "name": "Node: Debug Restaurant Catalog",
+            "name": "Node: Debug Restaurant Catalog API",
             "env": {
                 "APP_ENV": "local"
             },
@@ -33,42 +33,14 @@
         {
             "type": "node",
             "request": "launch",
-            "name": "Node: Debug Seeding",
+            "name": "Node: Debug Script",
             "env": {
                 "APP_ENV": "local"
             },
             "runtimeExecutable": "nx",
             "runtimeArgs": [
                 "run",
-                "restaurant-catalog-api:seed"
-            ],
-            "port": 9229,
-            "console": "integratedTerminal",
-            "skipFiles": [
-                "<node_internals>/**"
-            ],
-            "restart": true,
-            "sourceMaps": true,
-            "outFiles": [
-                "${workspaceFolder}/apps/restaurant-catalog-api/dist/**/*.js",
-                "${workspaceFolder}/packages/*/dist/**/*.js"
-            ],
-            "resolveSourceMapLocations": [
-                "${workspaceFolder}/**",
-                "!**/node_modules/**"
-            ]
-        },
-        {
-            "type": "node",
-            "request": "launch",
-            "name": "Node: Debug Database Backup",
-            "env": {
-                "APP_ENV": "dev"
-            },
-            "runtimeExecutable": "nx",
-            "runtimeArgs": [
-                "run",
-                "restaurant-catalog-api:backup"
+                "restaurant-catalog-api:temp"
             ],
             "port": 9229,
             "console": "integratedTerminal",

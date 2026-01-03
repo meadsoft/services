@@ -15,5 +15,5 @@ export interface ICommandRepository<TModel = unknown, TId = string> {
     deleteMany(...filters: SQL[]): Promise<number>;
 }
 
-export interface ICrudRepository<TModel, TId = string>
+export interface ICrudRepository<TModel = unknown, TId = string>
     extends IQueryRepository<TModel, TId>, ICommandRepository<TModel, TId> {}

@@ -1,6 +1,7 @@
 import { Injectable } from '@nestjs/common';
 import {
     IMenuItemToTag,
+    INewMenuItemToTag,
     MenuItemToTagEntity,
 } from '@meadsoft/restaurant-catalog-contracts';
 import { ChangeHistoryService, EntityService } from '@meadsoft/common';
@@ -17,7 +18,7 @@ export class MenuItemToTagQueryService extends QueryService<IMenuItemToTag> {
 
 @Injectable()
 export class MenuItemToTagCommandService extends CommandService<
-    IMenuItemToTag,
+    INewMenuItemToTag,
     IMenuItemToTag
 > {
     constructor(
@@ -31,7 +32,7 @@ export class MenuItemToTagCommandService extends CommandService<
             unitOfWorkService,
             entityService,
             changeHistoryService,
-            (userId: string, newModel: IMenuItemToTag) =>
+            (userId: string, newModel: INewMenuItemToTag) =>
                 MenuItemToTagEntity.create(userId, newModel, entityService),
         );
     }

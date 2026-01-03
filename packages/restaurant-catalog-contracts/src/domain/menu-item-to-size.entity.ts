@@ -1,6 +1,9 @@
 import { Ok, Result } from 'ts-results';
 import { Entity, EntityService } from '@meadsoft/common';
-import { IMenuItemToSize } from '../menu-item-to-size.schema';
+import {
+    IMenuItemToSize,
+    INewMenuItemToSize,
+} from '../menu-item-to-size.schema';
 
 export class MenuItemToSizeEntity extends Entity implements IMenuItemToSize {
     menuItemId!: string;
@@ -8,7 +11,7 @@ export class MenuItemToSizeEntity extends Entity implements IMenuItemToSize {
 
     public static create(
         userId: string,
-        newMenuItemToSize: IMenuItemToSize,
+        newMenuItemToSize: INewMenuItemToSize,
         entityService: EntityService,
     ): Result<MenuItemToSizeEntity, Error> {
         const menuItemToSize = new MenuItemToSizeEntity();

@@ -1,6 +1,7 @@
 import { Injectable } from '@nestjs/common';
 import {
     IMenuItemToSize,
+    INewMenuItemToSize,
     MenuItemToSizeEntity,
 } from '@meadsoft/restaurant-catalog-contracts';
 import { ChangeHistoryService, EntityService } from '@meadsoft/common';
@@ -17,7 +18,7 @@ export class MenuItemToSizeQueryService extends QueryService<IMenuItemToSize> {
 
 @Injectable()
 export class MenuItemToSizeCommandService extends CommandService<
-    IMenuItemToSize,
+    INewMenuItemToSize,
     IMenuItemToSize
 > {
     constructor(
@@ -31,7 +32,7 @@ export class MenuItemToSizeCommandService extends CommandService<
             unitOfWorkService,
             entityService,
             changeHistoryService,
-            (userId: string, newModel: IMenuItemToSize) =>
+            (userId: string, newModel: INewMenuItemToSize) =>
                 MenuItemToSizeEntity.create(userId, newModel, entityService),
         );
     }

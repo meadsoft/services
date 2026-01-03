@@ -1,6 +1,6 @@
 import { Ok, Result } from 'ts-results';
 import { Entity, EntityService } from '@meadsoft/common';
-import { IMenuItemToTag } from '../menu-item-to-tag.schema';
+import { IMenuItemToTag, INewMenuItemToTag } from '../menu-item-to-tag.schema';
 
 export class MenuItemToTagEntity extends Entity implements IMenuItemToTag {
     menuItemId!: string;
@@ -8,7 +8,7 @@ export class MenuItemToTagEntity extends Entity implements IMenuItemToTag {
 
     public static create(
         userId: string,
-        newMenuItemToTag: IMenuItemToTag,
+        newMenuItemToTag: INewMenuItemToTag,
         entityService: EntityService,
     ): Result<MenuItemToTagEntity, Error> {
         const menuItemToTag = new MenuItemToTagEntity();
